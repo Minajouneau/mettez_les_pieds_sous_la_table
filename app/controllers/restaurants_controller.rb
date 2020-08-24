@@ -1,4 +1,9 @@
 class RestaurantsController < ApplicationController
+  authorize @restaurant
+  
+  def index
+    @restaurants = policy_scope(Restaurant)
+  end
 
 private
 
