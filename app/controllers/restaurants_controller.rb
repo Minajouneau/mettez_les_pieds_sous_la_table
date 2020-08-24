@@ -1,5 +1,11 @@
 class RestaurantsController < ApplicationController
 
+
+def index
+  @restaurants = restaurant.all
+end
+
+
 private
 
   def restaurant_params
