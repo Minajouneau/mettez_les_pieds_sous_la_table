@@ -1,31 +1,26 @@
 .card-product {
-    overflow: hidden;
-    margin-top: 30px;
-    height: 300px;
-    width: 1514px;
-    background: #006a71;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    margin-left: 229px;
-    margin-top: 58px;
-    border-width: 14px;
-    border-style: solid;
-    border-color: #ffffdd;
-    padding: 22px;
-    margin: 64px;
+  overflow: hidden;
+  width: 1514px;
+  height: 350px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding: 22px;
+  margin: 64px;
 }
 
 .card-product img {
-height: 100%;
-width: 332px;
-object-fit: cover;
+  height: 100%;
+  width: 332px;
+  object-fit: cover;
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .card-product p {
@@ -43,5 +38,15 @@ object-fit: cover;
 
 .activation {
 font-weight:bold;
-color:#d3de32
+font-size: 52px;
+color:bal
+}
+
+#title {
+font-size:45px;
+}
+
+
+.texte {
+  font-size:15px;
 }
