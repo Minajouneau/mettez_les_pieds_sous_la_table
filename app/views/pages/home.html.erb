@@ -1,9 +1,9 @@
 <!-- Find me in app/views/pages/home.html.erb -->
 <div class="home-background" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= image_path "https://images.unsplash.com/photo-1502364271109-0a9a75a2a9df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"%>')">
   <div class="container h-100">
-    <h1>Votre plus belle devanture en un minimum d'effort</h1>
+    <h1 class="main-header">Votre plus belle devanture en un minimum d'effort</h1>
       <div class="sign-up-button">
-        <%= link_to 'Start now', new_user_password_path, class: "btn btn-outline-light", id:"sign-up-button" %>
+        <%= link_to 'Start now', dashboard_path, class: "btn btn-outline-light", id:"sign-up-button" %>
         <%# <button type="button" class="btn btn-outline-light" id="sign-up-button">Start now</button> %>
       </div>
   </div>
