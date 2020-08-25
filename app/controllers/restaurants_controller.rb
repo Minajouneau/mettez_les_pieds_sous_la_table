@@ -1,7 +1,10 @@
 class RestaurantsController < ApplicationController
+  authorize @restaurant  
   def index
-    @restaurants = Restaurant.geocoded # returns flats with coordinates
-
+    @restaurants = policy_scope(Restaurant.all.geocoded)
+  end
+  
+  def show
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
