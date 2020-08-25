@@ -1,5 +1,4 @@
 class RestaurantsController < ApplicationController
-
   def index
     @restaurants = policy_scope(Restaurant.all.geocoded)
     @markers = @restaurants.map do |restaurant|
