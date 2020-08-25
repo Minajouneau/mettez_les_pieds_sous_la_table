@@ -1,5 +1,4 @@
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://cuisinemoleculaire1s4.e-monsite.com/medias/files/fotolia-40184072-s.jpg)">
-
 <!--
   <h1 style="text-align: center; font-weight: bold;">HELLO!</h1> -->
   <br>
@@ -10,16 +9,19 @@
       <div class="card-product-infos">
         <h2 id="title"><%=restaurant.name.upcase%></h2>
        <!--  <p class="activation"><%=restaurant.activated%></p> -->
-        <br>
         <div class="texte">
-        <p><%=restaurant.description%></p>
+        <br>
         <p><%=restaurant.address%></p>
         <p><%=restaurant.contact_email%></p>
         <p><%=restaurant.phone_number%></p>
         <p><%=restaurant.domain_name%></p>
         <br>
-        <%= link_to 'Modifier', edit_restaurant_path(restaurant), class: 'btn btn-primary'  %>
-        <%= link_to 'Visualiser', restaurant_path(restaurant), class: 'btn btn-warning'  %>
+        </div>
+          <button type="button"class="btn btn-secondary btn-lg">Modifier</button>
+      </div>
+      <div class="status">
+        <button type="button"class="btn btn-secondary btn-lg">STATUS</button>
+        <i class="fas fa-utensils"></i>
       </div>
     </div>
   <% end %>
