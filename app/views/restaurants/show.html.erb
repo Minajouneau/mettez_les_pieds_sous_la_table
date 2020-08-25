@@ -16,8 +16,9 @@
         </div>
     </div>
     <div class="column-right">
-        <button class="btn-backtoprofile" style="height: 40px; font-family: 'El Messiri', sans-serif;">Back to profile</button>
-        <button class="btn-normal" style="height: 40px; font-family: 'El Messiri', sans-serif;">Status</button>
+        <%= link_to 'Continuer à éditer', edit_restaurant_path, class: "btn btn-primary", style: "height: 40px; font-family: 'El Messiri', sans-serif;" %>
+        <%= link_to "Retour à l'index", restaurants_path, class: "btn btn-warning", style: "height: 40px; font-family: 'El Messiri', sans-serif;" %>
+        <button class="btn btn-primary" style="height: 40px; font-family: 'El Messiri', sans-serif;">Status</button>
     </div>
 </div>
 <div class="description">

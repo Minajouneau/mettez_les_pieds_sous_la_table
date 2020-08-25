@@ -13,7 +13,8 @@
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :description%>
     <%= f.input :activated, wrapper: :custom_boolean_switch %>
-    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= f.button :submit, 'Enregistrer', class: 'btn btn-primary' %>
+  <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
   <% end %>
 <% else %>
   <h2>You cannot add a restaurant, you need permissions !</h2>
