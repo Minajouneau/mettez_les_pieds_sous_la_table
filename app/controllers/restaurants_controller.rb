@@ -1,8 +1,16 @@
 class RestaurantsController < ApplicationController
-  authorize @restaurant
-  
+  authorize @restaurant  
   def index
-    @restaurants = policy_scope(Restaurant)
+    @restaurants = policy_scope(Restaurant.all.geocoded)
+  end
+  
+  def show
+    @markers = @restaurants.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+      }
+    end
   end
 
   def edit
