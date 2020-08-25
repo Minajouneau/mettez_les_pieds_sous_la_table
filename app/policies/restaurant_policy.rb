@@ -9,9 +9,9 @@ class RestaurantPolicy < ApplicationPolicy
       return true
     end
 
-    # def show?
-    #   true
-    # end
+    def show?
+      true
+    end
 
     # def update?
     #   record.user == user
