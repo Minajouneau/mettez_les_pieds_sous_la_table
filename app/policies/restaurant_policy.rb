@@ -12,9 +12,7 @@ class RestaurantPolicy < ApplicationPolicy
   def show?
     true
   end
-  
 
-  
   def edit?
     user == record.user
   end
@@ -24,7 +22,7 @@ class RestaurantPolicy < ApplicationPolicy
     # - record: the restaurant passed to the `authorize` method in controller
     # - user:   the `current_user` signed in with Devise.
   end
-  
+
   # def destroy?
   #   record.user == user
   # end
