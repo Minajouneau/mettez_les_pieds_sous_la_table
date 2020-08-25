@@ -1,5 +1,5 @@
 <% if policy(Restaurant).create? %>
-  <%= simple_form_for @restaurant,  wrapper_mappings: {
+  <%= simple_form_for @restaurant, wrapper_mappings: {
     check_boxes:    :vertical_collection,
     radio_buttons:  :vertical_collection,
     file:           :custom_file,
@@ -7,11 +7,12 @@
   } do |f| %>
     <%= f.error_notification %>
     <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :contact_email %>
+    <%= f.input :address, input_html: { id: 'autocompletion' } %>
+    <%= f.input :contact_email, input_html: { type:"email" } %>
+    <%= f.input :phone_number %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :description %>
-    <%# <%= f.input :actived %>
+    <%= f.input :description%>
+    <%= f.input :activated, wrapper: :custom_boolean_switch %>
     <%= f.button :submit, class: 'btn btn-primary' %>
   <% end %>
 <% else %>
