@@ -18,12 +18,8 @@
         <p><%=restaurant.phone_number%></p>
         <p><%=restaurant.domain_name%></p>
         <br>
-      <div class="status">
-        <button type="button"class="btn btn-secondary btn-lg">STATUS</button>
-        <i class="fas fa-utensils"></i>
         <%= link_to 'Modifier', edit_restaurant_path(restaurant), class: 'btn btn-primary'  %>
         <%= link_to 'Visualiser', restaurant_path(restaurant), class: 'btn btn-warning'  %>
       </div>
-
     </div>
   <% end %>
