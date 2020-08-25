@@ -10,10 +10,12 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @restaurant = Restaurant.geocoded.find(params[:id])
+    authorize @restaurant
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.geocoded.find(params[:id])
     authorize @restaurant
   end
 
@@ -21,7 +23,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
     @restaurant.update(restaurant_params)
-    redirect_to dashboard_path
+    redirect_to restaurants_path
     # Will raise ActiveModel::ForbiddenAttributesError
   end
 
