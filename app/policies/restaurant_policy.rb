@@ -13,6 +13,8 @@ class RestaurantPolicy < ApplicationPolicy
     true
   end
   
+
+  
   def edit?
     user == record.user
   end
