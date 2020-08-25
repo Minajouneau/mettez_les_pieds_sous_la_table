@@ -1,22 +1,30 @@
 
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://static.latribune.fr/full_width/1468976/terrasse.jpg)">
+</div>
+
 
   <h1 style="text-align: center; font-weight: bold;">Hello 😊</h1>
   <br>
   <h2 style="font-weight: bold; margin-left: 10px;">My restaurants</h2>
-  <% @user.restaurants.each do |restaurant| %>
+  <% @restaurants.each do |restaurant| %>
     <div class="card-product">
       <img src="https://www.ahstatic.com/photos/b3g8_rsr001_00_p_1024x768.jpg" />
       <div class="card-product-infos">
-        <h2><%=restaurant.name.upcase%></h2>
+        <h2 id="title"><%=restaurant.name.upcase%></h2>
+
+
            <p class="activation"><%=restaurant.activated%></p>
         <br>
+        <div class="texte">
         <p><%=restaurant.description%></p>
         <p><%=restaurant.address%></p>
         <p><%=restaurant.contact_email%></p>
         <p><%=restaurant.phone_number%></p>
-        <br>
         <p><%=restaurant.domain_name%></p>
-          <button type="button"class="btn btn-light">Modifier</button>
+        <br>
+        </div>
+
+          <button type="button"class="btn btn-success">Modifier</button>
       </div>
     </div>
   <% end %>

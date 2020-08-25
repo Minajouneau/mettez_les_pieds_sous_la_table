@@ -7,15 +7,14 @@ class RestaurantsController < ApplicationController
         lng: restaurant.longitude
       }
     end
-    authorize @restaurant
   end
-  
+
   def show
   end
 
   def edit
     @restaurant = Restaurant.find(params[:id])
-    authorize @restaurant 
+    authorize @restaurant
   end
 
   def update
