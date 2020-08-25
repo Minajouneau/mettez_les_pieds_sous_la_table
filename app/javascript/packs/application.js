@@ -26,6 +26,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+<<<<<<< HEAD
 import { OpacityWithScroll } from '../components/opacity_with_scroll';
 
 document.addEventListener('turbolinks:load', () => {
@@ -34,8 +35,12 @@ document.addEventListener('turbolinks:load', () => {
   OpacityWithScroll();
 });
 
+=======
+>>>>>>> 3dff9b6296dd4940e39c262289f0bc7913aaba8c
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initAutocomplete();
 })
