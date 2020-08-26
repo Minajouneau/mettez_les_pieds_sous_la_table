@@ -9,10 +9,10 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  # def show
-  #   @restaurant = Restaurant.geocoded.find(params[:id])
-  #   authorize @restaurant
-  # end
+  def show
+    @restaurant = Restaurant.geocoded.find(params[:id])
+    authorize @restaurant
+  end
 
   def edit
     @restaurant = Restaurant.geocoded.find(params[:id])
