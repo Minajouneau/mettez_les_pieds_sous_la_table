@@ -10,14 +10,14 @@
     position: relative;
     cursor: pointer;
     color: #fff;
-    background: #00ccbc;
+    background: $deliveroo-turquoise;
     min-height: 48px;
     padding: 12px 24px;
 }
 
 .btn-normal:hover {
     color: #fff;
-    background: #00c2b3;
+    background: $deliveroo-button-hover;
     transition-property: background,box-shadow,-webkit-box-shadow;
     transition-duration: .15s;
     transition-timing-function: ease-out;
