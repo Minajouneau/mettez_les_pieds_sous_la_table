@@ -1,14 +1,15 @@
-<h1 id="add"><strong> ADD A RESTAURANT!</strong></h1>
-<br>
-  <div class="container ">
+
+
+
+  <div class="container formulaire ">
     <div class="row justify-content-center">
       <div class="col-md-8 add_restaurant">
 
+        <!-- <p class="add_title"> AJOUTER UN RESTAURANT</p> -->
         <% if policy(Restaurant).create? %>
           <%= simple_form_for @restaurant do |f| %>
             <%= f.input :name%>
              <%= f.input :address%>
-              <%= f.input :activated%>
             <%= f.button :submit, class: 'btn btn-light btn-lg btn-block' %>
           <% end %>
         <% end %>
