@@ -1,30 +1,33 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://cuisinemoleculaire1s4.e-monsite.com/medias/files/fotolia-40184072-s.jpg)">
-  <!--
-  <h1 style="text-align: center; font-weight: bold;">HELLO!</h1> -->
-  <br>
-  <h2 style="font-weight: bold; margin-left: 10px;">MY RESTAURANTS</h2>
-   </div>
-<% @restaurants.each do |restaurant| %>
-  <div class="card-product">
-    <img src="https://www.ahstatic.com/photos/b3g8_rsr001_00_p_1024x768.jpg" />
-    <div class="card-product-infos">
-      <h2 id="title"><%=restaurant.name.upcase%></h2>
-      <!--  <p class="activation"><%=restaurant.activated%></p> -->
-      <div class="texte">
-        <br>
-        <p><%=restaurant.address%></p>
-        <p><%=restaurant.contact_email%></p>
-        <p><%=restaurant.phone_number%></p>
-        <p><%=restaurant.domain_name%></p>
-        <br>
-      </div>
-      <%= link_to 'Editer', edit_restaurant_path(restaurant), class: "btn btn-primary btn-lg" %>
-      <%= link_to 'Visualiser', restaurant_path(restaurant), class: "btn btn-warning btn-lg" %>
 
-    </div>
+
+<div class="card-category">
+  <h2 style="font-weight: bold; margin-left: 10px;">  LISTE DE MES RESTAURANTS</h2></div>
+
+
+
+  <% @restaurants.each do |restaurant| %>
+  <div class="card-product">
+      <img src="http://www.absolutgraphic.com/wp-content/uploads/2016/05/enseigne-simple-300x300.jpg" />
+
+  <div class="card-product-infos">
+        <h2 id="title"><%=restaurant.name.upcase%></h2>
+        <h4> <%= restaurant.address%></h4>
+  </div>
+
+  <div class="verticalLine"></div>
+
     <div class="status">
-      <button type="button"class="btn btn-secondary btn-lg">STATUS</button>
-      <i class="fas fa-utensils"></i>
+      <%if restaurant.activated == true %>
+      <button type="button"class="btn btn btn-success btn-lg disponible_button">DISPONIBLE</button>
+      <%elsif restaurant.activated == false %>
+      <button type="button"class="btn btn btn-warning btn-lg disponible_button">INDISPONIBLE</button>
+      <%end%>
+    <div class="btn btn-light btn-lg">
+        <%= link_to "MODIFIER", edit_user_registration_path %></div>
+    <div class="btn btn-light btn-lg">
+        <%= link_to "VISUALISER", restaurant_path(restaurant) %></div>
+        <i class="fas fa-utensils couverts"></i>
     </div>
   </div>
 <% end %>
+

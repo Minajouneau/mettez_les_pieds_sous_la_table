@@ -1,7 +1,7 @@
 .card-product {
   overflow: hidden;
-  width: 1514px;
-  height: 350px;
+  width: 1399px;
+  height: 258px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -20,7 +20,8 @@
    justify-content:center;
    align-items:center;
    h2{
-    padding:40px;
+    padding: 43px;
+margin-top: 85px;
    }
 }
 h2 {
@@ -31,8 +32,15 @@ h2 {
   // width:300px;
   // height:50px;
 }
+
+h4{
+  line-height:44px;
+  color: #18B06C
+}
+
 .card-product {
-  margin-top:10px;
+ margin-top: -24px;
+margin-left: 238px;
 }
 .card-product img {
   height: 100%;
@@ -40,7 +48,7 @@ h2 {
   object-fit: cover;
 }
 .card-product h2 {
-  font-size: 14px;
+  font-size: 50px;
   font-weight: bold;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -56,15 +64,19 @@ h2 {
   padding: 10px;
   font-size: 10px;
   flex-grow:1;
+  line-height:1.6px;
 }
+
+
 .activation {
 font-weight:bold;
 font-size: 52px;
 color:bal
 }
 #title {
-font-size:25px;
-padding:0px;
+ font-size: 59px;
+ padding: 48px;
+ margin: -67px;
 }
 .texte p {
   font-size:19px;
@@ -77,4 +89,20 @@ display:flex;
 flex-direction:column;
 align-items: center;
 justify-content:space-between;
+}
+
+.disponible_button {
+  border-radius:100px;
+}
+
+i {
+  font-size:25px;
+  color:#18B06C
+}
+
+.verticalLine {
+ border-left: 4px solid #000;
+ display: inline-block;
+ height: 183px;
+ margin: 20px 20px;
 }
