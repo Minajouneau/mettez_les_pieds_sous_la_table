@@ -9,7 +9,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-top: 200px;
 }
 
 .main-header {
@@ -20,6 +19,9 @@
 #sign-up-button {
   z-index: 100;
   margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 17px
 }
 
 .sign-up-button {
@@ -88,5 +90,15 @@
 
 .home-cards-container {
   width:100%;
-  margin-top: 300px;
+  // margin-top: 250px;
+}
+
+.title-sizing {
+  z-index: 1;
+  margin-top: 25%;
+}
+
+.btn-sizing {
+  width: 100%;
+  text-align: center;
 }

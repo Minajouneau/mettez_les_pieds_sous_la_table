@@ -14,4 +14,9 @@
 @import "pages/index";
 @import "restaurants/index";
 @import "restaurants/show";
+@import "restaurants/new";
 @import "restaurants/edit";
+
+body {
+  background-color: #f4f5f5;
+}
