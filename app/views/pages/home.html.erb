@@ -1,9 +1,11 @@
 <!-- Find me in app/views/pages/home.html.erb -->
 <div class="home-background">
-  <h1 class="main-header">Votre plus belle devanture en un minimum d'effort</h1>
+  <div class="title-sizing">
+    <h1 class="main-header">Votre plus belle devanture en un minimum d'effort</h1>
+      <div class ="btn-sizing"><%= link_to 'Start now', new_user_session_path, class: "btn btn-outline-light", id:"sign-up-button" %> </div>
+  </div>
   <!-- <div class="container h-100"> -->
   <%# <div class="sign-up-button"> %>
-    <%= link_to 'Start now', new_user_session_path, class: "btn btn-outline-light", id:"sign-up-button" %>
   <%# </div> %>
   <div id="carousel-background" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
