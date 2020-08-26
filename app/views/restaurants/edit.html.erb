@@ -2,49 +2,50 @@
   <div class="container">
     <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
     <div class="container-small">
-      <div class="section-account box">
-        <div class="section-title">Détails</div>
-        <div class="section-inner">
-          <%= simple_form_for @restaurant do |f| %>
-            <%# <%= f.error_notification %>
-            <%= f.input :name %>
-            <%= f.input :address, input_html: { id: 'autocompletion' } %>
-            <%= f.input :contact_email, input_html: { type:"email" } %>
-            <%= f.input :phone_number, input_html: { type:"tel" } %>
-            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-          <% end %>
+      <div class="section-activation box">
+        <%= simple_form_for @restaurant do |f| %>
+        <div class="section-inner d-inline-flex">
+          <div class= "justify-content-around">
+            <input type="checkbox" id="restaurant_activated" class="checkbox" />
+            <label for="restaurant_activated" name="restaurant[activated]" class="switch"></label>
+          </div>
+          <div class="activation">En Ligne</div>
         </div>
+        <% end %>
       </div>
-      <div class="section-photos box">
-        <div class="section-title">Photos</div>
-        <div class="section-inner">
-          <%= simple_form_for @restaurant, wrapper_mappings: {
+    
+    <div class="section-account box">
+      <div class="section-title">Détails</div>
+      <div class="section-inner">
+        <%= simple_form_for @restaurant do |f| %>
+          <%# <%= f.error_notification %>
+          <%= f.input :name %>
+          <%= f.input :address, input_html: { id: 'autocompletion' } %>
+          <%= f.input :contact_email, input_html: { type:"email" } %>
+          <%= f.input :phone_number, prepend: "+33", input_html: { type:"tel", maxlength: 10 } %>
+          <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="section-photos box">
+      <div class="section-title">Photos</div>
+      <div class="section-inner">
+        <%= simple_form_for @restaurant, wrapper_mappings: {
         file:           :custom_file,
         } do |f| %>
-            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-          <% end %>
-        </div>
+          <%= f.input :photos, as: :file, :label => false, label: "Ajoutez des photos", input_html: { multiple: true } %>
+          <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+        <% end %>
       </div>
-      <div class="section-description box">
-        <div class="section-title">Description</div>
-        <div class="section-inner">
-          <%= simple_form_for @restaurant do |f| %>
-            <%= f.input :description, :input_html => { maxlength: 1000, :rows => 5 }%>
-            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-          <% end %>
-        </div>
-      </div>
-      <div class="section-activation box">
-        <div class="section-title">Mise en ligne</div>
-        <div class="section-inner">
-          <%= simple_form_for @restaurant, wrapper_mappings: {
-        boolean:        :custom_boolean_switch
-        } do |f| %>
-            <%= f.input :activated, wrapper: :custom_boolean_switch %>
-            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-          <% end %>
-        </div>
+    </div>
+    <div class="section-description box">
+      <div class="section-title">Description</div>
+      <div class="section-inner">
+        <%= simple_form_for @restaurant do |f| %>
+          <%= f.input :description, :input_html => { maxlength: 1000, :rows => 5 }%>
+          <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
+          <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+        <% end %>
       </div>
     </div>
   </div>
