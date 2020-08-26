@@ -3,13 +3,13 @@
     <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
     <div class="container-small">
       <div class="section-activation box">
-        <%= simple_form_for @restaurant do |f| %>
-        <div class="section-inner d-inline-flex">
-          <div class= "justify-content-around">
+        <%= simple_form_for @restaurant, html: { class: "text-center"} do |f| %>
+        <div class="section-inner d-inline-flex" id="checkbox">
+          <div class= "justify-content-around mx-2 mt-1">
             <input type="checkbox" id="restaurant_activated" class="checkbox" />
-            <label for="restaurant_activated" name="restaurant[activated]" class="switch"></label>
+            <label for="restaurant_activated" name="resstaurant[activated]" class="switch"></label>
           </div>
-          <div class="activation">En Ligne</div>
+          <div class="activation mt-1">En Ligne</div>
         </div>
         <% end %>
       </div>
@@ -33,7 +33,7 @@
         <%= simple_form_for @restaurant, wrapper_mappings: {
         file:           :custom_file,
         } do |f| %>
-          <%= f.input :photos, as: :file, :label => false, label: "Ajoutez des photos", input_html: { multiple: true } %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
         <% end %>
       </div>
