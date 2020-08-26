@@ -21,7 +21,7 @@
 
 .checkbox:checked + .switch::after {
   left : 20px;
-}
+} 
 .checkbox:checked + .switch {
   background-color: $deliveroo-turquoise;
 }
@@ -29,6 +29,6 @@
   display : none;
 }
 
-.checkbox:checked .activation {
-  color: green;
+#checkbox:checked > .activation {
+  color: $deliveroo-turquoise;
 }
