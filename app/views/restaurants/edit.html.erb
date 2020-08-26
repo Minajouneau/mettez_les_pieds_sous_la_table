@@ -1,20 +1,23 @@
 <% if policy(Restaurant).create? %>
+
+<div class="container">
   <%= simple_form_for @restaurant, wrapper_mappings: {
     check_boxes:    :vertical_collection,
     radio_buttons:  :vertical_collection,
     file:           :custom_file,
     boolean:        :custom_boolean_switch
   } do |f| %>
-    <%= f.error_notification %>
+    <%# <%= f.error_notification %>
     <%= f.input :name %>
     <%= f.input :address, input_html: { id: 'autocompletion' } %>
     <%= f.input :contact_email, input_html: { type:"email" } %>
     <%= f.input :phone_number %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :description%>
+    <%= f.input :description, :input_html => {:rows => 5 }%>
     <%= f.input :activated, wrapper: :custom_boolean_switch %>
     <%= f.button :submit, 'Enregistrer', class: 'btn btn-primary' %>
   <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
+</div>
   <% end %>
 <% else %>
   <h2>You cannot add a restaurant, you need permissions !</h2>

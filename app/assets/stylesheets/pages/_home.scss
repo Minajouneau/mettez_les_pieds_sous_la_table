@@ -1,4 +1,3 @@
-// Specific CSS for your home-page
 .home-background{
   height: calc(100vh - 83px - 50px);
   width: 100vw;
@@ -6,18 +5,21 @@
   background-repeat: no-repeat;
   background-size: cover; 
   background-color: linear-gradient rgba(0,0,0,6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 200px;
 }
 
 .main-header {
-  position:absolute;
-  // padding: 300px;
-  padding-top: 250px;
-  padding-left: 200px;
   color: white;
+  z-index: 100;
 }
 
 #sign-up-button {
-  margin-left: 500px;
+  z-index: 100;
+  margin-top: 20px;
 }
 
 .sign-up-button {
@@ -31,8 +33,9 @@
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,5);
   border-radius: 10px;
+  margin-top: 300px;
 }
 
 .card-trip > img {
@@ -43,7 +46,7 @@
 }
 
 .card-trip:hover > img {
-  transform: scale(1.5);
+  transform: scale(1.6);
 }
 
 .card-trip h2 {
@@ -72,4 +75,18 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+#carousel-background {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right:0px;
+  overflow: hidden;
+}
+
+.home-cards-container {
+  width:100%;
+  margin-top: 300px;
 }
