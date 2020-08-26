@@ -1,25 +1,44 @@
-<div class="chief-presentation">
-    <div class="column-left">
-        <img src="../assets/logo.png" alt="logo" class="class avatar-bordered" style="height: 40px;">
-        <div>
-            <p><i class="fab fa-facebook"></i> Facebook</p>
-            <p><i class="fab fa-twitter"></i> Twitter</p>
-            <p><i class="fab fa-instagram"></i> Instagram</p>
+<body class="show-page">
+    <div class="chief-presentation">
+        <div class="column-left">
+            <img src="../assets/logo.png" alt="logo" class="class avatar-bordered" style="height: 40px;">
+            <div>
+                <p><i class="fab fa-facebook"></i> Facebook</p>
+                <p><i class="fab fa-twitter"></i> Twitter</p>
+                <p><i class="fab fa-instagram"></i> Instagram</p>
+            </div>
+        </div>
+        <div class="column-center">
+            <h1 style="text-align: center;">Mallory Gasbi</h1>
+            <div>
+                <p>Ma vision de la frite</p>
+                <p>Mon engagement envers la pomme de terre</p>
+                <p>Ma cuisson préférée : la double cuisson</p>
+            </div>
+        </div>
+        <div class="column-right">
+            <%= link_to 'Continuer à éditer', edit_restaurant_path, class: "btn btn-primary", style: "height: 40px; font-family: 'El Messiri', sans-serif;" %>
+            <%= link_to "Retour à l'index", restaurants_path, class: "btn btn-warning", style: "height: 40px; font-family: 'El Messiri', sans-serif;" %>
+            <button class="btn btn-primary" style="height: 40px; font-family: 'El Messiri', sans-serif;">Status</button>
         </div>
     </div>
-    <div class="column-center">
-        <h1 style="text-align: center;">Mallory Gasbi</h1>
-        <div>
-            <p>Ma vision de la frite</p>
-            <p>Mon engagement envers la pomme de terre</p>
-            <p>Ma cuisson préférée : la double cuisson</p>
+    <div class="description">
+        <div class="card-maison" >
+            <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1594193819/yhixvbjokpulns5xipyt.jpg" style="max-width: 100%;" title="Un gay">
+        </div>
+        <div class="card-maison-child">
+        </div>
+        <div class="card-maison-child-2">
+            <img src="https://www.keria.com/media/wysiwyg/CMS/Keria/167/shutterstock_572114980_190061.jpg" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div class="card-maison-child-3">
+            <p style="width: 70%;">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ut non vitae quod</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis autem dolore in. Quis porro eveniet"</p>
+        </div>
+        <div class="card-maison-child-4">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi laborum est ducimus sequi eveniet</p>
+        </div>
+        <div class="card-maison-child-5">
         </div>
     </div>
-    <div class="column-right">
-        <%= link_to 'Continuer à éditer', edit_restaurant_path, class: "btn btn-primary", style: "height: 40px; font-family: 'El Messiri', sans-serif;" %>
-        <%= link_to "Retour à l'index", restaurants_path, class: "btn btn-warning", style: "height: 40px; font-family: 'El Messiri', sans-serif;" %>
-        <button class="btn btn-primary" style="height: 40px; font-family: 'El Messiri', sans-serif;">Status</button>
-    </div>
-</div>
-<div class="description">
-</div>
+</body>
