@@ -1,19 +1,18 @@
-
-
-
-  <div class="container formulaire ">
-    <div class="row justify-content-center">
-      <div class="col-md-8 add_restaurant">
-
-        <!-- <p class="add_title"> AJOUTER UN RESTAURANT</p> -->
-        <% if policy(Restaurant).create? %>
-          <%= simple_form_for @restaurant do |f| %>
-            <%= f.input :name%>
-             <%= f.input :address%>
-            <%= f.button :submit, class: 'btn btn-light btn-lg btn-block' %>
+  
+<div class="container formulaire">
+  <div class="col-md-8 add_restaurant">
+    <div class="container-small pt-5">
+      <div class="section-new box">
+        <div class="section-title">Nouveau Restaurant</div>
+        <div class="section-inner">
+          <% if policy(Restaurant).create? %>
+            <%= simple_form_for @restaurant do |f| %>
+              <%= f.input :name %>
+              <%= f.button :submit, label: "Créer un restaurant", class: 'btn-normal' %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-
+</div>
