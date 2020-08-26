@@ -1,1 +1,18 @@
 <h1 id="add"><strong> ADD A RESTAURANT!</strong></h1>
+<br>
+  <div class="container ">
+    <div class="row justify-content-center">
+      <div class="col-md-8 add_restaurant">
+
+        <% if policy(Restaurant).create? %>
+          <%= simple_form_for @restaurant do |f| %>
+            <%= f.input :name%>
+             <%= f.input :address%>
+              <%= f.input :activated%>
+            <%= f.button :submit, class: 'btn btn-light btn-lg btn-block' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+

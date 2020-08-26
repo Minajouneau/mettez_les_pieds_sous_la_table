@@ -1,25 +1,37 @@
+
 <div class="card-category">
-<!--
-  <h1 style="text-align: center; font-weight: bold;">HELLO!</h1> -->
-  <br>
-  <h2 style="font-weight: bold; margin-left: 10px;">  LISTE DE MES RESTAURANTS <i class="fas fa-utensils"></i></h2>  </div>
+  <h2 style="font-weight: bold; margin-left: 10px;">  LISTE DE MES RESTAURANTS</h2></div>
+
+
+
   <% @restaurants.each do |restaurant| %>
-    <div class="card-product">
+  <div class="card-product">
       <img src="http://www.absolutgraphic.com/wp-content/uploads/2016/05/enseigne-simple-300x300.jpg" />
-      <div class="card-product-infos">
+
+  <div class="card-product-infos">
         <h2 id="title"><%=restaurant.name.upcase%></h2>
-      </div>
-      <div class="verticalLine">
-     </div>
-      <div class="status">
-        <button type="button"class="btn btn btn-success btn-lg disponible_button">DISPONIBLE</button>
-         <div class="btn btn-light btn-lg">
-            <%= link_to "MODIFIER", edit_user_registration_path %>
-         </div>
-         <div class="btn btn-light btn-lg">
-            <%= link_to "VISUALISER", edit_user_registration_path %>
-         </div>
+        <h4> <%= restaurant.address%></h4>
+  </div>
+
+  <div class="verticalLine"></div>
+
+    <div class="status">
+      <%if restaurant.activated == true %>
+      <button type="button"class="btn btn btn-success btn-lg disponible_button">DISPONIBLE</button>
+      <%elsif restaurant.activated == false %>
+      <button type="button"class="btn btn btn-warning btn-lg disponible_button">INDISPONIBLE</button>
+      <%end%>
+    <div class="btn btn-light btn-lg">
+        <%= link_to "MODIFIER", edit_user_registration_path %></div>
+    <div class="btn btn-light btn-lg">
+        <%= link_to "VISUALISER", restaurant_path(restaurant) %></div>
         <i class="fas fa-utensils couverts"></i>
-      </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
+
+
+
+
+
+
