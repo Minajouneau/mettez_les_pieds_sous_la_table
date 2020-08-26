@@ -8,7 +8,6 @@ const OpacityWithScroll = () => {
         opacityNumber -= 0.01;
       });
     }
-  }
   
   export { OpacityWithScroll };
               // if (window.scrollY >= (window.innerHeight) / 4) {
