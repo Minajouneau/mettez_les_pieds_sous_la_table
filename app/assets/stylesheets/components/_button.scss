@@ -1,10 +1,26 @@
 .btn-normal {
-    // width: 120px;
-    height: 30px;
-    border: solid 2px white;
-    border-radius: 20px;
-    color: white;
-    background-color: #C70039;
+    border: none;
+    text-decoration: none;
+    appearance: none;
+    border-radius: 4px;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 24px;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+    background: #00ccbc;
+    min-height: 48px;
+    padding: 12px 24px;
+}
+
+.btn-normal:hover {
+    color: #fff;
+    background: #00c2b3;
+    transition-property: background,box-shadow,-webkit-box-shadow;
+    transition-duration: .15s;
+    transition-timing-function: ease-out;
 }
 
 .btn-backtoprofile {

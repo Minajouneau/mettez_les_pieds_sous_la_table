@@ -1,24 +1,53 @@
 <% if policy(Restaurant).create? %>
-
-<div class="container">
-  <%= simple_form_for @restaurant, wrapper_mappings: {
-    check_boxes:    :vertical_collection,
-    radio_buttons:  :vertical_collection,
-    file:           :custom_file,
-    boolean:        :custom_boolean_switch
-  } do |f| %>
-    <%# <%= f.error_notification %>
-    <%= f.input :name %>
-    <%= f.input :address, input_html: { id: 'autocompletion' } %>
-    <%= f.input :contact_email, input_html: { type:"email" } %>
-    <%= f.input :phone_number %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :description, :input_html => {:rows => 5 }%>
-    <%= f.input :activated, wrapper: :custom_boolean_switch %>
-    <%= f.button :submit, 'Enregistrer', class: 'btn btn-primary' %>
-  <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
-</div>
-  <% end %>
+  <div class="container">
+    <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
+    <div class="container-small">
+      <div class="section-account box">
+        <div class="section-title">Détails</div>
+        <div class="section-inner">
+          <%= simple_form_for @restaurant do |f| %>
+            <%# <%= f.error_notification %>
+            <%= f.input :name %>
+            <%= f.input :address, input_html: { id: 'autocompletion' } %>
+            <%= f.input :contact_email, input_html: { type:"email" } %>
+            <%= f.input :phone_number, input_html: { type:"tel" } %>
+            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="section-photos box">
+        <div class="section-title">Photos</div>
+        <div class="section-inner">
+          <%= simple_form_for @restaurant, wrapper_mappings: {
+        file:           :custom_file,
+        } do |f| %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="section-description box">
+        <div class="section-title">Description</div>
+        <div class="section-inner">
+          <%= simple_form_for @restaurant do |f| %>
+            <%= f.input :description, :input_html => { maxlength: 1000, :rows => 5 }%>
+            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="section-activation box">
+        <div class="section-title">Mise en ligne</div>
+        <div class="section-inner">
+          <%= simple_form_for @restaurant, wrapper_mappings: {
+        boolean:        :custom_boolean_switch
+        } do |f| %>
+            <%= f.input :activated, wrapper: :custom_boolean_switch %>
+            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% else %>
   <h2>You cannot add a restaurant, you need permissions !</h2>
 <% end %>

@@ -1,7 +1,13 @@
 
+
 // body .navbar-lewagon {
 //     display: none
 // }
+
+.show-page .navbar-lewagon {
+    display: none
+}
+
 
 
 h1 {
@@ -39,8 +45,14 @@ p {
     justify-content: space-between;
     background-image: url("https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg");
     background-size: cover;
-    position: sticky;
     background-attachment: fixed;
+    position: sticky;
+    transition: opacity 150ms linear {
+        transition-property: opacity;
+        transition-duration: 150ms;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+    };
 }
 
 .chief-presentation-2 {
@@ -52,6 +64,7 @@ p {
     justify-content: space-between;
     background-image: url("https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg");
     background-size: cover;
+    background-color: rgba(255, 234, 228, 1);
     position: sticky;
     background-attachment: fixed;
 }
@@ -77,4 +90,68 @@ p {
     justify-content: space-between;
     position: sticky;
     background-color: white;
+    position: relative;
+}
+
+.description p {
+    text-align: justify;
+    font-style: italic;
+}
+
+.card-maison {
+    width: 150px;
+    height: 150px;
+    border: solid 2px black;
+    position: absolute;
+    top: 270px;
+    left: 45%;
+    background-image: url('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1594193819/yhixvbjokpulns5xipyt.jpg');
+}
+
+.card-maison-child {
+    width: 150px;
+    height: 230px;
+    border: solid 2px black;
+    position: absolute;
+    top: 100px;
+    left: 63%;
+}
+
+.card-maison-child-2 {
+    width: 300px;
+    height: 145px;
+    border: solid 2px black;
+    position: absolute;
+    top: 100px;
+    left: 36%;
+}
+
+
+.card-maison-child-3 {
+    width: 300px;
+    height: 200px;
+    border: solid 2px black;
+    position: absolute;
+    top: 180px;
+    left: 19%;
+    padding: 13px;
+}
+
+.card-maison-child-4 {
+    width: 190px;
+    height: 145px;
+    border: solid 2px black;
+    position: absolute;
+    top: 343px;
+    left: 58%;
+    padding: 10px;
+}
+
+.card-maison-child-5 {
+    width: 290px;
+    height: 120px;
+    border: solid 2px black;
+    position: absolute;
+    top: 430px;
+    left: 28%;
 }
