@@ -5,7 +5,7 @@
       <div class="card-product">
         <%# <img src="http://www.absolutgraphic.com/wp-content/uploads/2016/05/enseigne-simple-300x300.jpg" />%>
         <% if restaurant.photos.first %>
-          <%= cl_image_tag restaurant.photos.first.key, crop: :fill, id: 'photo' %>
+          <%= cl_image_tag restaurant.photos.chef_category.first, crop: :fill, id: 'photo' %>
         <% end %>
         <div class="card-product-infos">
           <h2><%=restaurant.name.upcase%></h2>
@@ -15,7 +15,7 @@
         <div class="status">
           <% if restaurant.activated == true %>
             <button type="button"class="btn btn btn-success btn-lg disponible_button">DISPONIBLE</button>
-          <% elsif restaurant.activated == false %>
+          <% else %>
             <button type="button"class="btn btn btn-warning btn-lg disponible_button">INDISPONIBLE</button>
           <% end %>
         </div>
