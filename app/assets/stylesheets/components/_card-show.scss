@@ -1,43 +1,61 @@
+  .card-avatar {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 661px;
+    left: 46%;
+    background-size: cover;
+    background-position: top center;
+    border-radius: 50%;
+    background-image: url('https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg');
+  }
+
   .card-show-product {
+    width: 65%;
     overflow: hidden;
     height: 150px;
     background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     margin: 10px;
-    border-radius: 20px;
+    border-radius: 4px;
   }
 
   .card-show-hours {
     overflow: hidden;
     justify-content: center;
     height: 150px;
-    background: white;
-    box-shadow: 0 0 15px rgba(0, 204, 189, 1);
+    opacity: 0.3;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    border-radius: 50%;
+    transition: opacity 0.3s ease-in;
     h5 {
-        font-style: italic;
+      font-style: italic;
+      color:gray;
     }
+    p {
+      color: black;
+    }
+  }
+
+  .card-show-hours:hover {
+    opacity: 1;
   }
 
   #card-show-sunday {
     overflow: hidden;
     justify-content: center;
     height: 150px;
-    background: white;
-    box-shadow: 0 0 15px rgba(69, 0, 89, 1);;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    border-radius: 50%;
     h5 {
         font-style: italic;
+        color:gray;
     }
   }
 
@@ -54,21 +72,60 @@
   }
 
   .cards-show-dashboard {
+    max-width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 16px;
-    justify-content: space-between;
     border-radius: 20px;
     padding: 27px;
+    justify-items: center;
+  }
+
+  .cards-show-pics {
+    max-width: 71%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-gap: 16px;
+    border-radius: 20px;
+    padding: 27px;
+    justify-items: center;
+    margin: auto;
+  }
+  
+  .module:nth-child(1n) {
+    grid-row: span 2;
+  }
+  .module:nth-child(2n) {
+    grid-row: span 1;
+  }
+  .module:nth-child(3n) {
+    grid-row: span 1;
+  }
+  .module:nth-child(4n) {
+    grid-row: span 1;
+  }
+  .module:nth-child(5n) {
+    grid-row: span 2;
+  }
+  .module:nth-child(6n) {
+    grid-row: span 1;
+  }
+
+  .cards-show-pics img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
   }
 
   .cards-show-hours-dashboard {
     display: grid;
+    width: 80%;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
     justify-content: space-between;
     border-radius: 20px;
     padding: 27px;
+    margin: auto;
   }
 
   .cards-show-menu {
