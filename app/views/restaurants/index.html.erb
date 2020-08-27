@@ -1,9 +1,38 @@
-<div class="container">
+
+
+<div class="home-background">
+  <div class="title-sizing">
+    <h1 class="main-header"></h1>
+  </div>
+
+
+
+  <div id="bannerindex-background">
+    <img class="bannerimage" style="opacity: 0.8" src="https://foodandsens.com/wp-content/uploads/2020/08/Capture-d%E2%80%99%C3%A9cran-2020-08-13-%C3%A0-14.57.12-706x800.png">
+  </div>
+
+  <a class="btn btn-light boutonadd"> <i class="fas fa-utensils fourchette"></i> Ajoute un restaurant</a>
+
+<div class="container container">
+    <div class="sidenav">
+      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+
+        <%= link_to "Mes restaurants", restaurants_path, class: "#{'linked_active' if current_page?(restaurants_path)}" %>
+
+
+
+
+
+
+      <a href="# mes restaurants">Mes informations personnelles</a>
+      <a href="#Logout">Logout</a>
+    </div>
+
   <div class="card-product-container">
-    <h2>LISTE DE MES RESTAURANTS</h2>
     <% @restaurants.each do |restaurant| %>
       <div class="card-product">
-        <%# <img src="http://www.absolutgraphic.com/wp-content/uploads/2016/05/enseigne-simple-300x300.jpg" />%>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7Px59OqSn-CWnwCLUEjXWECxyEGxZ5b46FA&usqp=CAU">
+        <div class="vertical-line"></div>
         <% if restaurant.photos.first %>
           <%= cl_image_tag restaurant.photos.chef_category.first, crop: :fill, id: 'photo' %>
         <% end %>
@@ -14,15 +43,17 @@
         <div class="vertical-line"></div>
         <div class="status">
           <% if restaurant.activated == true %>
-            <button type="button"class="btn btn btn-success btn-lg disponible_button">DISPONIBLE</button>
+            <button type="button"class="btn btn btn-success btn-lg disponible_button">EN LIGNE</button>
           <% else %>
-            <button type="button"class="btn btn btn-warning btn-lg disponible_button">INDISPONIBLE</button>
+            <button type="button"class="btn btn btn-secondary btn-lg disponible_button">HORS LIGNE</button>
           <% end %>
         </div>
-        <%= link_to "MODIFIER", edit_restaurant_path(restaurant), class: "btn btn-light btn-lg"  %>
-        <%= link_to "VISUALISER", restaurant_path(restaurant), class: "btn btn-light btn-lg"   %>
+        <%= link_to "MODIFIER", edit_restaurant_path(restaurant), class: "btn btn-light btn-lg modifier"  %>
+        <%= link_to "VISUALISER", restaurant_path(restaurant), class: "btn btn-light btn-lg visualiser"  %>
         <i class="fas fa-utensils couverts"></i>
       </div>
     <% end %>
   </div>
 </div>
+
+
