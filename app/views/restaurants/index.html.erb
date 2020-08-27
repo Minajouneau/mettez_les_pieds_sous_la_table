@@ -34,7 +34,7 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7Px59OqSn-CWnwCLUEjXWECxyEGxZ5b46FA&usqp=CAU">
         <div class="vertical-line"></div>
         <% if restaurant.photos.first %>
-          <%= cl_image_tag restaurant.photos.first.key, crop: :fill, id: 'photo' %>
+          <%= cl_image_tag restaurant.photos.chef_category.first, crop: :fill, id: 'photo' %>
         <% end %>
         <div class="card-product-infos">
           <h2><%=restaurant.name.upcase%></h2>
@@ -43,7 +43,7 @@
         <div class="vertical-line"></div>
         <div class="status">
           <% if restaurant.activated == true %>
-            <button type="button"class="btn btn btn-success btn-lg disponible_button"> EN LIGNE</button>
+            <button type="button"class="btn btn btn-success btn-lg disponible_button">EN LIGNE</button>
           <% else %>
             <button type="button"class="btn btn btn-secondary btn-lg disponible_button">HORS LIGNE</button>
           <% end %>

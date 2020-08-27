@@ -27,17 +27,20 @@
         <% end %>
       </div>
     </div>
-    <div class="section-photos box">
-      <div class="section-title">Photos</div>
-      <div class="section-inner">
-        <%= simple_form_for @restaurant, wrapper_mappings: {
-        file:           :custom_file,
-        } do |f| %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-          <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-        <% end %>
+
+    <% @photos.categories.keys.each do |category| %>
+      <div class="section-photos box">
+        <div class="section-title"> Photo <%= category %> </div>
+        <div class="section-inner">
+          <%= simple_form_for [@restaurant, @photo], wrapper_mappings: {file: :custom_file} do |f| %>
+            <%= f.input :category, input_html: {value: "#{category}" } %>
+            <%= f.input :file, as: :file %>
+            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
+
     <div class="section-description box">
       <div class="section-title">Description</div>
       <div class="section-inner">

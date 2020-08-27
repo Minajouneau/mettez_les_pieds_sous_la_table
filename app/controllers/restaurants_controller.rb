@@ -1,17 +1,17 @@
 class RestaurantsController < ApplicationController
   def index
-    @restaurants = policy_scope(Restaurant.all.geocoded)
-    @markers = @restaurants.map do |restaurant|
-      {
-        lat: restaurant.latitude,
-        lng: restaurant.longitude
-      }
-    end
+    @restaurants = policy_scope(current_user.restaurants)
   end
 
   def show
     @restaurant = Restaurant.geocoded.find(params[:id])
     authorize @restaurant
+    # @markers = @restaurants.map do |restaurant|
+    #   {
+    #     lat: restaurant.latitude,
+    #     lng: restaurant.longitude
+    #   }
+    # end
   end
 
   def new
@@ -33,6 +33,8 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.geocoded.find(params[:id])
+    @photos = Photo.all
+    @photo = Photo.new
     authorize @restaurant
   end
 
@@ -44,11 +46,9 @@ class RestaurantsController < ApplicationController
     # Will raise ActiveModel::ForbiddenAttributesError
   end
 
-private
+  private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :contact_email, :activated, :domain_name, :description, :phone_number, photos: [])
-
+    params.require(:restaurant).permit(:name, :address, :contact_email, :activated, :domain_name, :description, :phone_number, :photo)
   end
-
 end
