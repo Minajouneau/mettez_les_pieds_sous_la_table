@@ -7,7 +7,7 @@
   background-color: linear-gradient rgba(0,0,0,6);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -24,9 +24,9 @@
   font-size: 17px
 }
 
-.sign-up-button {
-  padding-top: 400px;
-}
+// .sign-up-button {
+//   padding-top: 400px;
+// }
 
 .col-4 {
   border-left: 10px;
@@ -37,17 +37,22 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,5);
   border-radius: 10px;
-  // margin-top: 250px;
 }
 
-.card-trip > img {
+.card-trip-image > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
   transition: transform .5s ease;
 }
 
-.card-trip:hover > img {
+.card-trip-image {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-trip-image:hover > img {
   transform: scale(1.6);
 }
 
@@ -58,8 +63,8 @@
 }
 
 .card-trip p {
-  font-size: 12px;
-  opacity: .7;
+  font-size: 16px;
+  // opacity: .9;
   margin: 0;
 }
 
@@ -90,14 +95,12 @@
 
 .home-cards-container {
   width:100%;
-  position: absolute;
-  top: 92vh;
-  // margin-top: 250px;
+  margin-top: -5px;
 }
 
 .title-sizing {
   z-index: 1;
-  margin-top: 15%;
+  // margin-top: 20%;
 }
 
 .btn-sizing {
