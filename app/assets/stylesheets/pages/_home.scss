@@ -37,7 +37,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,5);
   border-radius: 10px;
-  margin-top: 300px;
+  // margin-top: 250px;
 }
 
 .card-trip > img {
@@ -90,12 +90,14 @@
 
 .home-cards-container {
   width:100%;
+  position: absolute;
+  top: 92vh;
   // margin-top: 250px;
 }
 
 .title-sizing {
   z-index: 1;
-  margin-top: 25%;
+  margin-top: 15%;
 }
 
 .btn-sizing {
