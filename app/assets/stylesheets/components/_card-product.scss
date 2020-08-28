@@ -1,19 +1,18 @@
-.card-product {
-  overflow: hidden;
-  border-radius:10px;
-  position: relative;
-  height: 258px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin: 64px;
+  .card-product {
+    overflow: hidden;
+    border-radius:10px;
+    position: relative;
+    height: 258px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    margin: 64px;
 
   .status {
     position: absolute;
     top: 20px;
     right: 70px;
-
   }
 
   i {
@@ -31,9 +30,9 @@
    height: 50px;
    margin: 20px 20px;
   }
-}
 
-.card-product img {
+
+  .card-product img {
   height: 70%;
   max-width: 330px;
   padding-left: 15px;
