@@ -1,0 +1,66 @@
+
+.sidenav {
+  width: 230px;
+  position: fixed;
+  z-index: 1;
+  top: 495px;
+  left: 75px;
+  overflow-x: hidden;
+  padding: 8px 0;
+  background-color: white;
+  height: 260px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  border-radius:10px;
+
+  }
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  text-align:center;
+  font-size: 22px;
+  color: #070303;
+  display: block;
+}
+
+a:hover {
+  background-color: white;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.avatar-large {
+  display: flex;
+  margin-left: 94px;
+  margin-top: 12px;
+   margin-bottom: 12px;
+}
+
+#bannerindex-background {
+  height:350px;
+  background-color: black;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.bannerimage {
+height:350px;
+object-fit:cover;
+}
+
+
+.boutonadd {
+position:fixed;
+font-weight:bold;
+font-size: 23px;
+top:20px;
+background-color:#d6e0f0 ;
+right:20px;
+}
