@@ -1,6 +1,6 @@
 .home-background{
   height: calc(100vh - 83px - 50px);
-  width: 100vw;
+  // width: 100vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,9 +28,6 @@
 //   padding-top: 400px;
 // }
 
-.col-4 {
-  border-left: 10px;
-}
 
 .card-trip {
   overflow: hidden;
@@ -101,10 +98,19 @@
 
 .title-sizing {
   z-index: 1;
-  margin-top: 40vh;
+  // margin-top: 40vh;
 }
 
 .btn-sizing {
   width: 100%;
   text-align: center;
+}
+
+.card-trip-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3em;
+  position: relative;
+  z-index: 1;
+  margin: 0 3em 1em;
 }
