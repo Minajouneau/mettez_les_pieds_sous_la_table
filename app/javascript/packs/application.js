@@ -30,11 +30,12 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { OpacityWithScroll } from '../components/opacity_with_scroll';
 import { ColorChangeWithCheckbox } from '../components/color_change_with_checkbox';
-
+import { loadDynamicBannerText } from '../components/typed_text';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   OpacityWithScroll();
   ColorChangeWithCheckbox();
+  loadDynamicBannerText();
 })

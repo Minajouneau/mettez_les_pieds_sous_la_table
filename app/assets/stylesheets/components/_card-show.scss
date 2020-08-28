@@ -142,7 +142,28 @@
 
   .cards-show-menu .card-show-product {
     width: 40%;
-    height: 500px;
+    height: 560px;
+  }
+
+  #show-footer {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+    width: 100%;
+    position: relative;
+    margin: auto;
+    margin-bottom: 30px;
+    color: burlywood;
+  }
+
+  #footer-icons {
+    display: flex;
+    justify-content: space-between;
+    color: burlywood;
+    p {
+      font-size: 35px;
+    }
   }
   
   // Smallest device
