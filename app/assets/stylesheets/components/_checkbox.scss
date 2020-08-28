@@ -29,6 +29,16 @@
   display : none;
 }
 
-#checkbox:checked > .activation {
+#checkbox:checked > #enligne {
   color: $deliveroo-turquoise;
+}
+
+#enligne {
+  color: #00ccbdff;
+  font-family: $body-font;
+}
+
+#horsligne {
+  color: #828585;
+  font-family: $body-font;
 }

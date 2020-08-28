@@ -1,15 +1,25 @@
 const ColorChangeWithCheckbox = () => {
-  const checkbox = document.getElementById('restaurant_activated');
-  // const messageToColor = document.getElementById('');
-  if (checkbox) {
-      checkbox.addEventListener( 'change', (event) => {
-          if(event.currentTarget.checked) {
-              console.log(event.currentTarget.checked)
-          } else {
-              console.log(event.currentTarget.checked)
-          }
-      });
-  }
+    const checkbox = document.getElementById('restaurant_activated');
+    const messageEnLigne = document.getElementById('enligne');
+    const messageHorsLigne = document.getElementById('horsligne');
+
+    if (checkbox) {
+        checkbox.addEventListener( 'change', (event) => {
+            if(event.currentTarget.checked) {
+                messageEnLigne.style.color = "#00ccbdff";
+                messageEnLigne.innerText = "En ligne" ;
+                messageHorsLigne.style.color = "#00ccbdff";
+                messageHorsLigne.innerText = "En ligne";
+                console.log(event.currentTarget.checked);
+            } else {
+                messageEnLigne.style.color = "#828585";
+                messageEnLigne.innerText = "Hors-ligne";
+                messageHorsLigne.style.color = "#828585";
+                messageHorsLigne.innerText = "Hors-ligne";
+                console.log(event.currentTarget.checked);
+            }
+        });
+    }
 };
 
 export { ColorChangeWithCheckbox };

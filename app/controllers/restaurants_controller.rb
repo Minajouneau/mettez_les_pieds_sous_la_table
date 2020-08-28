@@ -5,13 +5,13 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.geocoded.find(params[:id])
+    @markers =
+      [{
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude,
+        image_url: helpers.asset_url("chef-icon-color.png"),
+      }]
     authorize @restaurant
-    # @markers = @restaurants.map do |restaurant|
-    #   {
-    #     lat: restaurant.latitude,
-    #     lng: restaurant.longitude
-    #   }
-    # end
   end
 
   def new
@@ -32,8 +32,13 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.geocoded.find(params[:id])
-    @photos = Photo.all
+    @restaurant = Restaurant.find(params[:id])
+    @markers =
+      [{
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude,
+        image_url: helpers.asset_url("chef-icon-color.png"),
+      }]
     @photo = Photo.new
     authorize @restaurant
   end
@@ -44,6 +49,18 @@ class RestaurantsController < ApplicationController
     @restaurant.update(restaurant_params)
     redirect_to restaurants_path
     # Will raise ActiveModel::ForbiddenAttributesError
+  end
+
+  def update_activation
+    # raise
+    @restaurant = Restaurant.find(params[:id])
+    authorize @restaurant
+    if @restaurant.activated
+      @restaurant.update(activated: false)
+    else
+      @restaurant.update(activated: true)
+    end
+    redirect_to edit_restaurant_path(@restaurant)
   end
 
   private

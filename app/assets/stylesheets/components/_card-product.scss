@@ -1,26 +1,29 @@
-.card-product {
-  overflow: hidden;
-  border-radius:10px;
-  position: relative;
-  height: 258px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin: 64px;
+  .card-product {
+    overflow: hidden;
+    border-radius:10px;
+    position: relative;
+    height: 258px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    margin: 64px;
+    width: 950px;
+}
+
   .status {
     position: absolute;
     top: 20px;
     right: 70px;
-
   }
 
-  i {
+  .couverts{
     position: absolute;
     bottom: 20px;
     right: 130px;
     font-size:25px;
-    color:#18B06C
+    padding-right: 10px;
+    color:black;
   }
 
   .vertical-line {
@@ -29,11 +32,12 @@
    height: 50px;
    margin: 20px 20px;
   }
-}
 
-.card-product img {
-  height: 82%;
+
+  .card-product img {
+  height: 70%;
   max-width: 330px;
+  padding-left: 15px;
   object-fit: cover;
 }
 
@@ -65,21 +69,36 @@
 }
 
 
+.enligne_button {
+  border-width : 12px;
+  border-color : green;
+  border-style : solid;
+  font-weight:bold;
+}
+
+
+.horsligne_button {
+  border-width : 10px;
+  border-color : grey;
+  border-style : solid;
+  font-weight:bold;
+}
+
 
 .sidenav {
   width: 230px;
   position: fixed;
-  z-index: 1;
-  top: 495px;
-  left: 75px;
+  line-height: 1.7;
   overflow-x: hidden;
   padding: 8px 0;
-  background-color: white;
-  height: 260px;
+  background-color: #f6f5f5;
+  height: 280px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   overflow: hidden;
   border-radius:10px;
-
+  border-width : 5px;
+  border-color : black;
+  border-left-style: solid;
   }
 
 .sidenav a {
@@ -116,32 +135,46 @@ a:hover {
   top:0;
   left:0;
   right:0;
-
 }
 
 .bannerimage {
-height:350px;
-object-fit:cover;
-}
-
-
-.boutonadd {
-position:fixed;
-font-weight:bold;
-font-size: 23px;
-top:20px;
-background-color:white;
-right:20px;
-}
-
-
-.fourchetteicon {
- padding-right: 10px;
-
+  height:350px;
+  object-fit:cover;
 }
 
 
 .linked_active {
-  background-color:grey !important;
+  background-color:#d6e0f0 !important;
   font-weight:bold;
+}
+
+
+.container_flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.boutonadd {
+color:black;
+padding: 8px 24px;
+}
+
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  margin-top: -66px;
+}
+
+.container-bouton {
+background-color:  white;
+width: 335px;
+padding: 8px 24px;
+position: relative;
+float: right;
+margin-top: -119px;
+margin-right: 36px;
+font-weight: bold;
 }

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :users, only: [:update]
   get "profile/edit", to: "users#edit"
   resources :restaurants do
-    resources :photos, only: [:create]
+    member do
+      post "update_activation"
+    end
+      resources :photos, only: [:create]
   end
 end
