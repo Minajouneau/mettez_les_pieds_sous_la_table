@@ -1,120 +1,124 @@
-    // h1 {
-    //     font-family: 'Lobster Two', sans-serif;
-    // }
+// h1 {
+//     font-family: 'Lobster Two', sans-serif;
+// }
 
 .carousel-item img {
-    width:100%;
-    height: 100%;
-    // Doesn't work
-    // background-size: cover;
-    // object-fit: cover;
-    // object-fit: contain;
+  width: 100%;
+  height: 100%;
+  // Doesn't work
+  // background-size: cover;
+  // object-fit: cover;
+  // object-fit: contain;
 }
 
 .column-left {
-    display: grid;
-    width: 33%;
-    height: 100%;
-    justify-items: left;
-    p {
-        font-size: 35px;
-    }
+  display: grid;
+  width: 33%;
+  height: 100%;
+  justify-items: left;
+  p {
+    font-size: 35px;
+  }
 }
 
 .column-right {
-    display: grid;
-    width: 33%;
-    height: 100%;
-    justify-items: right;
+  display: grid;
+  width: 33%;
+  height: 100%;
+  justify-items: right;
 }
 
 .column-center {
-    width: 33%;
-    display: grid;
-    height: 100%;
-    justify-items: center;
-    p {
+  width: 33%;
+  display: grid;
+  height: 100%;
+  justify-items: center;
+  p {
     font-style: italic;
-    }
+  }
 }
 
 .chief-presentation {
-    width: 100%;
-    height: 600px;
-    padding: 25px;
-    display: flex;
-    justify-content: space-between;
-    background-image: url("https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    position: sticky;
-    transition: opacity 150ms linear {
-        transition-property: opacity;
-        transition-duration: 150ms;
-        transition-timing-function: linear;
-        transition-delay: 0s;
-    };
-    p {
-        color: bisque;
-    }
-    h1 {
-        color: bisque; 
-        // -webkit-text-stroke-width: 0.5px; 
-        // -webkit-text-stroke-color: white;
-    }
+  width: 100%;
+  height: 600px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  background-image: url("https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  position: sticky;
+  transition: opacity 150ms linear {
+    transition-property: opacity;
+    transition-duration: 150ms;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+  }
+  p {
+    color: bisque;
+  }
+  h1 {
+    color: bisque;
+    // -webkit-text-stroke-width: 0.5px;
+    // -webkit-text-stroke-color: white;
+  }
 }
 .chief-presentation-background {
-    width: 100%;
-    height: 600px;
-    background-color: black;
+  width: 100%;
+  height: 600px;
+  background-color: black;
 }
 
 .chief-presentation-2 {
-    width: 100%;
-    height: 600px;
-    padding: 25px;
-    display: flex;
-    opacity: 0.8;
-    justify-content: space-between;
-    background-image: url("https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg");
-    background-size: cover;
-    background-color: rgba(255, 234, 228, 1);
-    position: sticky;
-    background-attachment: fixed;
+  width: 100%;
+  height: 600px;
+  padding: 25px;
+  display: flex;
+  opacity: 0.8;
+  justify-content: space-between;
+  background-image: url("https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg");
+  background-size: cover;
+  background-color: rgba(255, 234, 228, 1);
+  position: sticky;
+  background-attachment: fixed;
 }
 
 .chief-presentation-3 {
-    width: 100%;
-    height: 600px;
-    padding: 25px;
-    display: flex;
-    opacity: 0.6;
-    justify-content: space-between;
-    background-image: url("https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg");
-    background-size: cover;
-    position: sticky;
-    background-attachment: fixed;
+  width: 100%;
+  height: 600px;
+  padding: 25px;
+  display: flex;
+  opacity: 0.6;
+  justify-content: space-between;
+  background-image: url("https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg");
+  background-size: cover;
+  position: sticky;
+  background-attachment: fixed;
 }
 
 .description {
-    width: 100%;
-    height: 600px;
-    padding: 25px;
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    background-color: rgba(255, 234, 228, 1);
-    position: relative;
+  width: 100%;
+  height: 600px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  background-color: rgba(255, 234, 228, 1);
+  position: relative;
 }
 
 .description p {
-    text-align: justify;
-    font-style: italic;
+  text-align: justify;
+  font-style: italic;
 }
 .show-page {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .show-page .navbar-lewagon {
-    display: none
+  display: none;
+}
+
+.map-center {
+  text-align: -webkit-center;
 }

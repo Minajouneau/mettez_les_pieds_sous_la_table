@@ -5,20 +5,20 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.geocoded.find(params[:id])
+    @markers = 
+    [{
+      lat: @restaurant.latitude,
+      lng: @restaurant.longitude,
+      image_url: helpers.asset_url("chef-icon-color.png"),
+      }]
     authorize @restaurant
-    # @markers = @restaurants.map do |restaurant|
-    #   {
-    #     lat: restaurant.latitude,
-    #     lng: restaurant.longitude
-    #   }
-    # end
   end
-
+  
   def new
     @restaurant = Restaurant.new
     authorize @restaurant
   end
-
+  
   def create
     @user = current_user
     @restaurant = Restaurant.new(restaurant_params)
@@ -32,8 +32,13 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.geocoded.find(params[:id])
-    @photos = Photo.all
+    @restaurant = Restaurant.find(params[:id])
+    @markers = 
+    [{
+      lat: @restaurant.latitude,
+      lng: @restaurant.longitude,
+      image_url: helpers.asset_url("chef-icon-color.png"),
+      }]
     @photo = Photo.new
     authorize @restaurant
   end
