@@ -21,6 +21,10 @@ class RestaurantPolicy < ApplicationPolicy
     user == record.user
   end
 
+  def update_activation?
+    user == record.user
+  end
+
   # def destroy?
   #   record.user == user
   # end
