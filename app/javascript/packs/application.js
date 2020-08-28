@@ -29,7 +29,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { OpacityWithScroll } from '../components/opacity_with_scroll';
-import { ColorChangeWithCheckbox } from '../components/color_change_with_checkbox ';
+import { ColorChangeWithCheckbox } from '../components/color_change_with_checkbox';
 
 
 document.addEventListener('turbolinks:load', () => {

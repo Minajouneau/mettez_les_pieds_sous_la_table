@@ -33,9 +33,9 @@
       <div class="card-product">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7Px59OqSn-CWnwCLUEjXWECxyEGxZ5b46FA&usqp=CAU">
         <div class="vertical-line"></div>
-        <% if restaurant.photos.first %>
-          <%= cl_image_tag restaurant.photos.chef_category.first, crop: :fill, id: 'photo' %>
-        <% end %>
+        <%# <% if restaurant.photos.first %>
+          <%#= cl_image_tag restaurant.photos.chef_category.first, crop: :fill, id: 'photo' %>
+        <%# <#% end %>
         <div class="card-product-infos">
           <h2><%=restaurant.name.upcase%></h2>
           <h4> <%= restaurant.address%></h4>
