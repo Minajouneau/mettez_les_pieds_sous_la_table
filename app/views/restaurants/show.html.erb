@@ -22,7 +22,7 @@
   <div class="cards-show-dashboard">
     <div class="card-show-product">
       <p style="text-align: left;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, possimus!</p>
-      <div class="card-avatar"></div>
+      <img src="https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg" alt="" id="card-avatar">
       <p style="text-align: right;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, suscipit?</p>
     </div>
   </div>
@@ -39,6 +39,9 @@
       <img src="http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg" style ="max-height: 100%; width: 100%;" alt="">
     </div>
   </div>
+  <div class="map-center">
+    <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
   <div id="show-footer">
     <div id="footer-icons">
       <p><i class="fab fa-facebook""></i></p>
@@ -48,8 +51,5 @@
     <h1>Pianovins</h1>
     <p>46 rue Trousseau</p>
     <p>01 44 09 98 79</p>
-  </div>
-  <div class="map-center">
-    <div id="map" style="width: 90%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </body>
