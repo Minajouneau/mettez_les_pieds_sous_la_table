@@ -8,14 +8,14 @@
 
 require "faker"
 
-Restaurant.destroy_all
-User.destroy_all
+# Restaurant.destroy_all
+# User.destroy_all
 
-User.create!(email: "mikail@mlpslt.com", password: "mikail")
-User.create!(email: "francois@mlpslt.com", password: "francois")
-User.create!(email: "mina@mlpslt.com", password: "minaaa")
-User.create!(email: "stanislas@mlpslt.com", password: "stanislas")
-User.create!(email: "mallory@mlpslt.com", password: "mallory")
+# User.create!(email: "mikail@mlpslt.com", password: "mikail")
+# User.create!(email: "francois@mlpslt.com", password: "francois")
+# User.create!(email: "mina@mlpslt.com", password: "minaaa")
+# User.create!(email: "stanislas@mlpslt.com", password: "stanislas")
+User.create!(email: "adrien.cachot@gmail.com", password: "adrien")
 
 users = User.all
 
@@ -29,8 +29,8 @@ users.each do |user|
   phone_number = "01 45 26 21 48"
   restaurant = Restaurant.create!(name: name, address: address, contact_email: contact_email, activated: false, domain_name: domain_name, description: description, phone_number: phone_number, user: user)
 
-  file = File.open("app/assets/images/adrien_cachot_portrait.jpg")
-  restaurant.photos.attach(io: file, filename: "restaurant")
+  # file = File.open("app/assets/images/adrien_cachot_portrait.jpg")
+  # restaurant.photos.attach(io: file, filename: "restaurant")
 
   # 2.times do
   #   name = Faker::Restaurant.name
