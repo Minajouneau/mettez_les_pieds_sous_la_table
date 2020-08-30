@@ -22,3 +22,23 @@
     transition-duration: .15s;
     transition-timing-function: ease-out;
 }
+
+.btn-show {
+    text-decoration: none;
+    border: solid 1px bisque;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    color: bisque;
+    // background: $deliveroo-turquoise;
+    padding: 12px 24px;
+}
+
+.btn-show:hover {
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}

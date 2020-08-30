@@ -116,9 +116,6 @@
   text-align: justify;
   font-style: italic;
 }
-.show-page {
-  margin-top: 0px;
-}
 
 .show-page .navbar-lewagon {
   display: none;
@@ -129,4 +126,8 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.show-page {
+  margin-top: 0px;
 }
