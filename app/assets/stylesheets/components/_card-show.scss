@@ -117,6 +117,8 @@
     height: 200px;
     width: 100%;
     object-fit: cover;
+    // pour remplir la case avec l'image
+    // object-fit: fill;
   }
 
   .cards-show-hours-dashboard {
@@ -161,6 +163,9 @@
     color: burlywood;
     p {
       font-size: 35px;
+    }
+    a {
+      color: burlywood;
     }
   }
   
