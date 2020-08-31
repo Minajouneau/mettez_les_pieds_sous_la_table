@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     member do
       post "update_activation"
     end
-      resources :photos, only: [:create]
+      resources :photos, only: [:create, :destroy]
   end
 end

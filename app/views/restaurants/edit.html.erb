@@ -1,18 +1,219 @@
 <% if policy(Restaurant).create? %>
   <div class="container">
     <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
-    <div class="container-small">
-      <div class="section-activation box">
-        <div class="section-inner d-inline-flex">
-          <% if @restaurant.activated %>
-            <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-              <i class="fas fa-toggle-on enligne"> En ligne</i>
-            <% end %>
-          <% else %>
-            <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-              <i class="fas fa-toggle-off horsligne"> Hors-ligne</i>
-            <% end %>
+    <div class="section-activation box">
+      <div class="section-inner d-inline-flex">
+        <% if @restaurant.activated %>
+          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
+            <i class="fas fa-toggle-on enligne"> En ligne</i>
           <% end %>
+        <% else %>
+          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
+            <i class="fas fa-toggle-off horsligne"> Hors-ligne</i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="bs-stepper">
+      <div class="bs-stepper-header" role="tablist">
+        <!-- your steps here -->
+        <div class="step" data-target="#details-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="details-part" id="details-part-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">Détails</span>
+          </button>
+        </div>
+        <div class="bs-stepper-line"></div>
+        <div class="step" data-target="#description-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="description-part" id="description-part-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Description</span>
+          </button>
+        </div>
+        <div class="bs-stepper-line"></div>
+        <div class="step" data-target="#photos-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="photos-part" id="photos-part-trigger">
+            <span class="bs-stepper-circle">3</span>
+            <span class="bs-stepper-label">Photos</span>
+          </button>
+        </div>
+        <div class="bs-stepper-line"></div>
+        <div class="step" data-target="#hours-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="hours-part" id="hours-part-trigger">
+            <span class="bs-stepper-circle">4</span>
+            <span class="bs-stepper-label">Horaires</span>
+          </button>
+        </div>
+      </div>
+      <div class="bs-stepper-content">
+        <!-- your steps content here -->
+        <div id="details-part" class="content fade" role="tabpanel" aria-labelledby="details-part-trigger">
+          <%# <div class="container-small"> %>
+          <div class="section-account box">
+            <div class="section-title">Détails</div>
+            <div class="section-inner">
+              <%= simple_form_for @restaurant, remote: true do |f| %>
+                <%# <%= f.error_notification %>
+                <%= f.input :name %>
+                <%= f.input :address, input_html: { id: 'autocompletion-edit' } %>
+                <%= f.input :contact_email, input_html: { type:"email" } %>
+                <%= f.input :phone_number, prepend: "+33", input_html: { type:"tel", maxlength: 10 } %>
+                <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div id="description-part" class="content" role="tabpanel" aria-labelledby="description-part-trigger">
+          <div class="section-description box">
+            <div class="section-title">Description</div>
+            <div class="section-inner">
+              <%= simple_form_for @restaurant, remote: true do |f| %>
+                <%= hidden_field_tag :redirection, true %>
+                <%= f.input :description, :input_html => { maxlength: 1000, :rows => 5 } %>
+                <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
+                <%= f.button :submit, 'Suivant', class: 'btn btn-normal' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div id="photos-part" class="content" role="tabpanel" aria-labelledby="photos-part-trigger">
+          <div class="section-photos box">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-food-tab" data-toggle="tab" href="#nav-food" role="tab" aria-controls="nav-food" aria-selected="true">Plat</a>
+                <a class="nav-item nav-link" id="nav-exterior-tab" data-toggle="tab" href="#nav-exterior" role="tab" aria-controls="nav-exterior" aria-selected="false">Extérieur</a>
+                <a class="nav-item nav-link" id="nav-interior-tab" data-toggle="tab" href="#nav-interior" role="tab" aria-controls="nav-interior" aria-selected="false">Intérieur</a>
+                <a class="nav-item nav-link" id="nav-chef-tab" data-toggle="tab" href="#nav-chef" role="tab" aria-controls="nav-chef" aria-selected="false">Staff</a>
+                <a class="nav-item nav-link" id="nav-menu-tab" data-toggle="tab" href="#nav-menu" role="tab" aria-controls="nav-menu" aria-selected="false">Menu</a>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-food" role="tabpanel" aria-labelledby="nav-food-tab">
+                <div class="section-inner">
+                  <% @restaurant.photos.where(category: 0).each do |photo| %>
+                    <% if photo.file.attached? %>
+                      <div class="d-inline-flex">
+                        <div class="position-relative">
+                          <%= cl_image_tag photo.file.key , crop: :fill, width: 100, height: 100 , id: 'photo', class: 'photo-added' %>
+                          <div class="photo-trash">
+                            <%= link_to restaurant_photo_path(@restaurant,photo), method: :delete, class: "remove-photo" do %>
+                              <i class="fas fa-trash-alt"></i>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <%= simple_form_for [@restaurant, @photo], wrapper_mappings: {file: :custom_file} do |f| %>
+                    <%= f.input :category, input_html: {value: 0}, as: :hidden %>
+                    <%= f.input :file, as: :file %>
+                    <%= f.button :submit, 'Suivant', class: 'btn btn-normal' %>
+                  <% end %>
+                </div>
+              </div> 
+
+              <div class="tab-pane fade" id="nav-exterior" role="tabpanel" aria-labelledby="nav-exterior-tab">
+                <div class="section-inner">
+                  <% @restaurant.photos.where(category: 1).each do |photo| %>
+                    <% if photo.file.attached? %>
+                      <div class="d-inline-flex">
+                        <div class="position-relative">
+                          <%= cl_image_tag photo.file.key , crop: :fill, width: 100, height: 100 , id: 'photo', class: 'photo-added' %>
+                          <div class="photo-trash">
+                            <%= link_to restaurant_photo_path(@restaurant,photo), method: :delete, class: "remove-photo" do %>
+                              <i class="fas fa-trash-alt"></i>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <%= simple_form_for [@restaurant, @photo], wrapper_mappings: {file: :custom_file} do |f| %>
+                    <%= f.input :category, input_html: {value: 1}, as: :hidden %>
+                    <%= f.input :file, as: :file %>
+                    <%= f.button :submit, 'Suivant', class: 'btn btn-normal' %>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="nav-interior" role="tabpanel" aria-labelledby="nav-interior-tab">
+                <div class="section-inner">
+                  <% @restaurant.photos.where(category: 2).each do |photo| %>
+                    <% if photo.file.attached? %>
+                      <div class="d-inline-flex">
+                        <div class="position-relative">
+                          <%= cl_image_tag photo.file.key , crop: :fill, width: 100, height: 100 , id: 'photo', class: 'photo-added' %>
+                          <div class="photo-trash">
+                            <%= link_to restaurant_photo_path(@restaurant,photo), method: :delete, class: "remove-photo" do %>
+                              <i class="fas fa-trash-alt"></i>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <%= simple_form_for [@restaurant, @photo], wrapper_mappings: {file: :custom_file} do |f| %>
+                    <%= f.input :category, input_html: {value: 2}, as: :hidden %>
+                    <%= f.input :file, as: :file %>
+                    <%= f.button :submit, 'Suivant', class: 'btn btn-normal' %>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="nav-chef" role="tabpanel" aria-labelledby="nav-chef-tab">
+                <div class="section-inner">
+                  <% @restaurant.photos.where(category: 3).each do |photo| %>
+                    <% if photo.file.attached? %>
+                      <div class="d-inline-flex">
+                        <div class="position-relative">
+                          <%= cl_image_tag photo.file.key , crop: :fill, width: 100, height: 100 , id: 'photo', class: 'photo-added' %>
+                          <div class="photo-trash">
+                            <%= link_to restaurant_photo_path(@restaurant,photo), method: :delete, class: "remove-photo" do %>
+                              <i class="fas fa-trash-alt"></i>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <%= simple_form_for [@restaurant, @photo], wrapper_mappings: {file: :custom_file} do |f| %>
+                    <%= f.input :category, input_html: {value: 3}, as: :hidden %>
+                    <%= f.input :file, as: :file %>
+                    <%= f.button :submit, 'Suivant', class: 'btn btn-normal' %>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="nav-menu" role="tabpanel" aria-labelledby="nav-menu-tab">
+                <div class="section-inner">
+                  <% @restaurant.photos.where(category: 4).each do |photo| %>
+                    <% if photo.file.attached? %>
+                      <div class="d-inline-flex">
+                        <div class="position-relative">
+                          <%= cl_image_tag photo.file.key , crop: :fill, width: 100, height: 100 , id: 'photo', class: 'photo-added' %>
+                          <div class="photo-trash">
+                            <%= link_to restaurant_photo_path(@restaurant,photo), method: :delete, class: "remove-photo" do %>
+                              <i class="fas fa-trash-alt"></i>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <%= simple_form_for [@restaurant, @photo], wrapper_mappings: {file: :custom_file} do |f| %>
+                    <%= f.input :category, input_html: {value: 4}, as: :hidden %>
+                    <%= f.input :file, as: :file %>
+                    <%= f.button :submit, 'Suivant', class: 'btn btn-normal' %>
+                  <% end %>
+                </div>
+              </div>
+
+            </div>
+          <div id="hours-part" class="content" role="tabpanel" aria-labelledby="hours-part-trigger">
+            <%= simple_form_for @restaurant do |f| %>
+              <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+            <% end %>
+          </div>
         </div>
       </div>
       <%#= simple_form_for @restaurant, html: { class: "text-center"} do |f| %>
@@ -23,47 +224,7 @@
           </div>
         </div> %>
         <%# end %>
-        <div class="section-account box">
-          <div class="section-title">Détails</div>
-          <div class="section-inner">
-            <%= simple_form_for @restaurant do |f| %>
-              <%# <%= f.error_notification %>
-              <%= f.input :name %>
-              <%= f.input :address, input_html: { id: 'autocompletion-edit' } %>
-              <%= f.input :contact_email, input_html: { type:"email" } %>
-              <%= f.input :phone_number, prepend: "+33", input_html: { type:"tel", maxlength: 10 } %>
-              <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-            <% end %>
-          </div>
-        </div>
-        <% Photo.categories.each do |key, value| %>
-          <div class="section-photos box">
-            <div class="section-title"> Photo <%= key %> </div>
-            <div class="section-inner">
-              <% @restaurant.photos.where(category: key).each do |photo| %>
-                <% if photo.file.attached? %>
-                  <%= cl_image_tag photo.file.key , crop: :fill, width: 100, height: 100 , id: 'photo'%>
-                <% end %>
-              <% end %>
-              <%= simple_form_for [@restaurant, @photo], wrapper_mappings: {file: :custom_file} do |f| %>
-                <%= f.input :category, input_html: {value: key }, as: :hidden %>
-                <%= f.input :file, as: :file %>
-                <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-        <div class="section-description box">
-          <div class="section-title">Description</div>
-          <div class="section-inner">
-            <%= simple_form_for @restaurant do |f| %>
-              <%= f.input :description, :input_html => { maxlength: 1000, :rows => 5 }%>
-              <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
-              <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <h2>You cannot add a restaurant, you need permissions !</h2>
-    <% end %>
+        <%# </div> %>
+      <% else %>
+        <h2>You cannot add a restaurant, you need permissions !</h2>
+      <% end %>

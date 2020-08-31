@@ -8,6 +8,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "bootstrap": "^4.5.2",
+    "bs-stepper": "^1.7.0",
     "jquery": "^3.5.1",
     "mapbox-gl": "^1.12.0",
     "places.js": "^1.19.0",

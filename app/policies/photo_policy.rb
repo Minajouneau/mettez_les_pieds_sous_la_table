@@ -8,5 +8,9 @@ class PhotoPolicy < ApplicationPolicy
   def create?
     user == record.restaurant.user
   end
+  
+  def destroy?
+    user == record.restaurant.user
+  end
 
 end
