@@ -1,6 +1,5 @@
   .card-product {
     overflow: hidden;
-    border-radius:10px;
     position: relative;
     height: 258px;
     background: white;
@@ -70,18 +69,20 @@
 
 
 .enligne_button {
-  border-width : 12px;
+  border-width : 7px;
   border-color : green;
   border-style : solid;
   font-weight:bold;
+  border-radius: 300px;
 }
 
 
 .horsligne_button {
-  border-width : 10px;
+  border-width : 7px;
   border-color : grey;
   border-style : solid;
   font-weight:bold;
+  border-radius: 300px;
 }
 
 
@@ -106,8 +107,8 @@
   text-decoration: none;
   text-align:center;
   font-size: 22px;
-  color: #070303;
   display: block;
+  color:black;
 }
 
 // a:hover {
@@ -129,22 +130,19 @@
 
 
 #bannerindex-background {
-  height:350px;
-  background-color: black;
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
+background-size: contain;
+background-position: center;
+padding: 150px 0;
+margin-top: -66px;
+background-repeat: no-repeat;
+margin-left: -1200px;
+background-color: black;
 }
 
-.bannerimage {
-  height:350px;
-  object-fit:cover;
-}
 
 
 .linked_active {
-  background-color:#d6e0f0 !important;
+  background-color:#f4f6ff !important;
   font-weight:bold;
 }
 
@@ -155,26 +153,36 @@
 }
 
 
-.boutonadd {
-color:black;
-padding: 8px 24px;
-}
-
 
 .banner {
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: left;
   padding: 150px 0;
   margin-top: -66px;
+  background-repeat: repeat-y;
+  background-color: black;
 }
 
-.container-bouton {
-background-color:  white;
-width: 335px;
-padding: 8px 24px;
-position: relative;
-float: right;
-margin-top: -119px;
-margin-right: 36px;
-font-weight: bold;
+
+#oMessagerieLabel{
+ text-align:center;
+}
+
+.add_button {
+  color: black;
+  background-color: #f4f6ff;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 1246px;
+  margin-top: -89px;
+}
+
+.coucou {
+  padding-left:4px;
+}
+
+.avatar-large {
+
+
 }

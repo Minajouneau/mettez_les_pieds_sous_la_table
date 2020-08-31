@@ -9,7 +9,9 @@ skip_after_action :verify_authorized
   def update # applique modification (méthode patch)
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to root_path
+    # Redirect to restaurants index
+    redirect_to restaurant_path
+    # redirect_to root_path
   end
 
   private
