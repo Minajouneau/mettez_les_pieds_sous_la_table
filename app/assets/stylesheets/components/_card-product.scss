@@ -3,7 +3,7 @@
     position: relative;
     height: 258px;
     background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
     margin: 64px;
@@ -69,18 +69,16 @@
 
 
 .enligne_button {
-  border-width : 7px;
-  border-color : green;
-  border-style : solid;
+  border-width : 9px;
+  color : green;
   font-weight:bold;
   border-radius: 300px;
 }
 
 
 .horsligne_button {
-  border-width : 7px;
-  border-color : grey;
-  border-style : solid;
+  border-width : 9px;
+  color : #363636;
   font-weight:bold;
   border-radius: 300px;
 }
@@ -91,7 +89,7 @@
   position: fixed;
   line-height: 1.7;
   overflow-x: hidden;
-  padding: 8px 0;
+  padding: 36px 0;
   background-color: #f6f5f5;
   height: 280px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -100,7 +98,13 @@
   border-width : 5px;
   border-color : black;
   border-left-style: solid;
+
+  .active {
+    font-weight:bold;
+    // background-color: #f6d743 !important;
+    color: black;
   }
+}
 
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -110,10 +114,6 @@
   display: block;
   color:black;
 }
-
-// a:hover {
-//   background-color: white;
-// }
 
 .cards {
   display: grid;
@@ -130,20 +130,13 @@
 
 
 #bannerindex-background {
-background-size: contain;
-background-position: center;
-padding: 150px 0;
-margin-top: -66px;
-background-repeat: no-repeat;
-margin-left: -1200px;
-background-color: black;
-}
-
-
-
-.linked_active {
-  background-color:#f4f6ff !important;
-  font-weight:bold;
+  background-size: contain;
+  background-position: center;
+  padding: 150px 0;
+  margin-top: -66px;
+  background-repeat: no-repeat;
+  margin-left: -1200px;
+  background-color: black;
 }
 
 
@@ -151,8 +144,6 @@ background-color: black;
   display: flex;
   justify-content: space-around;
 }
-
-
 
 .banner {
   background-size: contain;
@@ -164,25 +155,58 @@ background-color: black;
 }
 
 
-#oMessagerieLabel{
- text-align:center;
-}
 
 .add_button {
-  color: black;
-  background-color: #f4f6ff;
+  color: white;
   padding: 30px;
   font-weight: bold;
-  font-size: 20px;
-  margin-left: 1246px;
-  margin-top: -89px;
+  font-size: 25px;
+  border-radius: 5%;
+  background-color:#00CCBD;
 }
 
 .coucou {
   padding-left:4px;
 }
 
-.avatar-large {
+
+.container-small{
+  width: 1800px;
+  color:black;
+}
 
 
+#v-pills-tabContent {
+  width: 60%;
+}
+
+#my-infos {
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  margin-bottom:50px;
+}
+
+#restaurants-index {
+  margin-top: 10%;
+}
+
+#user_prenom {
+  width: 158%;
+}
+
+#user_nom {
+  width: 166%;
+  margin-left: -71%;
+  }
+
+
+.form-inputs {
+  .form-control.is-valid:focus{
+  outline-color: #719ECE;
+  border: 2px solid black !important;
+  }
+}
+
+.no_image {
+  opacity: 0.6;
+ height:60%;
 }
