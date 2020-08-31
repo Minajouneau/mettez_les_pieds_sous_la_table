@@ -37,5 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   OpacityWithScroll();
   ColorChangeWithCheckbox();
-  loadDynamicBannerText();
+  if(document.getElementById("typed_text")){
+    loadDynamicBannerText();
+  }
 })
