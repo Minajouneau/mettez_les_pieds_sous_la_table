@@ -6,9 +6,9 @@
         <div></div>
       </div>
       <div class="column-center">
-        <h1 style="text-align: center;">Mallory Gabsi</h1>
+        <h1 style="text-align: center;"><%= @restaurant.name %></h1>
         <div style="text-align: center;">
-          <p>« Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, molestiae! Mollitia reiciendis asperiores harum earum. »</p>
+          <p><%= @restaurant.description %></p>
           <br>
         </div>
       </div>
@@ -31,7 +31,7 @@
         <img src="https://img-3.journaldesfemmes.fr/aUQpTd7t-V06aWzi_ssZ59hbC9M=/1240x/smart/367fc1643b0b476d95465363d04b9ec3/ccmcms-jdf/13476696.jpg" style="max-width: 100%; height: 100%; object-fit: cover;" alt="">
       </div>
       <div id="insert-droit">
-        <h1 style="color: white;">Le chef : Mallory</h1>
+        <h1 style="color: white;">Le chef : <%= @user.prenom.capitalize %></h1>
         <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum possimus voluptas labore quaerat hic quasi molestiae at itaque? Asperiores, earum.</p>
       </div>
     </div>
@@ -94,11 +94,11 @@
   </div>
   <div class="grid-flex-map">
     <div class="cards-show-dashboard-3">
-      <h1>Pianovins</h1>
+      <h1><%= @restaurant.name %></h1>
       <br>
-      <p>46 rue Trousseau
-        <br>
-        01 44 09 98 79</p>
+      <p><%= @restaurant.address %>
+      <br>
+      <%= @restaurant.phone_number %></p>
     </div>
     <div class="demi-down">
       <div class="map-center">
