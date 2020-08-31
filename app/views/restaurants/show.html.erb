@@ -119,7 +119,7 @@
   </div>
 
   <!-- contenu des meta tags -->
-<% content_for :meta_title, "#{@offer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @offer.description %>
-<% content_for :meta_image, cl_image_path(@offer.photo.path) %>
+<% content_for :meta_title, "#{@restaurant.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @restaurant.description %>
+<%# content_for :meta_image, cl_image_path(@restaurant.photo.path) %>
 </body>
