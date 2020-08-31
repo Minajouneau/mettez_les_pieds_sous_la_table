@@ -2,11 +2,12 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = policy_scope(current_user.restaurants)
     @restaurant = Restaurant.new
-
+    @user = current_user
   end
 
   def show
     @restaurant = Restaurant.geocoded.find(params[:id])
+    @user = current_user
     @markers =
       [{
         lat: @restaurant.latitude,
