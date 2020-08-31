@@ -1,38 +1,48 @@
-<!--
-<div id="bannerindex-background">
-  <img class="bannerimage" style="opacity: 0.8" src="">
-</div> -->
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://foodandsens.com/wp-content/uploads/2020/08/Capture-d%E2%80%99%C3%A9cran-2020-08-13-%C3%A0-14.57.12-706x800.png);">
-  <div class="container-bouton">
-    <i class="fas fa-utensils fourchette"></i>
-    <%= link_to "AJOUTER UN RESTAURANT", new_restaurant_path, class: "boutonadd" %>
-    <%# <a class="boutonadd" href="#">AJOUTER UN RESTAURANT</a> %>
-  </div>
-</div>
-<!--
 
-<div class="container-button boutonadd">
-  <div class="row">
-    <i class="fas fa-utensils fourchette"></i>
-  <div>
-  </div class="row">
-    Ajouter un restaurant
-  </div>
-</div> -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)), url(https://archzine.fr/wp-content/uploads/2015/10/assiette-gastronomique-%C3%A0-la-mode-japonaise.jpg);"> </div>
+
+    <button type="button"  data-toggle="modal" class="add_button" data-target="#oMessagerie">
+      <strong>AJOUTER UN RESTAURANT!</strong>
+    </button>
+    <div class="modal fade" id="oMessagerie" tabindex="-1" role="dialog" aria-labelledby="oMessagerieLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="oMessagerieLabel">NOUVEAU RESTAURANT <i class="fas fa-utensils coucou"></i></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <% if policy(Restaurant).create? %>
+            <%= simple_form_for @restaurant do |f| %>
+              <%= f.input :name, label:"nom" %>
+              <%= f.input :address,label:"addresse", input_html: { id: 'autocompletion-new'} %>
+              <%= f.button :submit, value: "Créer un restaurant", class: 'btn-normal' %>
+            <% end %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</div>
+
 <div class="container_flex">
   <!-- sidebar -->
   <div class="row">
     <div class="sidenav col-12 col-lg-2">
-      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-      <%# <%= image_tag("adrien_avatar.jpg"), class: "avatar-large"  %>
+
+      <img class="avatar-large" alt="avatar-large" src="https://img.huffingtonpost.com/asset/5ee0fabd2400009f188ec770.jpeg?cache=G6Prisi&ops=1200_630" />
       <%= link_to "Mes restaurants", restaurants_path, class: "#{'linked_active' if current_page?(restaurants_path)}" %>
-      <a href="# mes restaurants">Mes informations personnelles</a>
-      <a href="#Logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+      <%= link_to "Mes informations", profile_edit_path %>
+      <%= link_to "Logout", destroy_user_session_path %>
     </div>
   </div>
-  <!-- fin de sidebar -->
+
   <div class="row">
-    <div class="card-product-container col-12 col-lg-10">
+    <div class="card-product-container col-12 col-lg-10" id='restaurants-index'>
       <% @restaurants.each do |restaurant| %>
         <div class="card-product">
         <%# <%= cl_image_tag restaurant.photos.where(category: 'front'  ).file, crop: :fill, id: 'photo' %>
@@ -56,8 +66,64 @@
         </div>
       <% end %>
     </div>
+    <div class="card-product-container col-12 col-lg-10 d-none" id='my-infos'>
+      <!-- Edit form -->
+<div class="container">
+  <div class="container-small">
+    <div class="section-account box" id="user-box">
+      <div class="section-title">Modifier votre profil</div>
+        <div class="section-inner">
+          <!-- <h2>Edit <%= current_user.email %></h2> -->
+
+          <%= simple_form_for(@user) do |f| %>
+            <div class="form-inputs">
+
+              <%= f.input :prenom,
+                              hint: "Insérez ici votre prénom",
+                              required: false,
+                              input_html: { autocomplete: "new-password" } %>
+              <%= f.input :nom,
+                              hint: "Insérez ici votre nom",
+                              required: false,
+                              input_html: { autocomplete: "new-password" } %>
+              <%= f.input :vision,
+                              hint: "Expliquez-nous quel est votre vision de la cuisine ?",
+                              required: false,
+                              input_html: { autocomplete: "current-password" } %>
+              <%= f.input :parcours,
+                              hint: "Détaillez-nous votre parcours",
+                              required: false,
+                              input_html: { autocomplete: "current-password" } %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "Enregistrer", class: "btn-normal" %>
+            </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<%# <% if restaurant.photos.first %>
-<%#= cl_image_tag restaurant.photos.chef_category.first, crop: :fill, id: 'photo' %>
-<%# <#% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
