@@ -85,4 +85,9 @@
     <h1>Pianovins</h1>
     <p>46 rue Trousseau<br>01 44 09 98 79</p>
   </div>
+
+  <!-- contenu des meta tags -->
+<% content_for :meta_title, "#{@offer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @offer.description %>
+<% content_for :meta_image, cl_image_path(@offer.photo.path) %>
 </body>
