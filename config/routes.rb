@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   resources :users, only: [:update]
   get "profile/edit", to: "users#edit"
-  resources :restaurants do
+  if Rails.env.production?
+    resources :restaurants, only: :show, constraints: { subdomain: 'app' }
+  else
+    resources :restaurants, only: :show
+  end
+  resources :restaurants, only: [:index, :new, :create, :edit, :update, :destroy] do
     member do
       post "update_activation"
     end
