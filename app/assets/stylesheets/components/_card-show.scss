@@ -1,3 +1,15 @@
+  #insert-gauche {
+    width: 100%;
+  }
+
+  #insert-droit {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    padding: 30px;
+    text-align: justify;
+  }
+  
   #card-avatar {
     width: 100px;
     height: 100px;
@@ -10,14 +22,29 @@
   }
 
   .card-show-product {
-    width: 65%;
+    width: 70%;
     overflow: hidden;
-    height: 150px;
-    background: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
+    height: 300px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
     margin: 10px;
+  }
+
+  .card-show-product-2 {
+    width: 70%;
+    overflow: hidden;
+    max-height: 100%;
+    display: flex;
+    justify-items: center;
+    align-content: center;
+  }
+
+  .card-show-product p {
+    padding: 25px;
+    margin: 10px;
+    text-align: center;
+    font-style: italic;
   }
 
   .card-show-hours {
@@ -57,12 +84,6 @@
     }
   }
 
-  .card-show-product p {
-    padding: 25px;
-    margin: 10px;
-    text-align: justify;
-    font-style: italic;
-  }
 
   .card-show-product .card-show-product-infos {
     padding: 16px;
@@ -79,42 +100,62 @@
     justify-items: center;
   }
 
-  .cards-show-pics {
-    max-width: 71%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  .cards-show-dashboard-2 {
+    background-color: black;
+    max-width: 100%;
+    height: 400px;
+    display: flex;
+    grid-template-columns: 1fr;
     grid-gap: 16px;
-    border-radius: 20px;
+    justify-items: center;
+  }
+
+  .cards-show-dashboard-3 {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://youmatter.world/app/uploads/sites/3/2016/06/gastronomie-cuisine-alimentation-saine-durable.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    h1 {
+      color: burlywood;
+    }
+    p {
+      color: burlywood;
+    }
+  }
+
+  .demi-down {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cards-show-pics {
+    width: 100%;
+    display: grid;
+    background-color: black;
+    grid-template-columns: repeat(6, minmax(200px, 1fr));
+    grid-gap: 16px;
     padding: 27px;
     justify-items: center;
     margin: auto;
   }
   
   .module:nth-child(1n) {
-    grid-row: span 2;
-  }
-  .module:nth-child(2n) {
-    grid-row: span 1;
-  }
-  .module:nth-child(3n) {
-    grid-row: span 1;
-  }
-  .module:nth-child(4n) {
-    grid-row: span 1;
-  }
-  .module:nth-child(5n) {
-    grid-row: span 2;
-  }
-  .module:nth-child(6n) {
     grid-row: span 1;
   }
 
-  .module-video {
-    height: 420px;
+  .module:nth-child(3),
+  .module:nth-child(6),
+  .module:nth-child(7) {
+    grid-row: span 2;
+    grid-column: span 2;
+    max-height: 420px;
   }
 
   .cards-show-pics img {
-    height: 200px;
+    max-height: 200px;
     width: 100%;
     object-fit: cover;
     // pour remplir la case avec l'image
@@ -123,8 +164,8 @@
 
   .cards-show-hours-dashboard {
     display: grid;
-    width: 80%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 70%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
     justify-content: space-between;
     border-radius: 20px;
@@ -142,15 +183,13 @@
 
   .cards-show-menu .card-show-product {
     width: 40%;
-    height: 560px;
+    height: 600px;
   }
 
   #show-footer {
-    display: grid;
-    justify-content: center;
     text-align: center;
     height: auto;
-    width: 100%;
+    width: 400px;
     position: relative;
     margin: auto;
     margin-bottom: 20px;
