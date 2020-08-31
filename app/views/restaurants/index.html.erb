@@ -1,29 +1,29 @@
 
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://foodandsens.com/wp-content/uploads/2020/08/Capture-d%E2%80%99%C3%A9cran-2020-08-13-%C3%A0-14.57.12-706x800.png);">
   <div class="container-bouton">
-     <i class="fas fa-utensils fourchette"></i>
-    <a class="boutonadd" href="#">AJOUTER UN RESTAURANT</a>
+    <i class="fas fa-utensils fourchette"></i>
+    <%= link_to "AJOUTER UN RESTAURANT", new_restaurant_path, class: "boutonadd" %>
+    <%# <a class="boutonadd" href="#">AJOUTER UN RESTAURANT</a> %>
   </div>
 </div>
 
-
 <div class="container_flex">
-<!-- sidebar -->
+  <!-- sidebar -->
   <div class="row">
     <div class="sidenav col-12 col-lg-2">
       <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+      <%# <%= image_tag("adrien_avatar.jpg"), class: "avatar-large"  %>
       <%= link_to "Mes restaurants", restaurants_path, class: "#{'linked_active' if current_page?(restaurants_path)}" %>
       <a href="# mes restaurants">Mes informations personnelles</a>
       <a href="#Logout">Logout <i class="fas fa-sign-out-alt"></i></a>
     </div>
   </div>
-
-    <!-- fin de sidebar -->
+  <!-- fin de sidebar -->
   <div class="row">
     <div class="card-product-container col-12 col-lg-10">
       <% @restaurants.each do |restaurant| %>
         <div class="card-product">
+        <%# <%= cl_image_tag restaurant.photos.where(category: 'front'  ).file, crop: :fill, id: 'photo' %>
           <img src="data:image/png;base64,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">
           <div class="vertical-line"></div>
           <div class="card-product-infos">
@@ -33,9 +33,9 @@
           <div class="vertical-line"></div>
           <div class="status">
             <% if restaurant.activated == true %>
-              <button class=" btn btn-light btn-lg enligne_button"> EN LIGNE</button>
+              <button class=" btn btn-lg enligne_button">EN LIGNE</button>
             <% else%>
-              <button class="btn btn-light btn-lg horsligne_button">HORS LIGNE</button>
+              <button class="btn btn-lg horsligne_button">HORS LIGNE</button>
             <% end %>
           </div>
           <%= link_to "MODIFIER", edit_restaurant_path(restaurant), class: "btn btn-light btn-lg modifier"  %>
@@ -46,15 +46,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
- <%# <% if restaurant.photos.first %>
-          <%#= cl_image_tag restaurant.photos.chef_category.first, crop: :fill, id: 'photo' %>
-        <%# <#% end %>
+<%# <% if restaurant.photos.first %>
+<%#= cl_image_tag restaurant.photos.chef_category.first, crop: :fill, id: 'photo' %>
+<%# <#% end %>

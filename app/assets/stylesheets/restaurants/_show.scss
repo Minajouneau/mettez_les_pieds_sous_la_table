@@ -10,9 +10,9 @@
   // object-fit: cover;
   // object-fit: contain;
 }
-.carousel-inner {
-    height: 420px;
-}
+// .carousel-inner {
+//     // height: 420px;
+// }
 
 .column-left {
   display: grid;
@@ -38,6 +38,8 @@
   justify-items: center;
   p {
     font-style: italic;
+    font-size: 20px;
+    text-align: center;
   }
 }
 
@@ -114,9 +116,6 @@
   text-align: justify;
   font-style: italic;
 }
-.show-page {
-  margin-top: 0px;
-}
 
 .show-page .navbar-lewagon {
   display: none;
@@ -124,4 +123,11 @@
 
 .map-center {
   text-align: -webkit-center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.show-page {
+  margin-top: 0px;
 }
