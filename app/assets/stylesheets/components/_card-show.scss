@@ -188,23 +188,27 @@
 
   #show-footer {
     text-align: center;
-    height: auto;
-    width: 400px;
+    height: 200px;
+    width: 100%;
     position: relative;
     margin: auto;
-    margin-bottom: 20px;
     color: burlywood;
+    background-color: black;
   }
 
   #footer-icons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     color: burlywood;
     p {
       font-size: 35px;
+      margin-bottom: 0px;
     }
     a {
       color: burlywood;
+      border: solid 1px;
+      padding-inline: 15px;
+      margin-inline: 25px;
     }
   }
   
