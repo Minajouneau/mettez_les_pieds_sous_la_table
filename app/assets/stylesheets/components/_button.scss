@@ -24,12 +24,14 @@
 }
 
 .btn-show {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     border: solid 1px bisque;
     border-radius: 4px;
     font-size: 16px;
     line-height: 24px;
-    margin: 0;
+    margin: 3px;
     position: relative;
     cursor: pointer;
     color: bisque;
