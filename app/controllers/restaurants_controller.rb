@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = policy_scope(current_user.restaurants)
     @restaurant = Restaurant.new
+    @user = current_user
 
   end
 
