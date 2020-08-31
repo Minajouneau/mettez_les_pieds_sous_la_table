@@ -34,7 +34,7 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' unless params[:controller] == "restaurants" && params[:action]  == "index" %>
+    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>

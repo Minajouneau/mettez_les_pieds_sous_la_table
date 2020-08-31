@@ -17,6 +17,6 @@ skip_after_action :verify_authorized
   private
 
   def user_params
-    params.require(:user).permit(:nom, :prenom, :vision, :parcours)
+    params.require(:user).permit(:nom, :prenom, :vision, :parcours, :recette)
   end
 end
