@@ -25,7 +25,13 @@
   </div>
   <div class="cards-show-dashboard">
     <div class="card-show-product">
-      <p style="font-weight: bold;"><span id="typed-text" data-user-parcours='<%= @user.parcours.capitalize %>'></span></p>
+      <p style="font-weight: bold;">
+        <span id="typed-text" data-user-parcours='<% if @user.parcours? %>
+            <%= @user.parcours.capitalize %>
+            <% else %>
+            <%= 'Détaillez ici votre parcours' %>
+            <% end %>'></span>        
+      </p>
       <p><% if @user.parcours? %>
             <%= @user.parcours.capitalize %>
             <% else %>
@@ -93,70 +99,92 @@
     </div>
   </div>
   <div class="cards-show-pics">
-    <% if @restaurant.photo? %>
-      <%= @restaurant.photo.where(category: 1) %>
+    <%# @restaurant.photos.first.file.key %>
+    <% if @restaurant.photos.any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: 1).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://paris.tastefestivals.com/wp-content/uploads/elementor/thumbs/%C2%A9VincentNageotte-img-taste2019_NGT8824-1-ofjrx7uu1pbkfzvqlpxjvip782525pf4upl9wlo47s.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photo? %>
-      <%= @restaurant.photo.where(category: 2) %>
+    <% if @restaurant.photos.any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: 2).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photo? %>
-      <%= @restaurant.photo.where(category: 3) %>
+    <% if @restaurant.photos.any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: 3).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photo? %>
-      <%= @restaurant.photo.where(category: 4) %>
+    <% if @restaurant.photos.any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: 3).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photo? %>
-      <%= @restaurant.photo.where(category: 5) %>
+    <% if @restaurant.photos.any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: 2).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photo? %>
-      <%= @restaurant.photo.where(category: 6) %>
+    <% if @restaurant.photos.any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: 1).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/77/37/2f/77372f1f63967c969dff6a98bb2a1bc4.png', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photo? %>
-      <%= @restaurant.photo.where(category: 7) %>
+    <% if @restaurant.photos.any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :food).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photo? %>
-      <%= @restaurant.photo.where(category: 8) %>
+    <% if @restaurant.photos.any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photo? %>
-      <%= @restaurant.photo.where(category: 9) %>
+    <% if @restaurant.photos.any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :food).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg', class: 'module' %>
     <% end %>
   </div>
   <div class="cards-show-menu">
     <div class="card-show-product">
-    <h1 style="margin-bottom: 30px;">Menu</h1>
-      <%# <% @restaurant.photos.where(category: :menu).each do |photo| %>
-        <%#= cl_image_tag photo.key, crop: :fill, class: "photo" %>
-      <%# end %>
-      <div id="myModal" class="modal">
-        <img id="myImg" src="http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg" style="width:100%;max-width:300px">
-        <span class="close">&times;</span>
-        <img src="http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg" style ="max-height: 100%; width: 100%;" class="modal-content" id="img01">
+      <h1 style="margin-bottom: 30px;">Menu</h1>
+
+      <button type="button" id="menu-pic" class="btn-modal" data-toggle="modal" data-target="#exampleModalLong">
+        <% if @restaurant.photos.any? %>
+          <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'menu' %>
+        <% else %>
+          <%= image_tag 'http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg', class: 'menu' %>
+        <% end %>
+      </button>
+
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="justify-content: center;">
+              <h5 class="modal-title" id="exampleModalLongTitle">Menu</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black;">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <% if @restaurant.photos.any? %>
+                <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'menu' %>
+              <% else %>
+                <%= image_tag 'http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg', class: 'menu' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -187,9 +215,8 @@
     </div>
     <br>
   </div>
-
   <!-- contenu des meta tags -->
 <% content_for :meta_title, "#{@restaurant.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @restaurant.description %>
-<%# content_for :meta_image, cl_image_path(@restaurant.photo.path) %>
+<%# content_for :meta_image, cl_image_path(@restaurant.photo.path) %>  
 </body>

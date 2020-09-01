@@ -35,8 +35,22 @@
     position: relative;
     cursor: pointer;
     color: bisque;
-    // background: $deliveroo-turquoise;
     padding: 12px 24px;
+}
+
+.btn-modal {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 3px;
+    position: relative;
+    cursor: pointer;
+    color: bisque;
+    padding: 12px 24px;
+    max-height: 600px;
+    border: none;
 }
 
 .btn-show:hover {

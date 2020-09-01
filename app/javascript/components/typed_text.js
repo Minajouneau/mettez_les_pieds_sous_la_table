@@ -2,6 +2,7 @@ import Typed from 'typed.js';
 
 const loadDynamicBannerText = () => {
   const typed = document.querySelector('#typed-text');
+  console.log(typed);
   if (typed) {
     const parcours = typed.dataset.userParcours;
     new Typed('#typed-text', {
