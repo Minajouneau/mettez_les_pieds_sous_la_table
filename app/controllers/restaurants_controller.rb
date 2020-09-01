@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+
   def index
     @restaurants = policy_scope(current_user.restaurants)
     @restaurant = Restaurant.new
@@ -28,9 +29,17 @@ class RestaurantsController < ApplicationController
     @restaurant.user = @user
     authorize @restaurant
     if @restaurant.save
+      create_schedules
       redirect_to restaurants_path
     else
       render "new"
+    end
+  end
+
+  def create_schedules
+    days = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
+    days.each do |day|
+      Schedule.create(day:day, restaurant:@restaurant)
     end
   end
 

@@ -1,0 +1,58 @@
+
+
+.sidenav {
+  width: 230px;
+  position: fixed;
+  line-height: 1.7;
+  overflow-x: hidden;
+  padding: 36px 0;
+  background-color: #f6f5f5;
+  height: 320px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  border-radius:10px;
+
+  .active {
+    font-weight:bold;
+    // background-color: #f6d743 !important;
+    color: black;
+  }
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  text-align:center;
+  font-size: 22px;
+  display: block;
+  color:black;
+}
+
+
+.sidebar-container{
+    flex: 0 0 300px;
+    display: flex;
+    justify-content: center;
+    padding-top: 64px;
+}
+
+.restaurants-index-container {
+  display: flex;
+}
+
+.main-right-container {
+  flex-grow: 1;
+}
+
+#v-pills-profile {
+  margin-top: 64px;
+  margin-left: 64px;
+}
+
+
+.avatar-large {
+ margin-left: 94px;
+ margin-top: 1px;
+ margin-bottom: 18px;
+}
+

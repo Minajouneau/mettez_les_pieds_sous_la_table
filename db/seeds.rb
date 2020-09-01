@@ -16,9 +16,8 @@ User.destroy_all
 # User.create!(email: "francois@mlpslt.com", password: "francois")
 # User.create!(email: "mina@mlpslt.com", password: "minaaa")
 # User.create!(email: "stanislas@mlpslt.com", password: "stanislas")
-User.create!(email: "adrien.cachot@gmail.com", password: "adrien")
+User.create!(email: "adrien.cachot@gmail.com", password: "adrien", prenom: "Adrien", nom:"Cachot")
 users = User.all
-# adrien = User.where(email: "adrien.cachot@gmail.com")
 
 users.each do |user|
   name = "Détour"
@@ -27,7 +26,7 @@ users.each do |user|
   domain_name = "www.detour-restaurant.com"
   description = "Il s’appelle Adrien Cachot est originaire de Bordeaux, a travaillé à la Cape à Cenon puis au Saint-James avec Nicolas Magie, mais aussi à Paris, aux côtés de Christian Etchebest qui l’a aidé à s’installer. Le voilà à son compte, avec une jeune équipe, proposant en cuisine ouverte, à travers des menus bien balancés et bon marché, des idées dans le vent et des produits dans l’air du temps."
   phone_number = "01 45 26 21 48"
-  restaurant = Restaurant.create!(name: name, address: address, contact_email: contact_email, activated: false, domain_name: domain_name, description: description, phone_number: phone_number, user: user)
+  restaurant = Restaurant.create!(name: name, address: address, contact_email: contact_email, activated: false, domain_name: domain_name, description: description, phone_number: phone_number, user: user, subdomain: "test.com")
 
   file = URI.open("https://fr.newtable.com/uploads/medias/restaurants/images/large/3637-photo1.jpg")
   photo = Photo.create!(restaurant: restaurant, category: :exterior)
@@ -53,6 +52,7 @@ users.each do |user|
   # photo = Photo.create!(restaurant: restaurant, category: :chef)
   # photo.file.attach(io: file, filename: "chef")
 
+end
   # file = File.open("app/assets/images/adrien_cachot_portrait.jpg")
   # restaurant.photos.attach(io: file, filename: "restaurant")
 
@@ -68,5 +68,4 @@ users.each do |user|
   #   file = File.open("app/assets/images/adrien_portrait.jpg")
   #   restaurant.photos.where(category: :menu).attach(io: file, filename: "restaurant")
   # end
-end
 User.create!(email: "mallory.gabsi@gmail.com", password: "mallory")
