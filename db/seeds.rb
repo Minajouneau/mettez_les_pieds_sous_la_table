@@ -44,7 +44,7 @@ users.each do |user|
   # file = File.open("app/assets/images/adrien_cachot_portrait.jpg")
   # restaurant.photos.attach(io: file, filename: "restaurant")
 
-  # 2.times do
+  # 10.times do 
   #   name = Faker::Restaurant.name
   #   address = Faker::Address.full_address
   #   contact_email = Faker::Internet.email
@@ -53,8 +53,8 @@ users.each do |user|
   #   phone_number = Faker::PhoneNumber.cell_phone_in     _e164
   #   restaurant = Restaurant.create!(name: name, address: address, contact_email: contact_email, activated: false, domain_name: domain_name, description: description, phone_number: phone_number, user: user)
 
-  # restaurant.photo.attach(io: file, filename: "restaurant")
-
+  #   file = File.open("app/assets/images/adrien_portrait.jpg")
+  #   restaurant.photos.where(category: :menu).attach(io: file, filename: "restaurant")
   # end
 end
 User.create!(email: "mallory.gabsi@gmail.com", password: "mallory")

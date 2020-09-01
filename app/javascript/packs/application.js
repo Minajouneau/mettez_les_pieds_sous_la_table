@@ -38,6 +38,8 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   OpacityWithScroll();
   ColorChangeWithCheckbox();
-  loadDynamicBannerText();
   initBStepper();
+  if(document.getElementById("typed_text")){
+    loadDynamicBannerText();
+  }
 })

@@ -25,10 +25,10 @@
 }
 
 .column-right {
-  display: grid;
+  display: flex;
   width: 33%;
   height: 100%;
-  justify-items: right;
+  justify-content: right;
 }
 
 .column-center {
@@ -49,7 +49,7 @@
   padding: 25px;
   display: flex;
   justify-content: space-between;
-  background-image: url("https://web.static-rmg.be/if/c_crop,w_2000,h_1350,x_0,y_0,g_center/c_fit,w_620,h_418/acd735bbb7f585f8aa985a8753ce82f9.jpg");
+  background-image: url("https://www.meetpro.fr/wp-content/uploads/2019/06/petr-sevcovic-594807-unsplash-e1561709868420.jpg");
   background-size: cover;
   background-attachment: fixed;
   position: sticky;
@@ -117,8 +117,10 @@
   font-style: italic;
 }
 
-.show-page .navbar-lewagon {
-  display: none;
+.grid-flex-map {
+  display: grid;
+  position: relative;
+  height: 650px;
 }
 
 .map-center {
@@ -126,8 +128,22 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  position: absolute;
+  top: 200px;
+  width: 800px;
+  border: solid 15px white;
+}
+
+.photo {
+  max-height: 100%; 
+  width: 100%;
 }
 
 .show-page {
   margin-top: 0px;
+  background-color: white;
+
+}
+.show-page .navbar-lewagon {
+  display: none;
 }

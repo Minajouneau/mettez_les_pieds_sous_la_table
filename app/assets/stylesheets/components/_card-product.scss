@@ -1,10 +1,9 @@
   .card-product {
     overflow: hidden;
-    border-radius:10px;
     position: relative;
     height: 258px;
     background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
     margin: 64px;
@@ -70,18 +69,18 @@
 
 
 .enligne_button {
-  border-width : 12px;
-  border-color : green;
-  border-style : solid;
+  border-width : 9px;
+  color : green;
   font-weight:bold;
+  border-radius: 300px;
 }
 
 
 .horsligne_button {
-  border-width : 10px;
-  border-color : grey;
-  border-style : solid;
+  border-width : 9px;
+  color : #363636;
   font-weight:bold;
+  border-radius: 300px;
 }
 
 
@@ -90,7 +89,7 @@
   position: fixed;
   line-height: 1.7;
   overflow-x: hidden;
-  padding: 8px 0;
+  padding: 36px 0;
   background-color: #f6f5f5;
   height: 280px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -99,20 +98,22 @@
   border-width : 5px;
   border-color : black;
   border-left-style: solid;
+
+  .active {
+    font-weight:bold;
+    // background-color: #f6d743 !important;
+    color: black;
   }
+}
 
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   text-align:center;
   font-size: 22px;
-  color: #070303;
   display: block;
+  color:black;
 }
-
-// a:hover {
-//   background-color: white;
-// }
 
 .cards {
   display: grid;
@@ -129,23 +130,13 @@
 
 
 #bannerindex-background {
-  height:350px;
+  background-size: contain;
+  background-position: center;
+  padding: 150px 0;
+  margin-top: -66px;
+  background-repeat: no-repeat;
+  margin-left: -1200px;
   background-color: black;
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-}
-
-.bannerimage {
-  height:350px;
-  object-fit:cover;
-}
-
-
-.linked_active {
-  background-color:#d6e0f0 !important;
-  font-weight:bold;
 }
 
 
@@ -154,27 +145,68 @@
   justify-content: space-around;
 }
 
-
-.boutonadd {
-color:black;
-padding: 8px 24px;
-}
-
-
 .banner {
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: left;
   padding: 150px 0;
   margin-top: -66px;
+  background-repeat: repeat-y;
+  background-color: black;
 }
 
-.container-bouton {
-background-color:  white;
-width: 335px;
-padding: 8px 24px;
-position: relative;
-float: right;
-margin-top: -119px;
-margin-right: 36px;
-font-weight: bold;
+
+
+.add_button {
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 25px;
+  border-radius: 5%;
+  background-color:#00CCBD;
+}
+
+.coucou {
+  padding-left:4px;
+}
+
+
+.container-small{
+  width: 1800px;
+  color:black;
+}
+
+
+#v-pills-tabContent {
+  width: 60%;
+}
+
+#my-infos {
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  margin-bottom:50px;
+}
+
+#restaurants-index {
+  margin-top: 10%;
+}
+
+#user_prenom {
+  width: 158%;
+}
+
+#user_nom {
+  width: 166%;
+  margin-left: -71%;
+  }
+
+
+.form-inputs {
+  .form-control.is-valid:focus{
+  outline-color: #719ECE;
+  border: 2px solid black !important;
+  }
+}
+
+.no_image {
+  opacity: 0.6;
+ height:60%;
 }

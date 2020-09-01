@@ -1,4 +1,4 @@
-<body class="show-page" style="background-color: rgb(255, 234, 228);">
+<body class="show-page">
   <div class="chief-presentation-background">
     <div class="chief-presentation">
       <div class="column-left">
@@ -6,38 +6,41 @@
         <div></div>
       </div>
       <div class="column-center">
-        <h1 style="text-align: center;">Mallory Gabsi</h1>
-        <div>
-          <p><span id="typed-text"></span></p>
-          <%# <p>« Mon engagement envers la pomme de terre »</p> %>
+        <h1 style="text-align: center;"><%= @restaurant.name %></h1>
+        <div style="text-align: center;">
+          <p><%= @restaurant.description %></p>
+          <br>
         </div>
       </div>
       <div class="column-right">
-        <div>
           <%= link_to 'Continuer à éditer', edit_restaurant_path, class: "btn-show", style: "height: 40px;" %>
           <%= link_to "Retour à l'index", restaurants_path, class: "btn-show", style: "height: 40px;" %>
-        </div>
           <%# <button class="btn-normal" style="height: 40px; font-family: 'El Messiri', sans-serif;">Status</button> %>
       </div>
     </div>
   </div>
   <div class="cards-show-dashboard">
     <div class="card-show-product">
-      <p style="text-align: left;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, possimus!</p>
-      <img src="https://www.sudinfo.be/sites/default/files/dpistyles_v2/ena_sp_16_9_illustration_principale/2020/06/18/node_208306/43836008/public/2020/06/18/B9723764093Z.1_20200618102620_000+G9OG50QQT.2-0.jpg?itok=tvwGm5YL1592468801" alt="" id="card-avatar">
-      <p style="text-align: right;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, suscipit?</p>
+      <p style="font-weight: bold;"><span id="typed-text"></span></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illum quasi, iste eos corporis rerum nostrum! Quos asperiores suscipit nemo! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum sit quam ea officia asperiores qui dicta nulla libero in aspernatur accusantium quas ex nostrum maiores, maxime reiciendis? Quod, ut sed!</p>
     </div>
   </div>
-  <div class="cards-show-pics">
-    <img src="https://paris.tastefestivals.com/wp-content/uploads/elementor/thumbs/%C2%A9VincentNageotte-img-taste2019_NGT8824-1-ofjrx7uu1pbkfzvqlpxjvip782525pf4upl9wlo47s.jpg" class="module" style="height: 420px;" alt="">
-    <img src="https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg" class="module" style="height: 420px;" alt="">
-    <img src="https://i.pinimg.com/originals/77/37/2f/77372f1f63967c969dff6a98bb2a1bc4.png" class="module" alt="">
+  <div class="cards-show-dashboard-2">
+    <div class="card-show-product-2">
+      <div id="insert-gauche">
+        <img src="https://img-3.journaldesfemmes.fr/aUQpTd7t-V06aWzi_ssZ59hbC9M=/1240x/smart/367fc1643b0b476d95465363d04b9ec3/ccmcms-jdf/13476696.jpg" style="max-width: 100%; height: 100%; object-fit: cover;" alt="">
+      </div>
+      <div id="insert-droit">
+        <h1 style="color: white;">Le chef : <%= @user.prenom.capitalize %></h1>
+        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum possimus voluptas labore quaerat hic quasi molestiae at itaque? Asperiores, earum.</p>
+      </div>
+    </div>
+    <div class="card-show-product-2">
+      <img src="https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+    </div>
   </div>
-    <div class="cards-show-hours-dashboard">
-      <div class="card-show-hours">
+  <div class="cards-show-hours-dashboard">
+    <div class="card-show-hours">
       <h5>Mardi</h5>
       <p>11h - 15h<br>
         18h - 00h</p>
@@ -68,21 +71,55 @@
         -</p>
     </div>
   </div>
+  <div class="cards-show-pics">
+    <img src="https://paris.tastefestivals.com/wp-content/uploads/elementor/thumbs/%C2%A9VincentNageotte-img-taste2019_NGT8824-1-ofjrx7uu1pbkfzvqlpxjvip782525pf4upl9wlo47s.jpg" class="module" alt="">
+    <img src="https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg" class="module" alt="">
+    <img src="https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg" class="module" alt="">
+    <img src="https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg" class="module" alt="">
+    <img src="https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg" class="module" alt="">
+    <img src="https://i.pinimg.com/originals/77/37/2f/77372f1f63967c969dff6a98bb2a1bc4.png" class="module" alt="">
+    <img src="https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg" class="module" alt="">
+    <img src="https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg" class="module" alt="">
+    <img src="https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg" class="module" alt="">
+  </div>
   <div class="cards-show-menu">
     <div class="card-show-product">
+    <h1>Menu</h1>
+    <br>
+      <%# <% @restaurant.photos.where(category: :menu).each do |photo| %>
+        <%#= cl_image_tag photo.key, crop: :fill, class: "photo" %>
+      <%# end %>
       <img src="http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg" style ="max-height: 100%; width: 100%;" alt="">
     </div>
   </div>
-  <div class="map-center">
-    <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="grid-flex-map">
+    <div class="cards-show-dashboard-3">
+      <h1><%= @restaurant.name %></h1>
+      <br>
+      <p><%= @restaurant.address %>
+      <br>
+      <%= @restaurant.phone_number %></p>
+    </div>
+    <div class="demi-down">
+      <div class="map-center">
+        <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+    </div>
   </div>
   <div id="show-footer">
+  <br>
+  <h4>Nos réseaux sociaux :</h4>
+  <br>
     <div id="footer-icons">
       <a href="#"><p><i class="fab fa-facebook""></i></p></a>
       <a href="#"><p><i class="fab fa-twitter""></i></p></a>
       <a href="#"><p><i class="fab fa-instagram""></i></p></a>
     </div>
-    <h1>Pianovins</h1>
-    <p>46 rue Trousseau<br>01 44 09 98 79</p>
+    <br>
   </div>
+
+  <!-- contenu des meta tags -->
+<% content_for :meta_title, "#{@restaurant.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @restaurant.description %>
+<%# content_for :meta_image, cl_image_path(@restaurant.photo.path) %>
 </body>
