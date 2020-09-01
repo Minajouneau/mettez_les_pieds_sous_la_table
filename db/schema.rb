@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_100734) do
+ActiveRecord::Schema.define(version: 2020_08_31_155926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 2020_08_31_100734) do
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.string "day"
+    t.string "opening_hour"
+    t.string "closing_hour"
+    t.boolean "closed"
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_schedules_on_restaurant_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -83,4 +94,5 @@ ActiveRecord::Schema.define(version: 2020_08_31_100734) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "photos", "restaurants"
   add_foreign_key "restaurants", "users"
+  add_foreign_key "schedules", "restaurants"
 end

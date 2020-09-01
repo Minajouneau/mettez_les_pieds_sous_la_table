@@ -15,4 +15,9 @@ Rails.application.routes.draw do
   else
     resources :restaurants, only: :show
   end
+  if Rails.env.production?
+    resources :restaurants, only: :show, constraints: { subdomain: 'app' }
+  else
+    resources :restaurants, only: :show
+  end
 end
