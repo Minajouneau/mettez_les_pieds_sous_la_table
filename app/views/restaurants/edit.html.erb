@@ -130,13 +130,21 @@
         <div id="hours-part" class="content content-design" role="tabpanel" aria-labelledby="hours-part-trigger">
           <div class="section-account box-design">
             <div class="section-inner section-inner-design">
-              <%   @restaurant.schedules.each do |schedule| %>
+              <% @restaurant.schedules.each do |schedule| %>
               <div class="schedule-day schedule-day-design">  
                 <p><%= schedule.day %></p>
                 <%= simple_form_for schedule do |f| %>
                   <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
                   <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
-                  <%= f.input :closed %>
+                  <fieldset class="boolean optional schedule_closed">
+                    <div class="form-check">
+                      <label class="form-check-label boolean optional switch-toggle" for="schedule_closed_<%= schedule.id %>">
+                        <input name="schedule[closed]" type="hidden" value="0">
+                        <input class="form-check-input boolean optional" type="checkbox" value="1" name="schedule[closed]" id="schedule_closed_<%= schedule.id %>">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                  </fieldset>
                   <%#= f.submit 'Enregistrer', class: 'btn btn-normal' %>
                 <% end %>
               </div>
