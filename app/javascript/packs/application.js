@@ -32,6 +32,7 @@ import { OpacityWithScroll } from '../components/opacity_with_scroll';
 import { ColorChangeWithCheckbox } from '../components/color_change_with_checkbox';
 import { loadDynamicBannerText } from '../components/typed_text';
 import {initBStepper } from '../plugins/init_stepper';
+import { initClockPicker } from '../plugins/init_clock_picker';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -39,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   OpacityWithScroll();
   ColorChangeWithCheckbox();
   initBStepper();
+  initClockPicker();
   if(document.getElementById("typed_text")){
     loadDynamicBannerText();
   }

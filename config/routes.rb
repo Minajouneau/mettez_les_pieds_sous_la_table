@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
       resources :photos, only: [:create, :destroy]
   end
+  resources :schedules, only: [:update]
+  
   if Rails.env.production?
     resources :restaurants, only: :show, constraints: { subdomain: 'app' }
   else
