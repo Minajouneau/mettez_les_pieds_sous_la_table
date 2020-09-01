@@ -36,9 +36,21 @@ users.each do |user|
   photo = Photo.create!(restaurant: restaurant, category: :interior)
   photo.file.attach(io: file, filename: "interior")
 
-  file = URI.open("https://lh3.googleusercontent.com/proxy/6pvI_HC2swF4K_3PTk_ANslFqBKwJhNTrtI8-qVET3Ddqg5dHud9ZfJNgQU1yqhlOerMVVv1ye05TG4saqvHso7LWXqGd_idLkrKDSo5-YVBvGmLQngQf0NxbOcN3zA")
-  photo = Photo.create!(restaurant: restaurant, category: :chef)
-  photo.file.attach(io: file, filename: "chef")
+  file = URI.open("https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg")
+  photo = Photo.create!(restaurant: restaurant, category: :food)
+  photo.file.attach(io: file, filename: "interior")
+
+  file = URI.open("https://img-3.journaldesfemmes.fr/aUQpTd7t-V06aWzi_ssZ59hbC9M=/1240x/smart/367fc1643b0b476d95465363d04b9ec3/ccmcms-jdf/13476696.jpg")
+  photo = Photo.create!(restaurant: restaurant, category: :staff)
+  photo.file.attach(io: file, filename: "interior")
+
+  file = URI.open("http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg")
+  photo = Photo.create!(restaurant: restaurant, category: :menu)
+  photo.file.attach(io: file, filename: "interior")
+
+  # file = URI.open("https://lh3.googleusercontent.com/proxy/6pvI_HC2swF4K_3PTk_ANslFqBKwJhNTrtI8-qVET3Ddqg5dHud9ZfJNgQU1yqhlOerMVVv1ye05TG4saqvHso7LWXqGd_idLkrKDSo5-YVBvGmLQngQf0NxbOcN3zA")
+  # photo = Photo.create!(restaurant: restaurant, category: :chef)
+  # photo.file.attach(io: file, filename: "chef")
 
 end
   # file = File.open("app/assets/images/adrien_cachot_portrait.jpg")

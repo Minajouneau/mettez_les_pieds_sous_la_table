@@ -70,7 +70,7 @@
             <div class="section-inner">
               <%= simple_form_for @restaurant, remote: true do |f| %>
                 <%= hidden_field_tag :redirection, true %>
-                <%= f.input :description, :input_html => { maxlength: 1000, :rows => 5 } %>
+                <%= f.input :description, :input_html => { maxlength: 200, :rows => 5 } %>
                 <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
                 <%= f.button :submit, 'Suivant', class: 'btn btn-normal' %>
               <% end %>

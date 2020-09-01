@@ -43,7 +43,5 @@ document.addEventListener('turbolinks:load', () => {
   initBStepper();
   initClockPicker();
   previewImageOnFileSelect();
-  if(document.getElementById("typed_text")){
-    loadDynamicBannerText();
-  }
+  loadDynamicBannerText();
 })
