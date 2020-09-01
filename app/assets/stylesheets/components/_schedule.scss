@@ -4,11 +4,11 @@
       width: 120px;
     }
   form {
-    display: flex;
+    display: block ruby;
     flex: 1;
     margin-left: 20px;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
   }
 
 }
@@ -36,4 +36,13 @@
 #hours-part {
   display: flex;
   justify-content: center;
+}
+
+p {
+  margin-top: 50px;
+  margin-bottom: 3rem;
+}
+
+.scheduled_closed {
+  margin-top: 60px;
 }
