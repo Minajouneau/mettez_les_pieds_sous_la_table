@@ -1,13 +1,11 @@
   .card-product {
-    overflow: hidden;
-    position: relative;
-    height: 258px;
     background: white;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
-    margin: 64px;
-    width: 950px;
+    height: 186px;
+    margin-bottom: 20px;
+    background: #FFFFFF;
+    position: relative;
 }
 
   .status {
@@ -34,103 +32,117 @@
 
 
   .card-product img {
-  height: 60%;
+  height: 70%;
   max-width: 330px;
   padding-left: 15px;
   object-fit: cover;
 }
 
-.card-product-container  {
-  font-size: 45px;
-  text-align: center;
-}
-
 
 .card-product .card-product-infos {
-  padding: 10px;
   flex-grow:1;
+  padding-left: 100px;
   h4 {
-     font-size: 20px;
+    text-align: left;
+    font-size: 16px;
+    color: #828282;
   }
   h2 {
-    font-size: 33px;
+    text-align: left;
     font-weight: bold;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000000;
   }
 }
 
 .visualiser {
- font-weight:bold;
- margin-top: 16%;
+  width: 92px;
+  height: 19px;
+  left: 934px;
+  top: 347.57px;
+  font-family: Lora;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #828282;
+  width: 152px;
+  height: 50px;
+  left: 904px;
+  top: 538px;
+  border: 1px solid #828282;
+  box-sizing: border-box;
 }
-
 
 .modifier {
- font-weight:bold;
- margin-top: 16%;
-}
-
+  left: 765px;
+  top: 553.57px;
+  font-family: Lora;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  width: 139px;
+  height: 50px;
+  left: 735px;
+  top: 538px;
+  background: #00CCBD;
+  }
 
 .enligne_button {
-  border-width : 9px;
-  color : green;
-  font-weight:bold;
-  border-radius: 300px;
-  .btn:hover {
-    color: none;
-}
+  height: 15px;
+  left: 1108px;
+  top: 236px;
+  font-family: Lora;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 15px;
+  color: #6FCF97;
+
 }
 
 .horsligne_button {
-  border-width : 9px;
-  color : #ff5f40;
-  font-weight:bold;
-  border-radius: 300px;
+  height: 15px;
+  left: 1108px;
+  top: 236px;
+  font-family: Lora;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 15px;
+  color: #ff5f40;
 }
 
-#bannerindex-background {
-  background-size: contain;
-  background-position: center;
-  padding: 150px 0;
-  margin-top: -66px;
-  background-repeat: no-repeat;
-  margin-left: -1200px;
-  background-color: black;
-}
+// .container_flex {
+//   display: flex;
+//   justify-content: space-around;
+// }
 
 
-.container_flex {
-  display: flex;
-  justify-content: space-around;
-}
-
-.banner {
-  background-size: contain;
-  background-position: left;
-  padding: 150px 0;
-  margin-top: -66px;
-  background-repeat: repeat-y;
-  background-color: black;
-}
 
 .add_button {
-  color: white;
-  padding: 30px;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 5%;
-  margin-bottom: 64px;
-  background-color: #00CCBD;
+  background: #00CCBD;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
 }
 
 .button-container {
   display: flex;
   justify-content :flex-end;
 }
-
-
-
-
-
 
 .coucou {
   padding-left:4px;
@@ -142,10 +154,6 @@
   color:black;
 }
 
-
-#v-pills-tabContent {
-  width: 60%;
-}
 
 #my-infos {
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
@@ -176,3 +184,8 @@
 }
 
 
+.titretab {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 46px;
+}
