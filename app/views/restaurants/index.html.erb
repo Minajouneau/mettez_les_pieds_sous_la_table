@@ -8,7 +8,6 @@
       <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link"  %>
     </div>
   </div>
-
   <div class="main-right-container">
     <div class="tab-content" id="v-pills-tabContent">
       <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -63,7 +62,6 @@
                                     required: false,
                                     input_html: { autocomplete: "new-password" } %>
                   </div>
-
                   <%= f.input :vision,
                                label: "décrivez nous votre vision de la cuisine ?",
                                   required: false,

@@ -14,6 +14,7 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo = Photo.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
     authorize @photo
     @photo.destroy
     redirect_to edit_restaurant_path(@restaurant)
