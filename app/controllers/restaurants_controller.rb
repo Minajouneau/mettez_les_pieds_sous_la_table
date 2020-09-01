@@ -36,12 +36,6 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:id])
-    @markers =
-      [{
-        lat: @restaurant.latitude,
-        lng: @restaurant.longitude,
-        image_url: helpers.asset_url("chef-icon-color.png"),
-      }]
     @photo = Photo.new
     authorize @restaurant
   end
@@ -50,7 +44,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
     @restaurant.update(restaurant_params)
-    redirect_to restaurants_path
+    
+    if params['redirection'] == 'true'
+      redirect_to restaurants_path
+    end
     # Will raise ActiveModel::ForbiddenAttributesError
   end
 

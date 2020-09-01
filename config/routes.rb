@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     member do
       post "update_activation"
     end
-      resources :photos, only: [:create]
+      resources :photos, only: [:create, :destroy]
   end
   if Rails.env.production?
     resources :restaurants, only: :show, constraints: { subdomain: 'app' }
