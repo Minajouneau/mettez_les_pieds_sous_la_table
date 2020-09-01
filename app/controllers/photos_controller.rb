@@ -6,7 +6,8 @@ class PhotosController < ApplicationController
     @photo.restaurant_id = @restaurant.id
     authorize @photo
     if @photo.save
-      redirect_to edit_restaurant_path(@restaurant)
+      render partial: "photos/form", locals: { category: @photo.category, restaurant: @restaurant, photo: Photo.new }
+
     else
       render 'restaurants/edit'
     end
