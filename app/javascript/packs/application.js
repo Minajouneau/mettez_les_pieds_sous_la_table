@@ -31,7 +31,9 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { OpacityWithScroll } from '../components/opacity_with_scroll';
 import { ColorChangeWithCheckbox } from '../components/color_change_with_checkbox';
 import { loadDynamicBannerText } from '../components/typed_text';
-import {initBStepper } from '../plugins/init_stepper';
+import { initBStepper } from '../plugins/init_stepper';
+import { previewImageOnFileSelect } from '../components/photo_preview';
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -39,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   OpacityWithScroll();
   ColorChangeWithCheckbox();
   initBStepper();
+  previewImageOnFileSelect();
   if(document.getElementById("typed_text")){
     loadDynamicBannerText();
   }

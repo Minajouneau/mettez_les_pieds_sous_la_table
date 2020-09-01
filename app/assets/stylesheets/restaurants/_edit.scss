@@ -11,7 +11,6 @@ label {
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1em;
-  text-transform: capitalize;
   margin-bottom: 10px;
   color: #828585;
 }
@@ -75,4 +74,8 @@ form {
   display: flex;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.27);
   position: absolute;
+}
+
+.active .bs-stepper-circle {
+  background-color: $deliveroo-turquoise;
 }
