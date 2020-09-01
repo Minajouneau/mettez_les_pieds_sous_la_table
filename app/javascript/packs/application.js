@@ -33,6 +33,7 @@ import { ColorChangeWithCheckbox } from '../components/color_change_with_checkbo
 import { loadDynamicBannerText } from '../components/typed_text';
 import { initBStepper } from '../plugins/init_stepper';
 import { previewImageOnFileSelect } from '../components/photo_preview';
+import { autoSubmitForm } from '../components/autosubmit';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -42,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   ColorChangeWithCheckbox();
   initBStepper();
   previewImageOnFileSelect();
+  autoSubmitForm();
   if(document.getElementById("typed_text")){
     loadDynamicBannerText();
   }

@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     authorize @photo
     @photo.destroy
-    redirect_to edit_restaurant_path(@restaurant)
+    redirect_to edit_restaurant_path(@restaurant, anchor: "nav-food")
   end
 
   private

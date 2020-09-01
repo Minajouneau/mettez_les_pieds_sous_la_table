@@ -36,10 +36,6 @@ users.each do |user|
   photo = Photo.create!(restaurant: restaurant, category: :interior)
   photo.file.attach(io: file, filename: "interior")
 
-  file = URI.open("https://lh3.googleusercontent.com/proxy/6pvI_HC2swF4K_3PTk_ANslFqBKwJhNTrtI8-qVET3Ddqg5dHud9ZfJNgQU1yqhlOerMVVv1ye05TG4saqvHso7LWXqGd_idLkrKDSo5-YVBvGmLQngQf0NxbOcN3zA")
-  photo = Photo.create!(restaurant: restaurant, category: :chef)
-  photo.file.attach(io: file, filename: "chef")
-
 end
   # file = File.open("app/assets/images/adrien_cachot_portrait.jpg")
   # restaurant.photos.attach(io: file, filename: "restaurant")

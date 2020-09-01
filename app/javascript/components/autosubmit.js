@@ -1,9 +1,10 @@
-const autoSubmit = () => {
-  const fileButton = document.getElementById("photo-input");
-  const formToSubmit = document.getElementById("submit");
-  fileButton.onchange = function () {
-    formToSubmit.submit();
-  };
+import $ from "jquery";
+
+const autoSubmitForm = () => {
+  const forms = $("auto-submit-form");
+  forms.find(".photo-input").change((event) => {
+    console.log(event);
+  });
 };
 
-export { ColorChangeWithCheckbox };
+export { autoSubmitForm };

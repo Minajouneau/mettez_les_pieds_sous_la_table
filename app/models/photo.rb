@@ -2,7 +2,7 @@ class Photo < ApplicationRecord
   belongs_to :restaurant
   enum category: [:food, :exterior, :interior, :staff, :menu]
   CATEGORIES_NAME = {
-    "food" => "Plat",
+    "food" => "Plats",
     "exterior" => "Extérieur",
     "interior" => "Intérieur",
     "staff" => "Équipe",
