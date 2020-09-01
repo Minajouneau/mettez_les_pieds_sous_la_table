@@ -1,22 +1,22 @@
 <% if policy(Restaurant).create? %>
   <div class="container">
-  <div class="container-small">
-    <div class="section-activation box">
-      <div class="section-inner d-flex justify-content-around">
+    <div class="container-small">
+      <div class="section-activation box">
+        <div class="section-inner d-flex justify-content-around">
 
-        <% if @restaurant.activated %>
-          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-            <i class="fas fa-toggle-on enligne"> En ligne</i>
+          <% if @restaurant.activated %>
+            <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
+              <i class="fas fa-toggle-on enligne"> En ligne</i>
+            <% end %>
+          <% else %>
+            <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
+              <i class="fas fa-toggle-off horsligne"> Hors-ligne</i>
+            <% end %>
           <% end %>
-        <% else %>
-          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-            <i class="fas fa-toggle-off horsligne"> Hors-ligne</i>
-          <% end %>
-        <% end %>
-        <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
+          <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
+        </div>
       </div>
     </div>
-  </div>
 
     <div class="bs-stepper">
       <div class="bs-stepper-header" role="tablist">
@@ -108,15 +108,37 @@
               </div>
             </div>
           </div>
-
-        <div id="hours-part" class="content" role="tabpanel" aria-labelledby="hours-part-trigger">
-          <%= simple_form_for @restaurant, remote: true do |f| %>
-            <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-          <% end %>
+        </div>
+        
+        <div id="hours-part" class="content content-design" role="tabpanel" aria-labelledby="hours-part-trigger">
+          <div class="section-account box-design">
+            <div class="section-inner section-inner-design">
+              <% @restaurant.schedules.each do |schedule| %>
+                <div class="schedule-day schedule-day-design">  
+                  <p><%= schedule.day %></p>
+                  <%= simple_form_for schedule do |f| %>
+                    <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
+                    <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
+                    <fieldset class="boolean optional schedule_closed">
+                      <div class="form-check">
+                        <label class="form-check-label boolean optional switch-toggle" for="schedule_closed_<%= schedule.id %>">
+                          <input name="schedule[closed]" type="hidden" value="0">
+                          <input class="form-check-input boolean optional" type="checkbox" value="1" name="schedule[closed]" id="schedule_closed_<%= schedule.id %>">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  <% end %>
+                </div>
+              <% end %>
+              <%= simple_form_for @restaurant do |f| %>
+                <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
       <% else %>
         <h2>You cannot add a restaurant, you need permissions !</h2>

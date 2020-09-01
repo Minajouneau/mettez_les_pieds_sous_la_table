@@ -31,10 +31,10 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { OpacityWithScroll } from '../components/opacity_with_scroll';
 import { ColorChangeWithCheckbox } from '../components/color_change_with_checkbox';
 import { loadDynamicBannerText } from '../components/typed_text';
+import { initClockPicker } from '../plugins/init_clock_picker';
 import { initBStepper } from '../plugins/init_stepper';
 import { previewImageOnFileSelect } from '../components/photo_preview';
 import { autoSubmitForm } from '../components/autosubmit';
-
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -42,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   OpacityWithScroll();
   ColorChangeWithCheckbox();
   initBStepper();
+  initClockPicker();
   previewImageOnFileSelect();
   autoSubmitForm();
   if(document.getElementById("typed_text")){
