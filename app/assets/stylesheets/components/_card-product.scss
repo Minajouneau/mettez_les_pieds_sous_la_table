@@ -34,7 +34,7 @@
 
 
   .card-product img {
-  height: 70%;
+  height: 60%;
   max-width: 330px;
   padding-left: 15px;
   object-fit: cover;
@@ -60,11 +60,13 @@
 
 .visualiser {
  font-weight:bold;
+ margin-top: 16%;
 }
 
 
 .modifier {
  font-weight:bold;
+ margin-top: 16%;
 }
 
 
@@ -73,61 +75,17 @@
   color : green;
   font-weight:bold;
   border-radius: 300px;
+  .btn:hover {
+    color: none;
 }
-
+}
 
 .horsligne_button {
   border-width : 9px;
-  color : #363636;
+  color : #ff5f40;
   font-weight:bold;
   border-radius: 300px;
 }
-
-
-.sidenav {
-  width: 230px;
-  position: fixed;
-  line-height: 1.7;
-  overflow-x: hidden;
-  padding: 36px 0;
-  background-color: #f6f5f5;
-  height: 280px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  overflow: hidden;
-  border-radius:10px;
-  border-width : 5px;
-  border-color : black;
-  border-left-style: solid;
-
-  .active {
-    font-weight:bold;
-    // background-color: #f6d743 !important;
-    color: black;
-  }
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  text-align:center;
-  font-size: 22px;
-  display: block;
-  color:black;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
-
-.avatar-large {
-  display: flex;
-  margin-left: 94px;
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-
 
 #bannerindex-background {
   background-size: contain;
@@ -154,16 +112,25 @@
   background-color: black;
 }
 
-
-
 .add_button {
   color: white;
   padding: 30px;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
   border-radius: 5%;
-  background-color:#00CCBD;
+  margin-bottom: 64px;
+  background-color: #00CCBD;
 }
+
+.button-container {
+  display: flex;
+  justify-content :flex-end;
+}
+
+
+
+
+
 
 .coucou {
   padding-left:4px;
@@ -185,9 +152,6 @@
   margin-bottom:50px;
 }
 
-#restaurants-index {
-  margin-top: 10%;
-}
 
 #user_prenom {
   width: 158%;
@@ -208,5 +172,7 @@
 
 .no_image {
   opacity: 0.6;
- height:60%;
+  height:60%;
 }
+
+
