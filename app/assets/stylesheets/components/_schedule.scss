@@ -1,0 +1,48 @@
+.schedule-day-design {
+  display: flex;
+  p {
+      width: 120px;
+    }
+  form {
+    display: block ruby;
+    flex: 1;
+    margin-left: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}
+
+#schedule_opening_hour,
+#schedule_closing_hour {
+  width: 90px;
+}
+
+.section-inner-design {
+  padding: 30px;
+  display: inline-block;
+  padding: 5% 25%;
+}
+
+.box-design {
+  background: #ffffff;
+  position: absolute;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 63%;
+}
+
+#hours-part {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  margin-top: 50px;
+  margin-bottom: 3rem;
+}
+
+.scheduled_closed {
+  margin-top: 60px;
+}
