@@ -1,19 +1,23 @@
 <% if policy(Restaurant).create? %>
   <div class="container">
-    <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
-    <div class="section-activation box">
-      <div class="section-inner d-inline-flex">
-        <% if @restaurant.activated %>
-          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-            <i class="fas fa-toggle-on enligne"> En ligne</i>
+    <div class="container-small">
+      <div class="section-activation box">
+        <div class="section-inner d-flex justify-content-around">
+
+          <% if @restaurant.activated %>
+            <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
+              <i class="fas fa-toggle-on enligne"> En ligne</i>
+            <% end %>
+          <% else %>
+            <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
+              <i class="fas fa-toggle-off horsligne"> Hors-ligne</i>
+            <% end %>
           <% end %>
-        <% else %>
-          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-            <i class="fas fa-toggle-off horsligne"> Hors-ligne</i>
-          <% end %>
-        <% end %>
+          <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-warning'  %>
+        </div>
       </div>
     </div>
+
     <div class="bs-stepper">
       <div class="bs-stepper-header" role="tablist">
         <!-- your steps here -->
@@ -72,7 +76,7 @@
                 <%= hidden_field_tag :redirection, true %>
                 <%= f.input :description, :input_html => { maxlength: 200, :rows => 5 } %>
                 <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
-                <%= f.button :submit, 'Suivant', class: 'btn btn-normal' %>
+                <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
               <% end %>
             </div>
           </div>
@@ -85,7 +89,7 @@
                 <% Photo.categories.each_with_index do |enum, index| %>
                   <% category = enum.first %>
                   <% name = Photo::CATEGORIES_NAME[category] %>
-                  <a class="nav-item nav-link <%= "active" if index.zero? %>" id="nav-<%= category %>-tab" data-toggle="tab" href="#nav<%= category %>" role="tab" aria-controls="nav<%= category %>" aria-selected="true"> <%= name %></a>
+                  <a class="nav-item nav-link <%= "active" if index.zero? %>" id="nav-<%= category %>-tab" data-toggle="tab" href="#nav-<%= category %>" role="tab" aria-controls="nav<%= category %>" aria-selected=" <%= index.zero? ? "true" : "false" %>"> <%= name %></a>
                 <% end %>
               </div>
             </nav>
@@ -94,60 +98,38 @@
 
               <% Photo.categories.each_with_index do |enum, index| %>
                 <% category = enum.first %>
-                <% name = Photo::CATEGORIES_NAME[category] %>
-                <div class="tab-pane fade show <%= "active" if index.zero? %>" id="nav-<%= category %>" role="tabpanel" aria-labelledby="nav-<%= category %>-tab">
+                <div class="tab-pane fade <%= "show active" if index.zero? %>" id="nav-<%= category %>" role="tabpanel" aria-labelledby="nav-<%= category %>-tab">
                   <div class="section-inner">
-                    <% @restaurant.photos.where(category: enum.first).each do |photo| %>
-                      <% if photo.file.attached? %>
-                        <div class="d-inline-flex">
-                          <div class="position-relative">
-                            <%= cl_image_tag photo.file.key, crop: :fill, width: 100, height: 100, class: "hidden photo-added" %>
-                            <div class="photo-trash">
-                              <%= link_to restaurant_photo_path(@restaurant, photo), method: :delete, class: "remove-photo" do %>
-                                <i class="fas fa-trash-alt"></i>
-                              <% end %>
-                            </div>
-                          </div>
-                        </div>
-                      <% end %>
-                    <% end %>
-                    <%= simple_form_for [@restaurant, @photo], html: { id: "submit" } do |f| %>
-                      <%= f.input :category, input_html: {value: enum.first}, as: :hidden %>
-                      <div class="add-photo d-flex">
-                      <%= f.input :file, as: :file, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: 'Télécharger une photo 📷'%>
-                      <%= image_tag "" , crop: :fill, width: 100, height: 100, class: "hidden", id: "photo-preview" %>
-                      </div>
-                      <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
-                    <% end %>
+                    <%= render "photos/form", category: category, restaurant: @restaurant, photo: @photo %>
+                    <div class="btn btn-normal next-step">Suivant</div>  
                   </div>
                 </div>
               <% end %>
-
+              </div>
             </div>
-         
           </div>
         </div>
+        
         <div id="hours-part" class="content content-design" role="tabpanel" aria-labelledby="hours-part-trigger">
           <div class="section-account box-design">
             <div class="section-inner section-inner-design">
               <% @restaurant.schedules.each do |schedule| %>
-              <div class="schedule-day schedule-day-design">  
-                <p><%= schedule.day %></p>
-                <%= simple_form_for schedule do |f| %>
-                  <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
-                  <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
-                  <fieldset class="boolean optional schedule_closed">
-                    <div class="form-check">
-                      <label class="form-check-label boolean optional switch-toggle" for="schedule_closed_<%= schedule.id %>">
-                        <input name="schedule[closed]" type="hidden" value="0">
-                        <input class="form-check-input boolean optional" type="checkbox" value="1" name="schedule[closed]" id="schedule_closed_<%= schedule.id %>">
-                        <span class="slider round"></span>
-                      </label>
-                    </div>
-                  </fieldset>
-                  <%#= f.submit 'Enregistrer', class: 'btn btn-normal' %>
-                <% end %>
-              </div>
+                <div class="schedule-day schedule-day-design">  
+                  <p><%= schedule.day %></p>
+                  <%= simple_form_for schedule do |f| %>
+                    <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
+                    <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
+                    <fieldset class="boolean optional schedule_closed">
+                      <div class="form-check">
+                        <label class="form-check-label boolean optional switch-toggle" for="schedule_closed_<%= schedule.id %>">
+                          <input name="schedule[closed]" type="hidden" value="0">
+                          <input class="form-check-input boolean optional" type="checkbox" value="1" name="schedule[closed]" id="schedule_closed_<%= schedule.id %>">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  <% end %>
+                </div>
               <% end %>
               <%= simple_form_for @restaurant do |f| %>
                 <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
@@ -156,15 +138,28 @@
           </div>
         </div>
       </div>
-      <%#= simple_form_for @restaurant, html: { class: "text-center"} do |f| %>
-        <%# <div class="section-inner d-inline-flex" id="checkbox">
-          <div class= "justify-content-around mx-2 mt-1">
-            <input type="checkbox" id="restaurant_activated" class="checkbox" />
-            <label for="restaurant_activated" name="restaurant[activated]" class="switch"></label>
-          </div>
-        </div> %>
-        <%# end %>
-        <%# </div> %>
+    </div>
+
       <% else %>
         <h2>You cannot add a restaurant, you need permissions !</h2>
       <% end %>
+
+
+
+
+  <%# <div class="activation">
+
+          <%= simple_form_for @restaurant, html: { class: "text-center"}, remote: true do |f| %>
+            <%# <div class="section-inner d-inline-flex" id="checkbox"> %>
+              <%# <div class= "justify-content-around mx-2 mt-1"> %>
+                <%# <input type="checkbox" id="restaurant_activated" class="checkbox" /> %>
+                <%# <label for="restaurant_activated" name="restaurant[activated]" class="switch"></label> %>
+              <%# </div>   %>
+            <%# </div> %>
+          <%# <% end %>
+          <%# <% if @restaurant.activated %>
+            <%# <p>En Ligne</p> %>
+          <%# <% else %>
+            <%# <p>Hors-ligne</p> %>
+          <%# <% end %>
+          <%# </div> %>

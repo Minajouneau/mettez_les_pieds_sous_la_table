@@ -34,6 +34,7 @@ import { loadDynamicBannerText } from '../components/typed_text';
 import { initClockPicker } from '../plugins/init_clock_picker';
 import { initBStepper } from '../plugins/init_stepper';
 import { previewImageOnFileSelect } from '../components/photo_preview';
+import { autoSubmitForm } from '../components/autosubmit';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -43,5 +44,6 @@ document.addEventListener('turbolinks:load', () => {
   initBStepper();
   initClockPicker();
   previewImageOnFileSelect();
+  autoSubmitForm();
   loadDynamicBannerText();
 })

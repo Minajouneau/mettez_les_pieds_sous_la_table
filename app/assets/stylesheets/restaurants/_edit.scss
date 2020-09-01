@@ -75,3 +75,14 @@ form {
 .active .bs-stepper-circle {
   background-color: $deliveroo-turquoise;
 }
+
+.hidden {
+  display: none;
+}
+
+.section-activation {
+  margin-top: 90px;
+  margin-bottom: 20px;
+  border: #979999;
+  justify-content: center;
+}
