@@ -140,6 +140,23 @@
     justify-items: center;
     margin: auto;
   }
+
+  .menu {
+    max-height: 100%;
+    width: 100%;
+  }
+  
+  .menu-pic {
+    background-image: url('http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg');
+  }
+
+.modal-backdrop {
+  z-index: -1;
+}
+
+  .module {
+    height: 100%;
+  }
   
   .module:nth-child(1n) {
     grid-row: span 1;
@@ -163,7 +180,7 @@
 
   .cards-show-hours-dashboard {
     display: grid;
-    width: 70%;
+    width: 74%;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
     justify-content: space-between;
@@ -182,7 +199,7 @@
 
   .cards-show-menu .card-show-product {
     width: 40%;
-    height: 600px;
+    height: 700px;
   }
 
   #show-footer {

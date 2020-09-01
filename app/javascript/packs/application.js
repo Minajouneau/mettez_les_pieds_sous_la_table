@@ -45,7 +45,5 @@ document.addEventListener('turbolinks:load', () => {
   initClockPicker();
   previewImageOnFileSelect();
   autoSubmitForm();
-  if(document.getElementById("typed_text")){
-    loadDynamicBannerText();
-  }
+  loadDynamicBannerText();
 })
