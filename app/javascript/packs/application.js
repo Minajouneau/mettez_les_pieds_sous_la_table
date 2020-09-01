@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   OpacityWithScroll();
   ColorChangeWithCheckbox();
   initBStepper();
-  if(document.getElementById("typed_text")){
-    loadDynamicBannerText();
-  }
+  // if(document.getElementById("typed_text")){
+  loadDynamicBannerText();
+  // }
 })

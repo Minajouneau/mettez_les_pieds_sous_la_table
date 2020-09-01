@@ -8,21 +8,29 @@
       <div class="column-center">
         <h1 style="text-align: center;"><%= @restaurant.name %></h1>
         <div style="text-align: center;">
-          <p><%= @restaurant.description %></p>
+          <p><% if @restaurant.description? %>
+            <%= @restaurant.description.capitalize %>
+            <% else %>
+            <%= 'Décrivez ici votre restaurant en 200 mots maximum' %>
+            <% end %></p>
           <br>
         </div>
       </div>
       <div class="column-right">
           <%= link_to 'Continuer à éditer', edit_restaurant_path, class: "btn-show", style: "height: 40px;" %>
-          <%= link_to "Retour à l'index", restaurants_path, class: "btn-show", style: "height: 40px;" %>
+          <%= link_to "Tableau de bord", restaurants_path, class: "btn-show", style: "height: 40px;" %>
           <%# <button class="btn-normal" style="height: 40px; font-family: 'El Messiri', sans-serif;">Status</button> %>
       </div>
     </div>
   </div>
   <div class="cards-show-dashboard">
     <div class="card-show-product">
-      <p style="font-weight: bold;"><span id="typed-text"></span></p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illum quasi, iste eos corporis rerum nostrum! Quos asperiores suscipit nemo! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum sit quam ea officia asperiores qui dicta nulla libero in aspernatur accusantium quas ex nostrum maiores, maxime reiciendis? Quod, ut sed!</p>
+      <p style="font-weight: bold;"><span id="typed-text" data-user-parcours='<%= @user.parcours.capitalize %>'></span></p>
+      <p><% if @user.parcours? %>
+            <%= @user.parcours.capitalize %>
+            <% else %>
+            <%= 'Détaillez ici votre parcours' %>
+            <% end %></p>
     </div>
   </div>
   <div class="cards-show-dashboard-2">
@@ -31,8 +39,16 @@
         <img src="https://img-3.journaldesfemmes.fr/aUQpTd7t-V06aWzi_ssZ59hbC9M=/1240x/smart/367fc1643b0b476d95465363d04b9ec3/ccmcms-jdf/13476696.jpg" style="max-width: 100%; height: 100%; object-fit: cover;" alt="">
       </div>
       <div id="insert-droit">
-        <h1 style="color: white;">Le chef : <%= @user.prenom.capitalize %></h1>
-        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum possimus voluptas labore quaerat hic quasi molestiae at itaque? Asperiores, earum.</p>
+        <h1 style="color: white;">Le chef : <% if @user.prenom? %>
+            <%= @user.prenom.capitalize %>
+            <% else %>
+            <%= 'Votre prénom' %>
+            <% end %></h1>
+        <p style="color: white;"><% if @user.vision? %>
+            <%= @user.vision.capitalize %>
+            <% else %>
+            <%= 'Expliquez ici votre vision' %>
+            <% end %></p>
       </div>
     </div>
     <div class="card-show-product-2">
@@ -77,15 +93,59 @@
     </div>
   </div>
   <div class="cards-show-pics">
-    <img src="https://paris.tastefestivals.com/wp-content/uploads/elementor/thumbs/%C2%A9VincentNageotte-img-taste2019_NGT8824-1-ofjrx7uu1pbkfzvqlpxjvip782525pf4upl9wlo47s.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/77/37/2f/77372f1f63967c969dff6a98bb2a1bc4.png" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg" class="module" alt="">
-    <img src="https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg" class="module" alt="">
+    <% if @restaurant.photo? %>
+      <%= @restaurant.photo.where(category: 1) %>
+    <% else %>
+      <%= image_tag 'https://paris.tastefestivals.com/wp-content/uploads/elementor/thumbs/%C2%A9VincentNageotte-img-taste2019_NGT8824-1-ofjrx7uu1pbkfzvqlpxjvip782525pf4upl9wlo47s.jpg', class: 'module' %>
+    <% end %>
+
+    <% if @restaurant.photo? %>
+      <%= @restaurant.photo.where(category: 2) %>
+    <% else %>
+      <%= image_tag 'https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg', class: 'module' %>
+    <% end %>
+
+    <% if @restaurant.photo? %>
+      <%= @restaurant.photo.where(category: 3) %>
+    <% else %>
+      <%= image_tag 'https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg', class: 'module' %>
+    <% end %>
+
+    <% if @restaurant.photo? %>
+      <%= @restaurant.photo.where(category: 4) %>
+    <% else %>
+      <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
+    <% end %>
+
+    <% if @restaurant.photo? %>
+      <%= @restaurant.photo.where(category: 5) %>
+    <% else %>
+      <%= image_tag 'https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg', class: 'module' %>
+    <% end %>
+
+    <% if @restaurant.photo? %>
+      <%= @restaurant.photo.where(category: 6) %>
+    <% else %>
+      <%= image_tag 'https://i.pinimg.com/originals/77/37/2f/77372f1f63967c969dff6a98bb2a1bc4.png', class: 'module' %>
+    <% end %>
+
+    <% if @restaurant.photo? %>
+      <%= @restaurant.photo.where(category: 7) %>
+    <% else %>
+      <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
+    <% end %>
+
+    <% if @restaurant.photo? %>
+      <%= @restaurant.photo.where(category: 8) %>
+    <% else %>
+      <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
+    <% end %>
+
+    <% if @restaurant.photo? %>
+      <%= @restaurant.photo.where(category: 9) %>
+    <% else %>
+      <%= image_tag 'https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg', class: 'module' %>
+    <% end %>
   </div>
   <div class="cards-show-menu">
     <div class="card-show-product">
@@ -93,7 +153,11 @@
       <%# <% @restaurant.photos.where(category: :menu).each do |photo| %>
         <%#= cl_image_tag photo.key, crop: :fill, class: "photo" %>
       <%# end %>
-      <img src="http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg" style ="max-height: 100%; width: 100%;" alt="">
+      <div id="myModal" class="modal">
+        <img id="myImg" src="http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg" style="width:100%;max-width:300px">
+        <span class="close">&times;</span>
+        <img src="http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg" style ="max-height: 100%; width: 100%;" class="modal-content" id="img01">
+      </div>
     </div>
   </div>
   <div class="grid-flex-map">
@@ -102,7 +166,9 @@
       <br>
       <p><%= @restaurant.address %>
       <br>
-      <%= @restaurant.phone_number %></p>
+      <%= @restaurant.phone_number %>
+      <br>
+      <%= @restaurant.contact_email %></p>
     </div>
     <div class="demi-down">
       <div class="map-center">
