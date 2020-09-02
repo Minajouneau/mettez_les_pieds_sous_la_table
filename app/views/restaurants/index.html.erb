@@ -31,8 +31,12 @@
 
           <% @restaurants.each do |restaurant| %>
             <div class="card-product">
-              <%# <%= cl_image_tag restaurant.photos.where(category: 'front'  ).file, crop: :fill, id: 'photo' %>
-              <img  src="https://lh3.googleusercontent.com/proxy/26gzRO0Cl31_3iqpr-6h4Da6_3vitbC76meV5KaqyLIkppIR8wp6IyzmlFZ-0Ygr-RFDWPq75gU7SqtWQqhhc060oWHUtFBX7OAMAYMs4vt54w_Sc3t4HG-kxm4w6DM"class="no_image">
+              <% if restaurant.photos.where(category: :exterior).first %>
+                <%= cl_image_tag restaurant.photos.where(category: :exterior).first.file.key, crop: :fill %>
+              <% else %>
+                <%= image_tag "no_photo.png" %>
+              <% end %>
+              <%# <img src="https://lh3.googleusercontent.com/proxy/26gzRO0Cl31_3iqpr-6h4Da6_3vitbC76meV5KaqyLIkppIR8wp6IyzmlFZ-0Ygr-RFDWPq75gU7SqtWQqhhc060oWHUtFBX7OAMAYMs4vt54w_Sc3t4HG-kxm4w6DM"class="no_image"> %>
 
               <div class="card-product-infos">
                 <h2><%=restaurant.name.capitalize%></h2>
