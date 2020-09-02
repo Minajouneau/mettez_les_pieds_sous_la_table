@@ -1,6 +1,6 @@
 <body class="show-page">
   <div class="chief-presentation-background">
-   <% url = @restaurant.photos.where(category: :interior)[0] ?  cl_image_path(@restaurant.photos.where(category: :interior)[0].file.key) : "https://www.meetpro.fr/wp-content/uploads/2019/06/petr-sevcovic-594807-unsplash-e1561709868420.jpg" %>
+  <% url = @restaurant.photos.where(category: :interior)[0] ?  cl_image_path(@restaurant.photos.where(category: :interior)[0].file.key) : "https://www.meetpro.fr/wp-content/uploads/2019/06/petr-sevcovic-594807-unsplash-e1561709868420.jpg" %>
     <div class="chief-presentation" style="background-image: url(<%= url %>);">
       <div class="column-left">
         <div></div>           

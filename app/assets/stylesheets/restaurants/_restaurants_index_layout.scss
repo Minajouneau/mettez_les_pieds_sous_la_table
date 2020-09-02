@@ -1,5 +1,5 @@
 .sidebar-container{
-    flex: 0 0 300px;
+    flex: 0 0 15%;
     display: flex;
     justify-content: center;
     background-color: white;
@@ -38,7 +38,7 @@
   font-size: 16px;
   line-height: 15px;
   text-align: center;
-  color: #000000;
+  color: #00CCBD;
 }
 
 .name {
@@ -59,7 +59,6 @@ color: #000000;
 .nav-link {
   left: 50px;
   top: 307px;
-  font-family: Lora;
   font-style: normal;
   font-size: 14px;
   line-height: 18px;
@@ -70,7 +69,6 @@ color: #000000;
 .nav-link active {
   left: 50px;
   top: 307px;
-  font-family: Lora;
   font-style: normal;
   font-size: 14px;
   line-height: 18px;
@@ -78,14 +76,3 @@ color: #000000;
 }
 
 
-.burger {
-position: absolute;
-width: 24px;
-height: 4px;
-background: blueviolet;
-}
-
-.burger::before, .burger::after {
-content: “”;
-display: block;
-}
