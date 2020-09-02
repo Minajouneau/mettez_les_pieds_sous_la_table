@@ -3,7 +3,6 @@
     <div class="container-small">
       <div class="section-activation box">
         <div class="section-inner d-flex justify-content-around">
-
           <% if @restaurant.activated %>
             <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
               <i class="fas fa-toggle-on enligne"> En ligne</i>
@@ -17,7 +16,6 @@
         </div>
       </div>
     </div>
-
     <div class="bs-stepper">
       <div class="bs-stepper-header" role="tablist">
         <!-- your steps here -->
@@ -48,6 +46,20 @@
             <span class="bs-stepper-label">Horaires</span>
           </button>
         </div>
+        <div class="bs-stepper-line"></div>
+        <div class="step" data-target="#social-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="social-part" id="social-part-trigger">
+            <span class="bs-stepper-circle">5</span>
+            <span class="bs-stepper-label">Réseaux sociaux</span>
+          </button>
+        </div>
+        <div class="bs-stepper-line"></div>
+        <div class="step" data-target="#booking-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="booking-part" id="booking-part-trigger">
+            <span class="bs-stepper-circle">6</span>
+            <span class="bs-stepper-label">Réservation</span>
+          </button>
+        </div>
       </div>
       <div class="bs-stepper-content">
         <!-- your steps content here -->
@@ -59,7 +71,7 @@
               <%= simple_form_for @restaurant, remote: true do |f| %>
                 <%# <%= f.error_notification %>
                 <%= f.input :name, label: "Nom du restaurant", placeholder: "Quel est le nom de votre restaurant ?" %>
-                <%= f.input :address, label: "Et son adresse ?", placeholder: "Rue, code postal, ville", input_html: { id: 'autocompletion-edit' } %>
+                <%= f.input :address, label: "Adresse du restaurant", placeholder: "Rue, code postal, ville", input_html: { id: 'autocompletion-edit' } %>
                 <%= f.input :contact_email, label: "Adresse mail de contact", placeholder: "Rue, code postal, ville", input_html: { type:"email" } %>
                 <%= f.input :phone_number, prepend: "+33", label: "Numéro de téléphone", placeholder: "+33", input_html: { type:"tel", maxlength: 10 } %>
                 <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
@@ -68,16 +80,14 @@
           </div>
         </div>
         <div id="description-part" class="content" role="tabpanel" aria-labelledby="description-part-trigger">
-          
           <div class="section-description box">
             <div class="section-title">Description</div>
             <div class="section-inner">
               <%= simple_form_for @restaurant, remote: true do |f| %>
                 <%= f.input :description, label: "Décrivez votre restaurant (200 caratères maximum)", :input_html => { maxlength: 200, :rows => 5 } %>
-                <%= f.input :quote_one, label: "Citation 1", :input_html => { maxlength: 40} %>
-                <%= f.input :quote_two, label: "Citation 2", :input_html => { maxlength: 40} %>
-                <%= f.input :quote_three, label: "Citation 3", :input_html => { maxlength: 40} %>
-
+                <%= f.input :quote_one, label: "Ma citation 1", :input_html => { maxlength: 40} %>
+                <%= f.input :quote_two, label: "Ma citation 2", :input_html => { maxlength: 40} %>
+                <%= f.input :quote_three, label: "Ma citation 3", :input_html => { maxlength: 40} %>
                 <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
                 <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
               <% end %>
@@ -85,7 +95,6 @@
           </div>
         </div>
         <div id="photos-part" class="content" role="tabpanel" aria-labelledby="photos-part-trigger">
-          
           <div class="section-photos box">
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -122,7 +131,6 @@
                     <p><%= schedule.day %></p>
                   </div>
                   <%= simple_form_for schedule, remote: true do |f| %>
-                      <%= hidden_field_tag :redirection, true %>
                     <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
                     <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
                     <fieldset class="boolean optional schedule_closed">
@@ -134,22 +142,47 @@
                         </label>
                       </div>
                     </fieldset>
-                    <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+                    <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal next-step' %>
                   <% end %>
                 </div>
               <% end %>
-              <%#= simple_form_for @restaurant do |f| %>
-                
-              <%# end %>
             </div>
           </div>
         </div>
+
+        <div id="social-part" class="content fade" role="tabpanel" aria-labelledby="social-part-trigger">
+          <div class="section-account box">
+            <div class="section-title">Réseaux sociaux</div>
+            <div class="section-inner">
+              <%= simple_form_for @restaurant, remote: true do |f| %>
+                <%= f.input :facebook_url, label: "Facebook" %>
+                <%= f.input :twitter_url, label: "Twitter" %>
+                <%= f.input :instagram_url, label: "Instagram" %>
+                <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal next-step' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div id="booking-part" class="content fade" role="tabpanel" aria-labelledby="booking-part-trigger">
+          <div class="section-account box">
+            <div class="section-title">Lien de réservation</div>
+            <div class="section-inner">
+              <%= simple_form_for @restaurant, remote: true do |f| %>
+                <%= hidden_field_tag :redirection, true %>
+                <%= f.input :booking_url, label: "Réservation" %>
+                <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
-      <% else %>
-        <h2>You cannot add a restaurant, you need permissions !</h2>
-      <% end %>
+    <% else %>
+      <h2>You cannot add a restaurant, you need permissions !</h2>
+    <% end %>
 
 
 
@@ -160,13 +193,13 @@
             <%# <div class="section-inner d-inline-flex" id="checkbox"> %>
               <%# <div class= "justify-content-around mx-2 mt-1"> %>
                 <%# <input type="checkbox" id="restaurant_activated" class="checkbox" /> %>
-                <%# <label for="restaurant_activated" name="restaurant[activated]" class="switch"></label> %>
-              <%# </div>   %>
-            <%# </div> %>
-          <%# <% end %>
-          <%# <% if @restaurant.activated %>
-            <%# <p>En Ligne</p> %>
-          <%# <% else %>
-            <%# <p>Hors-ligne</p> %>
-          <%# <% end %>
-          <%# </div> %>
+                  <%# <label for="restaurant_activated" name="restaurant[activated]" class="switch"></label> %>
+                  <%# </div>   %>
+                  <%# </div> %>
+                  <%# <% end %>
+                  <%# <% if @restaurant.activated %>
+                  <%# <p>En Ligne</p> %>
+                  <%# <% else %>
+                  <%# <p>Hors-ligne</p> %>
+                  <%# <% end %>
+                  <%# </div> %>
