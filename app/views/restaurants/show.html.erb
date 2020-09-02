@@ -27,10 +27,10 @@
   <div class="cards-show-dashboard">
     <div class="card-show-product">
       <p style="font-weight: bold;">
-        <span id="typed-text" data-user-parcours="<% if @user.parcours? %>
-            <%= @user.parcours.capitalize %>
+        <span id="typed-text" data-user-parcours="<% if @restaurant.quote_one? %>
+            <%= @restaurant.quote_one.capitalize %>
             <% else %>
-            <%= 'Détaillez ici votre parcours' %>
+            <%= 'Rentrez ici de petites citations' %>
             <% end %>"></span>        
       </p>
       <p><% if @user.parcours? %>
