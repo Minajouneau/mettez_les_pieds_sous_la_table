@@ -100,55 +100,55 @@
   </div>
   <div class="cards-show-pics">
     <%# @restaurant.photos.first.file.key %>
-    <% if @restaurant.photos.any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: 1).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :exterior).any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :exterior).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://paris.tastefestivals.com/wp-content/uploads/elementor/thumbs/%C2%A9VincentNageotte-img-taste2019_NGT8824-1-ofjrx7uu1pbkfzvqlpxjvip782525pf4upl9wlo47s.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: 2).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :exterior).any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :exterior).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: 3).sample.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :interior).any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :interior).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: 3).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :interior).any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :interior).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: 2).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :staff).any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :staff).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: 1).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :staff).any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :staff).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/77/37/2f/77372f1f63967c969dff6a98bb2a1bc4.png', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.any? %>
+    <% if @restaurant.photos.where(category: :food).any? %>
       <%= cl_image_tag @restaurant.photos.where(category: :food).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.any? %>
+    <% if @restaurant.photos.where(category: :menu).any? %>
       <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.any? %>
+    <% if @restaurant.photos.where(category: :food).any? %>
       <%= cl_image_tag @restaurant.photos.where(category: :food).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg', class: 'module' %>
@@ -159,7 +159,7 @@
       <h1 style="margin-bottom: 30px;">Menu</h1>
 
       <button type="button" id="menu-pic" class="btn-modal" data-toggle="modal" data-target="#exampleModalLong">
-        <% if @restaurant.photos.any? %>
+        <% if @restaurant.photos.where(category: :menu).any? %>
           <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'menu' %>
         <% else %>
           <%= image_tag 'http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg', class: 'menu' %>
@@ -176,7 +176,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <% if @restaurant.photos.any? %>
+              <% if @restaurant.photos.where(category: :menu).any? %>
                 <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'menu' %>
               <% else %>
                 <%= image_tag 'http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg', class: 'menu' %>
