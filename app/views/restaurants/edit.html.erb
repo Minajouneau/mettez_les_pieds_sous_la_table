@@ -115,7 +115,9 @@
             <div class="section-inner section-inner-design">
               <% @restaurant.schedules.each do |schedule| %>
                 <div class="schedule-day schedule-day-design">  
-                  <p><%= schedule.day %></p>
+                  <div class="day-txt">
+                    <p><%= schedule.day %></p>
+                  </div>
                   <%= simple_form_for schedule, remote: true do |f| %>
                     <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
                     <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
