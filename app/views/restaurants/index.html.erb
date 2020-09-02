@@ -1,23 +1,21 @@
 
-
 <div class="restaurants-index-container">
   <div class="sidebar-container">
     <div class="sidenav" >
       <div class="text-center">
         <img class="avatar-large" alt="avatar-large" src="https://foodandsens.com/wp-content/uploads/2020/08/Capture-d%E2%80%99%C3%A9cran-2020-08-07-%C3%A0-15.24.30-696x800.png" />
-        <p class="name">Mallory Gasbi</p>
-        <p class="inscrit">Inscrit en 2020</p>
+        <p class="name">ADRIEN CACHOT</p>
+        <p class="inscrit">- Inscrit en 2020 -</p>
       </div>
       <div class="nav flex-column nav-pills">
         <a class="nav-link active sidebar-tab-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Mes restaurants</a>
         <a class="nav-link sidebar-tab-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Mes informations</a>
         <%= link_to destroy_user_session_path, method: :delete, class: "nav-link sidebar-tab-link" do %>
-          Déconnexion
+          Déconnexion <i class="fas fa-sign-out-alt logout"></i>
         <% end %>
       </div>
     </div>
   </div>
-
 
   <div class="main-right-container">
     <div class="tab-content" id="v-pills-tabContent">
@@ -26,9 +24,10 @@
           <div class="card-product-container-top">
             <h2 class="titretab">Mes restaurants</h2>
             <button type="button"  data-toggle="modal" class="add_button" data-target="#oMessagerie">
-              <strong> + AJOUTER UN RESTAURANT</strong>
+              <strong> + AJOUTER UN RESTAURANT</strong> <i class="fas fa-utensils"></i>
             </button>
           </div>
+
 
           <% @restaurants.each do |restaurant| %>
             <div class="card-product">
@@ -79,7 +78,7 @@
                                     input_html: { autocomplete: "new-password" } %>
                   </div>
                   <%= f.input :vision,
-                               label: "décrivez nous votre vision de la cuisine ?",
+                               label: "Décrivez nous votre vision de la cuisine?",
                                   required: false,
                                   input_html: { autocomplete: "current-password" } %>
                   <%= f.input :parcours,
@@ -121,3 +120,4 @@
     </div>
   </div>
 </div>
+
