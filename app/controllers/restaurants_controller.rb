@@ -37,7 +37,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create_schedules
-    days = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
+    days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
     days.each do |day|
       Schedule.create(day:day, restaurant:@restaurant)
     end
@@ -75,6 +75,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :contact_email, :activated, :domain_name, :description, :phone_number, :photo)
+    params.require(:restaurant).permit(:name, :address, :contact_email, :activated, :domain_name, :description, :phone_number, :photo, :quote_one, :quote_two, :quote_three)
   end
 end

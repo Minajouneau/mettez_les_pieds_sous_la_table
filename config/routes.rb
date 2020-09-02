@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   resources :users, only: [:update]
   get "profile/edit", to: "users#edit"
+  resources :photos, only: [:destroy]
   resources :restaurants, only: [:index, :new, :create, :edit, :update, :destroy] do
     member do
       post "update_activation"
     end
-      resources :photos, only: [:create, :destroy]
+      resources :photos, only: [:create]
   end
   resources :schedules, only: [:update]
   

@@ -35,6 +35,8 @@ import { initClockPicker } from '../plugins/init_clock_picker';
 import { initBStepper } from '../plugins/init_stepper';
 import { previewImageOnFileSelect } from '../components/photo_preview';
 import { autoSubmitForm } from '../components/autosubmit';
+import { autoDeletePhoto } from '../components/autodelete';
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -46,4 +48,5 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   autoSubmitForm();
   loadDynamicBannerText();
+  autoDeletePhoto();
 })
