@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   resources :users, only: [:update]
   get "profile/edit", to: "users#edit"
   resources :photos, only: [:destroy]
-  resources :restaurants, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :restaurants do
     member do
       post "update_activation"
     end
       resources :photos, only: [:create]
   end
   resources :schedules, only: [:update]
-  
+
 end
