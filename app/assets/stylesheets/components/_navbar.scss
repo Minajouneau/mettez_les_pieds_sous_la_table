@@ -28,7 +28,7 @@ body {
   width: 95px;
   height: 42px;
   left: 57px;
-  top: 22px;
+  top: 17px;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -40,4 +40,10 @@ body {
   font-weight:bold;
   margin-top: 9px;
   font-size: 17px;
+}
+
+.link-font {
+  font-family: "Roboto" !important;
+  text-decoration: none;
+  color: black;
 }
