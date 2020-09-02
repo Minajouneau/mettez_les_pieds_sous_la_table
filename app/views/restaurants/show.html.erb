@@ -1,6 +1,7 @@
 <body class="show-page">
   <div class="chief-presentation-background">
-    <div class="chief-presentation">
+   <% url = @restaurant.photos.where(category: :interior)[0] ?  cl_image_path(@restaurant.photos.where(category: :interior)[0].file.key) : "https://www.meetpro.fr/wp-content/uploads/2019/06/petr-sevcovic-594807-unsplash-e1561709868420.jpg" %>
+    <div class="chief-presentation" style="background-image: url(<%= url %>);">
       <div class="column-left">
         <div></div>           
         <div></div>
@@ -15,7 +16,7 @@
             <% end %></p>
           <br>
         </div>
-          <%= link_to 'Réservez', restaurant_path, class: "btn-show-reserver" %>
+        <a href="https://www.tripadvisor.fr/" target="_blank" class="btn-show-reserver">Réservez</a>
       </div>
       <div class="column-right">
           <%= link_to 'Continuer à éditer', edit_restaurant_path, class: "btn-show", style: "height: 40px;" %>
@@ -26,12 +27,15 @@
   </div>
   <div class="cards-show-dashboard">
     <div class="card-show-product">
-      <p style="font-weight: bold;">
-        <span id="typed-text" data-user-parcours="<% if @restaurant.quote_one? %>
-            <%= @restaurant.quote_one.capitalize %>
-            <% else %>
-            <%= 'Rentrez ici de petites citations' %>
-            <% end %>"></span>        
+      <p style="font-weight: bold; font-size: large; color: lightslategray;">
+        <span id="typed-text" data-user-parcours="
+        <% if @restaurant.quote_one? %>
+          <%= '«' + ' ' + @restaurant.quote_one.capitalize + ' ' + '»' %>
+          <%= '/«' + ' ' + @restaurant.quote_two.capitalize + ' ' + '»' if @restaurant.quote_two? %>
+          <%= '/«' + ' ' + @restaurant.quote_three.capitalize + ' ' + '»' if @restaurant.quote_three? %>
+        <% else %>
+          <%= 'Rentrez ici de petites citations' %>
+        <% end %>"></span>        
       </p>
       <p><% if @user.parcours? %>
             <%= @user.parcours.capitalize %>
@@ -43,7 +47,11 @@
   <div class="cards-show-dashboard-2">
     <div class="card-show-product-2">
       <div id="insert-gauche">
-        <img src="https://images.ladepeche.fr/api/v1/images/view/5eecba338fe56f45e566f9a7/original/image.jpg?v=1" style="max-width: 100%; height: 100%; object-fit: cover;" alt="">
+        <% if @restaurant.photos.where(category: :staff).first %>
+          <%= cl_image_tag @restaurant.photos.where(category: :staff).first.file.key, class: 'img-test' %>
+        <% else %>
+          <%= image_tag 'https://images.ladepeche.fr/api/v1/images/view/5eecba338fe56f45e566f9a7/original/image.jpg?v=1', class: 'img-test' %>
+        <% end %>
       </div>
       <div id="insert-droit">
         <h1 style="color: white;">Le chef : <% if @user.prenom? %>
@@ -59,140 +67,130 @@
       </div>
     </div>
     <div class="card-show-product-2">
-      <img src="https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+      <% if @restaurant.photos.where(category: :exterior).first %>
+        <%= cl_image_tag @restaurant.photos.where(category: :exterior).first.file.key, class: 'img-test' %>
+      <% else %>
+        <%= image_tag 'https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg', class: 'img-test' %>
+      <% end %>
     </div>
   </div>
   <div class="cards-show-hours-dashboard">
     <div class="card-show-hours">
       <h5>Lundi</h5>
       <p><% if @restaurant.schedules.where(day: :lundi).any? %>
-        <%= @restaurant.schedules.where(day: :lundi).first.opening_hour %>
-        <%='h' + ' ' + '-' + ' ' %>
+        <%= @restaurant.schedules.where(day: :lundi).first.opening_hour %>h - 
       <% end %>
       <% if @restaurant.schedules.where(day: :lundi).any? %>
-        <%= @restaurant.schedules.where(day: :lundi).first.closing_hour %>
-        <%= 'h' %>
+        <%= @restaurant.schedules.where(day: :lundi).first.closing_hour %>h
       <% end %></p>
     </div>
     <div class="card-show-hours">
       <h5>Mardi</h5>
       <p><% if @restaurant.schedules.where(day: :mardi).any? %>
-        <%= @restaurant.schedules.where(day: :mardi).first.opening_hour %>
-        <%= 'h' + ' ' + '-' + ' ' %>
+        <%= @restaurant.schedules.where(day: :mardi).first.opening_hour %>h - 
       <% end %>
       <% if @restaurant.schedules.where(day: :mardi).any? %>
-        <%= @restaurant.schedules.where(day: :mardi).first.closing_hour %>
-        <%= 'h' %>
+        <%= @restaurant.schedules.where(day: :mardi).first.closing_hour %>h
       <% end %></p>
     </div>
     <div class="card-show-hours">
       <h5>Mercredi</h5>
       <p><% if @restaurant.schedules.where(day: :mercredi).any? %>
-        <%= @restaurant.schedules.where(day: :mercredi).first.opening_hour %>
-        <%= 'h' + ' ' + '-' + ' ' %>
+        <%= @restaurant.schedules.where(day: :mercredi).first.opening_hour %>h - 
       <% end %>
       <% if @restaurant.schedules.where(day: :mercredi).any? %>
-        <%= @restaurant.schedules.where(day: :mercredi).first.closing_hour %>
-        <%= 'h' %>
+        <%= @restaurant.schedules.where(day: :mercredi).first.closing_hour %>h
       <% end %></p>
     </div>
     <div class="card-show-hours">
       <h5>Jeudi</h5>
       <p><% if @restaurant.schedules.where(day: :jeudi).any? %>
-        <%= @restaurant.schedules.where(day: :jeudi).first.opening_hour %>
-        <%= 'h' + ' ' + '-' + ' ' %>
+        <%= @restaurant.schedules.where(day: :jeudi).first.opening_hour %>h - 
       <% end %>
       <% if @restaurant.schedules.where(day: :jeudi).any? %>
-        <%= @restaurant.schedules.where(day: :jeudi).first.closing_hour %>
-        <%= 'h' %>
+        <%= @restaurant.schedules.where(day: :jeudi).first.closing_hour %>h
       <% end %></p>
     </div>
     <div class="card-show-hours">
       <h5>Vendredi</h5>
       <p><% if @restaurant.schedules.where(day: :vendredi).any? %>
-        <%= @restaurant.schedules.where(day: :vendredi).first.opening_hour %>
-        <%= 'h' + ' ' + '-' + ' ' %>
+        <%= @restaurant.schedules.where(day: :vendredi).first.opening_hour %>h - 
       <% end %>
       <% if @restaurant.schedules.where(day: :vendredi).any? %>
-        <%= @restaurant.schedules.where(day: :vendredi).first.closing_hour %>
-        <%= 'h' %>
+        <%= @restaurant.schedules.where(day: :vendredi).first.closing_hour %>h
       <% end %></p>
     </div>
     <div class="card-show-hours">
       <h5>Samedi</h5>
       <p><% if @restaurant.schedules.where(day: :samedi).any? %>
-        <%= @restaurant.schedules.where(day: :samedi).first.opening_hour %>
-        <%= 'h' + ' ' + '-' + ' ' %>
+        <%= @restaurant.schedules.where(day: :samedi).first.opening_hour %>h - 
       <% end %>
       <% if @restaurant.schedules.where(day: :samedi).any? %>
-        <%= @restaurant.schedules.where(day: :samedi).first.closing_hour %>
-        <%= 'h' %>
+        <%= @restaurant.schedules.where(day: :samedi).first.closing_hour %>h
       <% end %></p>
     </div>
     <div id="card-show-sunday">
     <h5>Dimanche</h5>
       <p><% if @restaurant.schedules.where(day: :dimanche).any? %>
-        <%= @restaurant.schedules.where(day: :dimanche).first.opening_hour %>
-        <%= 'h' + ' ' + '-' + ' ' %>
+        <%= @restaurant.schedules.where(day: :dimanche).first.opening_hour %>h - 
       <% end %>
       <% if @restaurant.schedules.where(day: :dimanche).any? %>
-        <%= @restaurant.schedules.where(day: :dimanche).first.closing_hour %>
-        <%= 'h' %>
+        <%= @restaurant.schedules.where(day: :dimanche).first.closing_hour %>h
       <% end %></p>
     </div>
   </div>
   <div class="cards-show-pics">
     <%# @restaurant.photos.first.file.key %>
-    <% if @restaurant.photos.where(category: :exterior).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :exterior).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :food)[2] %>
+      <%= cl_image_tag @restaurant.photos.where(category: :food)[2].file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://paris.tastefestivals.com/wp-content/uploads/elementor/thumbs/%C2%A9VincentNageotte-img-taste2019_NGT8824-1-ofjrx7uu1pbkfzvqlpxjvip782525pf4upl9wlo47s.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.where(category: :exterior).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :exterior).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :interior)[2] %>
+      <%= cl_image_tag @restaurant.photos.where(category: :interior)[2].file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.where(category: :food).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :food).sample.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :food).first %>
+      <%= cl_image_tag @restaurant.photos.where(category: :food).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.where(category: :interior).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :interior).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :exterior)[2] %>
+      <%= cl_image_tag @restaurant.photos.where(category: :exterior)[2].file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.where(category: :staff).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :food).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :interior).first %>
+      <%= cl_image_tag @restaurant.photos.where(category: :interior).first.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.where(category: :interior).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :interior).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :staff)[1] %>
+      <%= cl_image_tag @restaurant.photos.where(category: :staff)[1].file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/77/37/2f/77372f1f63967c969dff6a98bb2a1bc4.png', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.where(category: :staff).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :staff).sample.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :food)[1] %>
+      <%= cl_image_tag @restaurant.photos.where(category: :food)[1].file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.where(category: :menu).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :food).first.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :exterior)[1] %>
+      <%= cl_image_tag @restaurant.photos.where(category: :exterior)[1].file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
-    <% if @restaurant.photos.where(category: :food).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :food).sample.file.key, class: 'module' %>
+    <% if @restaurant.photos.where(category: :food)[3] %>
+      <%= cl_image_tag @restaurant.photos.where(category: :food)[3].file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/81/0b/f2/810bf2bf863ac471971d7ab429a7da69.jpg', class: 'module' %>
     <% end %>
@@ -232,7 +230,8 @@
     </div>
   </div>
   <div class="grid-flex-map">
-    <div class="cards-show-dashboard-3">
+    <% url = @restaurant.photos.where(category: :food)[2] ?  cl_image_path(@restaurant.photos.where(category: :food)[2].file.key) : "https://youmatter.world/app/uploads/sites/3/2016/06/gastronomie-cuisine-alimentation-saine-durable.jpg" %>
+    <div class="cards-show-dashboard-3" style="background-image: url(<%= url %>), linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
       <h1><%= @restaurant.name %></h1>
       <br>
       <p><%= @restaurant.address %>
@@ -252,9 +251,9 @@
   <h4>Nos réseaux sociaux :</h4>
   <br>
     <div id="footer-icons">
-      <a href="#"><p><i class="fab fa-facebook""></i></p></a>
-      <a href="#"><p><i class="fab fa-twitter""></i></p></a>
-      <a href="#"><p><i class="fab fa-instagram""></i></p></a>
+      <a href="https://www.facebook.com/" target="_blank"><p><i class="fab fa-facebook""></i></p></a>
+      <a href="https://twitter.com/?lang=fr" target="_blank"><p><i class="fab fa-twitter""></i></p></a>
+      <a href="https://www.instagram.com/?hl=fr" target="_blank"><p><i class="fab fa-instagram""></i></p></a>
     </div>
     <br>
   </div>

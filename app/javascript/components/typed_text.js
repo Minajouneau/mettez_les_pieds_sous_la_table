@@ -2,11 +2,11 @@ import Typed from 'typed.js';
 
 const loadDynamicBannerText = () => {
   const typed = document.querySelector('#typed-text');
-  console.log(typed);
+  // console.log(typed);
   if (typed) {
-    const parcours = typed.dataset.userParcours;
+    const parcours = typed.dataset.userParcours.split('/');
     new Typed('#typed-text', {
-      strings: [parcours],
+      strings: parcours,
       typeSpeed: 30,
       loop: true
     });

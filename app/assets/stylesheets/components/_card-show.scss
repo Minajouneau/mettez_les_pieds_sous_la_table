@@ -58,7 +58,7 @@
     transition: opacity 0.3s ease-in;
     h5 {
       font-style: italic;
-      color:gray;
+      color:black;
     }
     p {
       color: black;
@@ -79,7 +79,7 @@
     margin: 10px;
     h5 {
         font-style: italic;
-        color:gray;
+        color:black;
     }
   }
 
@@ -110,7 +110,6 @@
   }
 
   .cards-show-dashboard-3 {
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://youmatter.world/app/uploads/sites/3/2016/06/gastronomie-cuisine-alimentation-saine-durable.jpg");
     background-position: center;
     background-size: cover;
     height: 400px;
@@ -123,6 +122,7 @@
     p {
       color: burlywood;
     }
+    // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://youmatter.world/app/uploads/sites/3/2016/06/gastronomie-cuisine-alimentation-saine-durable.jpg");
   }
 
   .demi-down {
