@@ -1,11 +1,11 @@
 <div data-category="<%= category %>">
   <% restaurant.photos.where(category: category).each do |photo| %>
     <% if photo.file.attached? %>
-      <div class="d-inline-flex">
+      <div class="d-inline-flex" data-photo-preview-id="<%= photo.id %>">
         <div class="position-relative">
           <%= cl_image_tag photo.file.key, crop: :fill, width: 100, height: 100, class: "photo-added" %>
           <div class="photo-trash">
-            <%= link_to restaurant_photo_path(restaurant, photo), method: :delete, class: "remove-photo", remote: true do %>
+            <%= link_to photo_path(photo), method: :delete, class: "remove-photo", data: {photo_id: photo.id}, remote: true do %>
               <i class="fas fa-trash-alt"></i>
             <% end %>
           </div>
@@ -14,9 +14,9 @@
     <% end %>
   <% end %>
   <%= simple_form_for [restaurant, photo], html: { id: "submit", class: "auto-submit-form", data: {restaurant_id: restaurant.id} }, remote: true do |f| %>
-    <%= f.input :category, input_html: {value: category, class: "hidden-category"}, as: :hidden %>
+    <%# <%= f.input :category, input_html: {value: category, class: "hidden-category"}, as: :hidden %>
     <div class="add-photo d-flex">
-      <%= f.input :file, as: :file, input_html: { class: 'photo-input d-none'}, label_html: { class: 'upload-photo'}, label: 'Télécharger une photo 📷'%>
+      <%= f.input :file, as: :file, input_html: { id: "photo-#{category}",class: 'photo-input d-none', data: {category: category}}, label_html: { class: 'upload-photo'}, label: 'Télécharger une photo 📷'%>
     </div>
   <% end %>
 </div>
