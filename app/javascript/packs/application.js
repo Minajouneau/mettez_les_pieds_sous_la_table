@@ -36,6 +36,7 @@ import { initBStepper } from '../plugins/init_stepper';
 import { previewImageOnFileSelect } from '../components/photo_preview';
 import { autoSubmitForm } from '../components/autosubmit';
 import { autoDeletePhoto } from '../components/autodelete';
+import { slideSidenav} from '../components/sidebar';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -49,4 +50,5 @@ document.addEventListener('turbolinks:load', () => {
   autoSubmitForm();
   loadDynamicBannerText();
   autoDeletePhoto();
+  slideSidenav();
 })

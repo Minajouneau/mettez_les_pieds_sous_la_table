@@ -152,6 +152,8 @@
 
 .modal-backdrop {
   z-index: -1;
+  width: 100% !important;
+  height: 100% !important;
 }
 
   .module {
@@ -180,7 +182,7 @@
 
   .cards-show-hours-dashboard {
     display: grid;
-    width: 74%;
+    width: 86%;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
     justify-content: space-between;
