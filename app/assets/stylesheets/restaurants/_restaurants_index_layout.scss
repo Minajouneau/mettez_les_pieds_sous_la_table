@@ -29,6 +29,18 @@
 }
 
 
+.inscrit {
+  left: 133px;
+  top: 231px;
+  font-family: Lora;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 15px;
+  text-align: center;
+  color: #000000;
+}
+
 .name {
 
 left: 120px;
@@ -43,17 +55,6 @@ color: #000000;
 }
 
 
-.inscrit {
-  left: 133px;
-  top: 231px;
-  font-family: Lora;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
-  text-align: center;
-  color: #000000;
-}
 
 .nav-link {
   left: 50px;
@@ -74,4 +75,17 @@ color: #000000;
   font-size: 14px;
   line-height: 18px;
   color: #FFFFFF;
+}
+
+
+.burger {
+position: absolute;
+width: 24px;
+height: 4px;
+background: blueviolet;
+}
+
+.burger::before, .burger::after {
+content: “”;
+display: block;
 }

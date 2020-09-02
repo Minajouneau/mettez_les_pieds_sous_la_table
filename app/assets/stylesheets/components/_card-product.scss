@@ -2,8 +2,8 @@
     background: white;
     display: flex;
     align-items: center;
-    height: 186px;
-    margin-bottom: 20px;
+    height: 200px;
+    margin-bottom: 30px;
     background: #FFFFFF;
     position: relative;
 }
@@ -14,27 +14,11 @@
     right: 70px;
   }
 
-  .couverts{
-    position: absolute;
-    bottom: 20px;
-    right: 130px;
-    font-size:25px;
-    padding-right: 10px;
-    color:black;
-  }
-
-  .vertical-line {
-   border-left: 2px solid #000;
-   display: inline-block;
-   height: 50px;
-   margin: 20px 20px;
-  }
-
 
   .card-product img {
-  height: 70%;
+  height: 80%;
   max-width: 330px;
-  padding-left: 15px;
+  padding-left: 20px;
   object-fit: cover;
 }
 
@@ -95,7 +79,13 @@
   left: 735px;
   top: 538px;
   background: #00CCBD;
+   opacity: 0.8;
   }
+
+.modivisulaiser {
+  margin-top: 25px;
+}
+
 
 .enligne_button {
   height: 15px;
@@ -131,7 +121,7 @@
 
 .add_button {
   background: #00CCBD;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 19px;
   text-align: center;
   letter-spacing: 0.05em;
@@ -180,6 +170,8 @@
   line-height: 46px;
 }
 
+#restaurants-index {
+    width: 1200px;
 .user_prenom {
   flex: 1;
   margin-bottom: 2rem;
