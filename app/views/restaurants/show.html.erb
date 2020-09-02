@@ -1,6 +1,10 @@
 <body class="show-page">
   <div class="chief-presentation-background">
-    <div class="chief-presentation">
+    <div class="chief-presentation" style="background-image: <% if @restaurant.photos.where(category: :interior).any? %>
+      <%= cl_image_tag @restaurant.photos.where(category: :interior).first.file.key %>
+    <% else %>
+      <%= image_tag 'https://paris.tastefestivals.com/wp-content/uploads/elementor/thumbs/%C2%A9VincentNageotte-img-taste2019_NGT8824-1-ofjrx7uu1pbkfzvqlpxjvip782525pf4upl9wlo47s.jpg', class: 'module' %>
+    <% end %>">
       <div class="column-left">
         <div></div>           
         <div></div>
@@ -43,8 +47,12 @@
   <div class="cards-show-dashboard-2">
     <div class="card-show-product-2">
       <div id="insert-gauche">
-        <img src="https://images.ladepeche.fr/api/v1/images/view/5eecba338fe56f45e566f9a7/original/image.jpg?v=1" style="max-width: 100%; height: 100%; object-fit: cover;" alt="">
-      </div>
+        <% if @restaurant.photos.where(category: :staff).any? %>
+          <%= cl_image_tag @restaurant.photos.where(category: :staff).sample.file.key, class: 'tuning' %>
+        <% else %>
+          <%= image_tag 'https://images.ladepeche.fr/api/v1/images/view/5eecba338fe56f45e566f9a7/original/image.jpg?v=1', class: 'tuning' %>
+        <% end %>
+        </div>
       <div id="insert-droit">
         <h1 style="color: white;">Le chef : <% if @user.prenom? %>
             <%= @user.prenom.capitalize %>
@@ -59,7 +67,12 @@
       </div>
     </div>
     <div class="card-show-product-2">
-      <img src="https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+        <% if @restaurant.photos.where(category: :food).any? %>
+          <%= cl_image_tag @restaurant.photos.where(category: :food).sample.file.key %>
+        <% else %>
+          <%= image_tag 'https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg' %>
+        <% end %>
+      <%# <img src="https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt=""> %>
     </div>
   </div>
   <div class="cards-show-hours-dashboard">
@@ -144,13 +157,13 @@
   <div class="cards-show-pics">
     <%# @restaurant.photos.first.file.key %>
     <% if @restaurant.photos.where(category: :exterior).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :exterior).first.file.key, class: 'module' %>
+      <%= cl_image_tag @restaurant.photos.where(category: :exterior).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://paris.tastefestivals.com/wp-content/uploads/elementor/thumbs/%C2%A9VincentNageotte-img-taste2019_NGT8824-1-ofjrx7uu1pbkfzvqlpxjvip782525pf4upl9wlo47s.jpg', class: 'module' %>
     <% end %>
 
     <% if @restaurant.photos.where(category: :exterior).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :exterior).first.file.key, class: 'module' %>
+      <%= cl_image_tag @restaurant.photos.where(category: :exterior).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg', class: 'module' %>
     <% end %>
@@ -162,19 +175,19 @@
     <% end %>
 
     <% if @restaurant.photos.where(category: :interior).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :interior).first.file.key, class: 'module' %>
+      <%= cl_image_tag @restaurant.photos.where(category: :interior).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
 
     <% if @restaurant.photos.where(category: :staff).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :food).first.file.key, class: 'module' %>
+      <%= cl_image_tag @restaurant.photos.where(category: :food).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/1f/27/7f/1f277fec06c1c4f76200500f2ce9392b.jpg', class: 'module' %>
     <% end %>
 
     <% if @restaurant.photos.where(category: :interior).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :interior).first.file.key, class: 'module' %>
+      <%= cl_image_tag @restaurant.photos.where(category: :interior).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/77/37/2f/77372f1f63967c969dff6a98bb2a1bc4.png', class: 'module' %>
     <% end %>
@@ -186,7 +199,7 @@
     <% end %>
 
     <% if @restaurant.photos.where(category: :menu).any? %>
-      <%= cl_image_tag @restaurant.photos.where(category: :food).first.file.key, class: 'module' %>
+      <%= cl_image_tag @restaurant.photos.where(category: :food).sample.file.key, class: 'module' %>
     <% else %>
       <%= image_tag 'https://i.pinimg.com/originals/a1/89/93/a189935abbf8e0b75f151a57f3f0f4a5.jpg', class: 'module' %>
     <% end %>
