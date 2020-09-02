@@ -116,7 +116,7 @@
               <% @restaurant.schedules.each do |schedule| %>
                 <div class="schedule-day schedule-day-design">  
                   <p><%= schedule.day %></p>
-                  <%= simple_form_for schedule do |f| %>
+                  <%= simple_form_for schedule, remote: true do |f| %>
                     <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
                     <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
                     <fieldset class="boolean optional schedule_closed">
@@ -128,12 +128,13 @@
                         </label>
                       </div>
                     </fieldset>
+                    <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
                   <% end %>
                 </div>
               <% end %>
-              <%= simple_form_for @restaurant do |f| %>
-                <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-              <% end %>
+              <%#= simple_form_for @restaurant do |f| %>
+                
+              <%# end %>
             </div>
           </div>
         </div>

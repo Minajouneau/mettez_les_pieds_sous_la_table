@@ -1,7 +1,7 @@
 class Restaurant < ApplicationRecord
   after_initialize :set_defaults, unless: :persisted?
   belongs_to :user
-  has_many :schedules
+  has_many :schedules, dependent: :destroy
   validates :name, :address, presence: true
   has_many :photos, dependent: :destroy
   geocoded_by :address

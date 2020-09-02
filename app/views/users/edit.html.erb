@@ -1,14 +1,14 @@
 <div class="container">
   <div class="container-small">
     <div class="section-account box" id="user-box">
-      <div class="section-title">Modifier votre profil</div>
+      <div class="section-title">Modifiez votre profil</div>
       <div class="section-inner">
         <!-- <h2>Edit <%= current_user.email %></h2> -->
         <%= simple_form_for(@user) do |f| %>
           <div class="form-inputs">
             <%= f.input :prenom, hint: "Insérez ici votre prénom" %>
             <%= f.input :nom, hint: "Insérez ici votre nom" %>
-            <%= f.input :vision, hint: "Expliquez-nous quel est votre vision de la cuisine ?", required: false %>
+            <%= f.input :vision, hint: "Expliquez-nous quelle est votre vision de la cuisine", required: false %>
             <%= f.input :parcours, hint: "Détaillez-nous votre parcours", required: false %>
           </div>
           <div class="form-actions">
