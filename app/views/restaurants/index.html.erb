@@ -67,24 +67,26 @@
 
               <%= simple_form_for(@user) do |f| %>
                 <div class="form-inputs">
-                  <div class= "d-flex justify-content-between">
-                    <%= f.input :prenom,
-                                    label: "Insérez ici votre prénom",
+                  <div class="d-flex justify-content-between">
+                    <%# <div class="form-design"> %>
+                      <%= f.input :prenom,
+                                      label: "Insérez ici votre prénom", placeholder: "ex: Mathilde",
+                                      required: false,
+                                      input_html: { autocomplete: "new-password"} %>
+                      <%= f.input :nom,
+                                      label: "Insérez ici votre nom", placeholder: "ex: Dubois", 
+                                      required: false,
+                                      input_html: { autocomplete: "new-password" } %>
+                    </div>
+                    <%= f.input :vision,
+                                label: "Décrivez nous votre vision de la cuisine ?", placeholder: "Insérez ici votre vision de la cuisine, ce que cet art vous inspire",
                                     required: false,
-                                    input_html: { autocomplete: "new-password"} %>
-                    <%= f.input :nom,
-                                    label: "Insérez ici votre nom",
+                                    input_html: { autocomplete: "current-password" } %>
+                    <%= f.input :parcours,
+                                    label:"Quel est votre parcours?", placeholder: "Détaillez-nous votre parcours afin que nous puissions en savoir plus sur vous!", 
                                     required: false,
                                     input_html: { autocomplete: "new-password" } %>
                   </div>
-                  <%= f.input :vision,
-                               label: "Décrivez nous votre vision de la cuisine?",
-                                  required: false,
-                                  input_html: { autocomplete: "current-password" } %>
-                  <%= f.input :parcours,
-                                  label:"Quel est votre parcours?",
-                                  required: false,
-                                  input_html: { autocomplete: "current-password" } %>
                 </div>
                 <div class="form-actions">
                   <%= f.button :submit, "Enregistrer", class: "btn-normal" %>

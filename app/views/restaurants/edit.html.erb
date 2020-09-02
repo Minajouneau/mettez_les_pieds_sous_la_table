@@ -54,14 +54,14 @@
         <div id="details-part" class="content fade" role="tabpanel" aria-labelledby="details-part-trigger">
           <%# <div class="container-small"> %>
           <div class="section-account box">
-            <div class="section-title">Détails</div>
+            <div class="section-title">Détails du restaurant</div>
             <div class="section-inner">
               <%= simple_form_for @restaurant, remote: true do |f| %>
                 <%# <%= f.error_notification %>
-                <%= f.input :name %>
-                <%= f.input :address, input_html: { id: 'autocompletion-edit' } %>
-                <%= f.input :contact_email, input_html: { type:"email" } %>
-                <%= f.input :phone_number, prepend: "+33", input_html: { type:"tel", maxlength: 10 } %>
+                <%= f.input :name, label: "Nom du restaurant", placeholder: "Quel est le nom de votre restaurant ?" %>
+                <%= f.input :address, label: "Et son adresse ?", placeholder: "Rue, code postal, ville", input_html: { id: 'autocompletion-edit' } %>
+                <%= f.input :contact_email, label: "Adresse mail de contact", placeholder: "Rue, code postal, ville", input_html: { type:"email" } %>
+                <%= f.input :phone_number, prepend: "+33", label: "Numéro de téléphone", placeholder: "0143567890", input_html: { type:"tel", maxlength: 10 } %>
                 <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
               <% end %>
             </div>
@@ -74,7 +74,7 @@
             <div class="section-inner">
               <%= simple_form_for @restaurant, remote: true do |f| %>
                 <%= hidden_field_tag :redirection, true %>
-                <%= f.input :description, :input_html => { maxlength: 200, :rows => 5 } %>
+                <%= f.input :description, label: "Décrivez votre restaurant (200 caratères maximum)", :input_html => { maxlength: 200, :rows => 5 } %>
                 <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
                 <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
               <% end %>
@@ -89,7 +89,7 @@
                 <% Photo.categories.each_with_index do |enum, index| %>
                   <% category = enum.first %>
                   <% name = Photo::CATEGORIES_NAME[category] %>
-                  <a class="nav-item nav-link <%= "active" if index.zero? %>" id="nav-<%= category %>-tab" data-toggle="tab" href="#nav-<%= category %>" role="tab" aria-controls="nav<%= category %>" aria-selected=" <%= index.zero? ? "true" : "false" %>"> <%= name %></a>
+                  <a class="nav-item nav-link nav-photo <%= "active" if index.zero? %>" id="nav-<%= category %>-tab" data-toggle="tab" href="#nav-<%= category %>" role="tab" aria-controls="nav<%= category %>" aria-selected=" <%= index.zero? ? "true" : "false" %>"> <%= name %></a>
                 <% end %>
               </div>
             </nav>
@@ -116,7 +116,7 @@
               <% @restaurant.schedules.each do |schedule| %>
                 <div class="schedule-day schedule-day-design">  
                   <p><%= schedule.day %></p>
-                  <%= simple_form_for schedule do |f| %>
+                  <%= simple_form_for schedule, remote: true do |f| %>
                     <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
                     <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
                     <fieldset class="boolean optional schedule_closed">
@@ -128,12 +128,13 @@
                         </label>
                       </div>
                     </fieldset>
+                    <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
                   <% end %>
                 </div>
               <% end %>
-              <%= simple_form_for @restaurant do |f| %>
-                <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
-              <% end %>
+              <%#= simple_form_for @restaurant do |f| %>
+                
+              <%# end %>
             </div>
           </div>
         </div>

@@ -38,6 +38,39 @@
     padding: 12px 24px;
 }
 
+.btn-show:hover {
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+    font-style: italic;
+}
+
+.btn-show-reserver {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border: solid 3px bisque;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 3px;
+    position: relative;
+    cursor: pointer;
+    color: bisque;
+    padding: 12px 24px;
+    justify-content: center;
+    width: 200px;
+    height: 60px;
+    font-weight: bold;
+}
+
+.btn-show-reserver:hover {
+    text-decoration: none;
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+}
+
 .btn-modal {
     display: flex;
     align-items: center;
@@ -51,11 +84,4 @@
     padding: 12px 24px;
     max-height: 600px;
     border: none;
-}
-
-.btn-show:hover {
-    text-decoration: none;
-    color: white;
-    transition: 0.2s;
-    font-style: italic;
 }
