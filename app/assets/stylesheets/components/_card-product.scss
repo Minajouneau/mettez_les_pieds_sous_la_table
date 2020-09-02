@@ -161,16 +161,6 @@
 }
 
 
-#user_prenom {
-  width: 158%;
-}
-
-#user_nom {
-  width: 166%;
-  margin-left: -71%;
-  }
-
-
 .form-inputs {
   .form-control.is-valid:focus{
   outline-color: #719ECE;
@@ -188,4 +178,19 @@
   font-weight: bold;
   font-size: 36px;
   line-height: 46px;
+}
+
+.user_prenom {
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.user_nom {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.edit_user {
+  width: 70%;
+  margin-left: 15%;
 }
