@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_145341) do
+ActiveRecord::Schema.define(version: 2020_09_02_154945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,10 @@ ActiveRecord::Schema.define(version: 2020_09_01_145341) do
     t.string "quote_one"
     t.string "quote_two"
     t.string "quote_three"
+    t.string "instagram_url"
+    t.string "twitter_url"
+    t.string "facebook_url"
+    t.string "booking_url"
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
