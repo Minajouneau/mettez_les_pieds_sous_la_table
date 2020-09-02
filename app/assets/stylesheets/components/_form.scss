@@ -38,3 +38,7 @@ background-color: #ffffff;
   width: 400px;
   justify-content: center;
 }
+
+.bs-stepper .step-trigger:focus {
+  color: $deliveroo-turquoise;
+}
