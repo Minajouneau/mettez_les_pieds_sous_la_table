@@ -93,6 +93,7 @@ users.each do |user|
   photo = Photo.create!(restaurant: restaurant, category: :menu)
   photo.file.attach(io: file, filename: "menu_1")
 
+  schedule = Schedule.create(restaurant: restaurant)
 
 
 
