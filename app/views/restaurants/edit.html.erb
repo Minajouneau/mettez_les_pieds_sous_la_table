@@ -147,7 +147,7 @@
                 <div><span class="mx-3">Ouverture</span><span class="mx-3">Fermeture</span></div>
                 <div class="mx-3">Fermé ?</div>
               </div>
-              <% @restaurant.schedules.each do |schedule| %>
+              <% @restaurant.schedules.order(:id).each do |schedule| %>
                 <div class="schedule-day schedule-day-design">  
                   <div class="day-txt">
                     <p><%= schedule.day %></p>
@@ -165,10 +165,16 @@
                         </label>
                       </div>
                     </fieldset>
-                    <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal next-step submit-button' %>
+                    <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal submit-button' %>
                   <% end %>
                 </div>
               <% end %>
+
+                <div class="d-flex justify-content-between">
+                    <div class="btn btn-normal previous-step">Précédent</div>  
+                    <div class="btn btn-normal next-step">Suivant</div>
+                </div>
+
             </div>
           </div>
         </div>

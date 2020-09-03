@@ -77,7 +77,7 @@
   <div class="cards-show-hours-dashboard">
     <div class="card-show-hours">
       <h5>Lundi</h5>
-      <p><% if @restaurant.schedules[0].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[0].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Lundi).first.opening_hour %> - 
@@ -86,7 +86,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Mardi</h5>
-      <p><% if @restaurant.schedules[1].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[1].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Mardi).first.opening_hour %> -
@@ -95,7 +95,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Mercredi</h5>
-      <p><% if @restaurant.schedules[2].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[2].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Mercredi).first.opening_hour %> - 
@@ -104,7 +104,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Jeudi</h5>
-      <p><% if @restaurant.schedules[3].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[3].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Jeudi).first.opening_hour %> - 
@@ -113,7 +113,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Vendredi</h5>
-      <p><% if @restaurant.schedules[4].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[4].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Vendredi).first.opening_hour %> - 
@@ -122,7 +122,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Samedi</h5>
-      <p><% if @restaurant.schedules[5].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[5].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Samedi).first.opening_hour %> - 
@@ -131,7 +131,7 @@
     </div>
     <div class="card-show-hours">
     <h5>Dimanche</h5>
-      <p><% if @restaurant.schedules[6].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[6].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Dimanche).first.opening_hour %> - 
