@@ -1,24 +1,29 @@
 <% if policy(Restaurant).create? %>
   <div class="container">
 
-  <div class="d-flex justify-content-around">
+  <div class="d-flex justify-content-around" style="padding-top: 1em; align-items: baseline;">
 
-    <%= link_to "Tableau de bord", restaurants_path, class: "btn btn-light btn-lg"  %>
+    <%= link_to "Tableau de bord", restaurants_path, class: "btn-normal"  %>
     
-      <div class="toggle d-inline-flex justify-content-around">
+      <%# <div class="toggle d-inline-flex justify-content-around"> %>
         <% if @restaurant.activated %>
-          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-            <i class="fas fa-toggle-on enligne"></i>
-            <div class="enligne">En ligne</div>
+          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true, class: 'text-decoration-none' do %>
+            <div id='pimp-online'>
+              <i class="fas fa-toggle-on"></i>
+              <p>En ligne</p>
+            </div>
           <% end %>
         <% else %>
-          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-            <i class="fas fa-toggle-off horsligne"> Hors-ligne</i>
+          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true, class: 'text-decoration-none' do %>
+          <div id="pimp-offline">
+            <i class="fas fa-toggle-off" style="color: #979999;"></i>
+            <p style="color: #979999;">Hors-ligne</p>
+          </div>
           <% end %>
         <% end %>
+      <%= link_to 'Visualiser', restaurant_path, class: 'btn-normal'  %>
       </div>
     
-    <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-light btn-lg visualiser'  %>
   
   </div>
 
