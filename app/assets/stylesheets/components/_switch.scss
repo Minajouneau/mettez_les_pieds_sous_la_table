@@ -31,7 +31,7 @@ $deliveroo-turquoise: #00ccbdff;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $grey;
+  background-color: $deliveroo-turquoise;
   transition: .4s;
 }
 
@@ -46,9 +46,13 @@ $deliveroo-turquoise: #00ccbdff;
   transition: .4s;
 }
 
-input:checked + .slider {
-  background-color: $deliveroo-turquoise;
-}
+// input:checked + .slider {
+//   background-color: $deliveroo-turquoise;
+// }
+
+  input:checked + .slider {
+  background-color: grey;
+ }
 
 input:focus + .slider {
   // box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.7);
