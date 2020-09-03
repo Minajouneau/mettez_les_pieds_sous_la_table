@@ -27,7 +27,8 @@ users.each do |user|
   description = "Ma cuisine est dans l’air du temps et met l’accent sur les coquillages et crustacés: moule en émulsion sur un filet de porc fumé; asperges blanches, légumes d’Annie Bertin et mousse de coquillage à terminer avec un morceau de pain de chez Thierry Breton."
   phone_number = "01 45 26 21 48"
   instagram = "https://www.instagram.com/adriencachot/"
-  restaurant = Restaurant.create!(name: name, address: address, contact_email: contact_email, activated: false, domain_name: domain_name, description: description, phone_number: phone_number, user: user, instagram_url: instagram)
+  booking = "https://www.thefork.fr/restaurant/detour-r314045"
+  restaurant = Restaurant.create!(name: name, address: address, contact_email: contact_email, activated: false, domain_name: domain_name, description: description, phone_number: phone_number, user: user, instagram_url: instagram, booking_url: booking)
 
   file = URI.open("https://1dc3f33f6d-3.optimicdn.com/gaultmillau.com/photos/9af8c202e62f2d2e7d1ffd9808f7c744e05afcfc/detail.jpg?1510764387")
   photo = Photo.create!(restaurant: restaurant, category: :food)
@@ -81,7 +82,7 @@ users.each do |user|
   photo = Photo.create!(restaurant: restaurant, category: :exterior)
   photo.file.attach(io: file, filename: "exterior_3")
 
-  file = URI.open("https://lh3.googleusercontent.com/proxy/26gzRO0Cl31_3iqpr-6h4Da6_3vitbC76meV5KaqyLIkppIR8wp6IyzmlFZ-0Ygr-RFDWPq75gU7SqtWQqhhc060oWHUtFBX7OAMAYMs4vt54w_Sc3t4HG-kxm4w6DM")
+  file = URI.open("https://1dc3f33f6d-3.optimicdn.com/gaultmillau.com/photos/499bde2b8991033570c1ae45433c6a688bc4b383/detail.jpg?1510764404")
   photo = Photo.create!(restaurant: restaurant, category: :staff)
   photo.file.attach(io: file, filename: "staff_1")
 
@@ -93,6 +94,13 @@ users.each do |user|
   photo = Photo.create!(restaurant: restaurant, category: :menu)
   photo.file.attach(io: file, filename: "menu_1")
 
+  schedule_monday = Schedule.create!(restaurant: restaurant, day: "Lundi", opening_hour: "11:00", closing_hour: "23:00", closed: false)
+  schedule_tuesday = Schedule.create!(restaurant: restaurant, day: "Mardi", opening_hour: "11:00", closing_hour: "23:00", closed: false)
+  schedule_wednesday = Schedule.create!(restaurant: restaurant, day: "Mercredi", opening_hour: "11:00", closing_hour: "23:00", closed: false)
+  schedule_thursday = Schedule.create!(restaurant: restaurant, day: "Jeudi", opening_hour: "11:00", closing_hour: "23:00", closed: false)
+  schedule_friday = Schedule.create!(restaurant: restaurant, day: "Vendredi", opening_hour: "11:00", closing_hour: "23:00", closed: false)
+  schedule_saturday = Schedule.create!(restaurant: restaurant, day: "Samedi", opening_hour: "11:00", closing_hour: "23:00", closed: false)
+  schedule_sunday = Schedule.create!(restaurant: restaurant, day: "Dimanche" , closed: true)
 
 
   # file = URI.open("https://lh3.googleusercontent.com/proxy/6pvI_HC2swF4K_3PTk_ANslFqBKwJhNTrtI8-qVET3Ddqg5dHud9ZfJNgQU1yqhlOerMVVv1ye05TG4saqvHso7LWXqGd_idLkrKDSo5-YVBvGmLQngQf0NxbOcN3zA")
