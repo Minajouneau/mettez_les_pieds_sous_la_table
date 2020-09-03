@@ -1,128 +1,121 @@
 <% if policy(Restaurant).create? %>
   <div class="container">
-
-  <div class="d-flex justify-content-around" style="padding-top: 1em; align-items: baseline;">
-
-    <%= link_to "Tableau de bord", restaurants_path, class: "btn-normal"  %>
-    
+    <div class="d-flex justify-content-around" style="padding-top: 1em; align-items: baseline;">
+      <%= link_to "Tableau de bord", restaurants_path, class: "btn-normal"  %>
       <%# <div class="toggle d-inline-flex justify-content-around"> %>
-        <% if @restaurant.activated %>
-          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true, class: 'text-decoration-none' do %>
-            <div id='pimp-online'>
-              <i class="fas fa-toggle-on"></i>
-              <p>En ligne</p>
-            </div>
-          <% end %>
-        <% else %>
-          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true, class: 'text-decoration-none' do %>
+      <% if @restaurant.activated %>
+        <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true, class: 'text-decoration-none' do %>
+          <div id='pimp-online'>
+            <i class="fas fa-toggle-on"></i>
+            <p>En ligne</p>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true, class: 'text-decoration-none' do %>
           <div id="pimp-offline">
             <i class="fas fa-toggle-off" style="color: #979999;"></i>
             <p style="color: #979999;">Hors-ligne</p>
           </div>
-          <% end %>
         <% end %>
+      <% end %>
       <%= link_to 'Visualiser', restaurant_path, class: 'btn-normal'  %>
-      </div>
-    
-  
-  </div>
-
-    <div class="container-small">
     </div>
-    <div class="bs-stepper">
-      <div class="bs-stepper-header" role="tablist">
-        <!-- your steps here -->
-        <div class="step" data-target="#details-part">
-          <button type="button" class="step-trigger" role="tab" aria-controls="details-part" id="details-part-trigger">
-            <span class="bs-stepper-circle">1</span>
-            <span class="bs-stepper-label">Détails</span>
-          </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step" data-target="#description-part">
-          <button type="button" class="step-trigger" role="tab" aria-controls="description-part" id="description-part-trigger">
-            <span class="bs-stepper-circle">2</span>
-            <span class="bs-stepper-label">Description</span>
-          </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step" data-target="#photos-part">
-          <button type="button" class="step-trigger" role="tab" aria-controls="photos-part" id="photos-part-trigger">
-            <span class="bs-stepper-circle">3</span>
-            <span class="bs-stepper-label">Photos</span>
-          </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step" data-target="#hours-part">
-          <button type="button" class="step-trigger" role="tab" aria-controls="hours-part" id="hours-part-trigger">
-            <span class="bs-stepper-circle">4</span>
-            <span class="bs-stepper-label">Horaires</span>
-          </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step" data-target="#social-part">
-          <button type="button" class="step-trigger" role="tab" aria-controls="social-part" id="social-part-trigger">
-            <span class="bs-stepper-circle">5</span>
-            <span class="bs-stepper-label">Réseaux sociaux</span>
-          </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step" data-target="#booking-part">
-          <button type="button" class="step-trigger" role="tab" aria-controls="booking-part" id="booking-part-trigger">
-            <span class="bs-stepper-circle">6</span>
-            <span class="bs-stepper-label">Réservation</span>
-          </button>
+  <div class="container-small">
+  </div>
+  <div class="bs-stepper">
+    <div class="bs-stepper-header" role="tablist">
+      <!-- your steps here -->
+      <div class="step" data-target="#details-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="details-part" id="details-part-trigger">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">Détails</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#description-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="description-part" id="description-part-trigger">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">Description</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#photos-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="photos-part" id="photos-part-trigger">
+          <span class="bs-stepper-circle">3</span>
+          <span class="bs-stepper-label">Photos</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#hours-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="hours-part" id="hours-part-trigger">
+          <span class="bs-stepper-circle">4</span>
+          <span class="bs-stepper-label">Horaires</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#social-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="social-part" id="social-part-trigger">
+          <span class="bs-stepper-circle">5</span>
+          <span class="bs-stepper-label">Réseaux sociaux</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#booking-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="booking-part" id="booking-part-trigger">
+          <span class="bs-stepper-circle">6</span>
+          <span class="bs-stepper-label">Réservation</span>
+        </button>
+      </div>
+    </div>
+    <div class="bs-stepper-content">
+      <!-- your steps content here -->
+      <div id="details-part" class="content fade" role="tabpanel" aria-labelledby="details-part-trigger">
+        <%# <div class="container-small"> %>
+        <div class="section-account box">
+          <div class="section-title">Détails du restaurant</div>
+          <div class="section-inner">
+            <%= simple_form_for @restaurant, remote: true do |f| %>
+              <%# <%= f.error_notification %>
+              <%= f.input :name, label: "Nom du restaurant", placeholder: "Quel est le nom de votre restaurant ?" %>
+              <%= f.input :address, label: "Adresse du restaurant", placeholder: "Rue, code postal, ville", input_html: { id: 'autocompletion-edit' } %>
+              <%= f.input :contact_email, label: "Adresse mail de contact", placeholder: "Rue, code postal, ville", input_html: { type:"email" } %>
+              <%= f.input :phone_number, prepend: "+33", label: "Numéro de téléphone", placeholder: "+33", input_html: { type:"tel", maxlength: 10 } %>
+              <div class="d-flex justify-content-end">
+                <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-      <div class="bs-stepper-content">
-        <!-- your steps content here -->
-        <div id="details-part" class="content fade" role="tabpanel" aria-labelledby="details-part-trigger">
-          <%# <div class="container-small"> %>
-          <div class="section-account box">
-            <div class="section-title">Détails du restaurant</div>
-            <div class="section-inner">
-              <%= simple_form_for @restaurant, remote: true do |f| %>
-                <%# <%= f.error_notification %>
-                <%= f.input :name, label: "Nom du restaurant", placeholder: "Quel est le nom de votre restaurant ?" %>
-                <%= f.input :address, label: "Adresse du restaurant", placeholder: "Rue, code postal, ville", input_html: { id: 'autocompletion-edit' } %>
-                <%= f.input :contact_email, label: "Adresse mail de contact", placeholder: "Rue, code postal, ville", input_html: { type:"email" } %>
-                <%= f.input :phone_number, prepend: "+33", label: "Numéro de téléphone", placeholder: "+33", input_html: { type:"tel", maxlength: 10 } %>
-                <div class="d-flex justify-content-end">
-                  <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div id="description-part" class="content" role="tabpanel" aria-labelledby="description-part-trigger">
-          <div class="section-description box">
-            <div class="section-title">Description du restaurant</div>
-              <div class="section-inner">
-                <%= simple_form_for @restaurant, remote: true do |f| %>
-                  <%= f.input :description, label: "Décrivez votre restaurant (200 caratères maximum)", :input_html => { maxlength: 200, :rows => 5 } %>
-                  <%= f.input :quote_one, label: "Ma citation 1", :input_html => { maxlength: 40} %>
-                  <%= f.input :quote_two, label: "Ma citation 2", :input_html => { maxlength: 40} %>
-                  <%= f.input :quote_three, label: "Ma citation 3", :input_html => { maxlength: 40} %>
-                  <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
-                  <div class="d-flex justify-content-between">
-                    <%= f.button :submit, 'Précédent', class: 'btn btn-normal previous-step' %>
-                    <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
-                  </div>
-                <% end %>
+      <div id="description-part" class="content" role="tabpanel" aria-labelledby="description-part-trigger">
+        <div class="section-description box">
+          <div class="section-title">Description du restaurant</div>
+          <div class="section-inner">
+            <%= simple_form_for @restaurant, remote: true do |f| %>
+              <%= f.input :description, label: "Décrivez votre restaurant (200 caratères maximum)", :input_html => { maxlength: 200, :rows => 5 } %>
+              <%= f.input :quote_one, label: "Ma citation 1", :input_html => { maxlength: 40} %>
+              <%= f.input :quote_two, label: "Ma citation 2", :input_html => { maxlength: 40} %>
+              <%= f.input :quote_three, label: "Ma citation 3", :input_html => { maxlength: 40} %>
+              <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
+              <div class="d-flex justify-content-between">
+                <%= f.button :submit, 'Précédent', class: 'btn btn-normal previous-step' %>
+                <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
               </div>
-            </div>
+            <% end %>
           </div>
         </div>
-        <div id="photos-part" class="content" role="tabpanel" aria-labelledby="photos-part-trigger">
-          <div class="section-photos box">
-            <div class="section-title">Photos du restaurant</div>
-            <div class="section-inner">
-            <nav>
-              <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <% Photo.categories.each_with_index do |enum, index| %>
-                  <% category = enum.first %>
-                  <% name = Photo::CATEGORIES_NAME[category] %>
-                  <a class="nav-item nav-link nav-photo <%= "active" if index.zero? %>" id="nav-<%= category %>-tab" data-toggle="tab" href="#nav-<%= category %>" role="tab" aria-controls="nav<%= category %>" aria-selected=" <%= index.zero? ? "true" : "false" %>"> <%= name %></a>
+      </div>
+    </div>
+    <div id="photos-part" class="content" role="tabpanel" aria-labelledby="photos-part-trigger">
+      <div class="section-photos box">
+        <div class="section-title">Photos du restaurant</div>
+        <div class="section-inner">
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <% Photo.categories.each_with_index do |enum, index| %>
+                <% category = enum.first %>
+                <% name = Photo::CATEGORIES_NAME[category] %>
+                <a class="nav-item nav-link nav-photo <%= "active" if index.zero? %>" id="nav-<%= category %>-tab" data-toggle="tab" href="#nav-<%= category %>" role="tab" aria-controls="nav<%= category %>" aria-selected=" <%= index.zero? ? "true" : "false" %>"> <%= name %></a>
                 <% end %>
               </div>
             </nav>
@@ -212,10 +205,9 @@
             </div>
           </div>
         </div>
-
+      </div>
       </div>
     </div>
-
     <% else %>
       <h2>You cannot add a restaurant, you need permissions !</h2>
     <% end %>
@@ -229,13 +221,13 @@
             <%# <div class="section-inner d-inline-flex" id="checkbox"> %>
               <%# <div class= "justify-content-around mx-2 mt-1"> %>
                 <%# <input type="checkbox" id="restaurant_activated" class="checkbox" /> %>
-                  <%# <label for="restaurant_activated" name="restaurant[activated]" class="switch"></label> %>
-                  <%# </div>   %>
-                  <%# </div> %>
-                  <%# <% end %>
-                  <%# <% if @restaurant.activated %>
-                  <%# <p>En Ligne</p> %>
-                  <%# <% else %>
-                  <%# <p>Hors-ligne</p> %>
-                  <%# <% end %>
-                  <%# </div> %>
+                <%# <label for="restaurant_activated" name="restaurant[activated]" class="switch"></label> %>
+                <%# </div>   %>
+                <%# </div> %>
+                <%# <% end %>
+                <%# <% if @restaurant.activated %>
+                <%# <p>En Ligne</p> %>
+                <%# <% else %>
+                <%# <p>Hors-ligne</p> %>
+                <%# <% end %>
+                <%# </div> %>
