@@ -10,6 +10,12 @@ const initBStepper = () => {
         stepper.next();
       } )
     });
+    const buttonsPrevious = document.querySelectorAll('.previous-step');
+    buttonsPrevious.forEach(button => {
+      button.addEventListener("click", () => {
+        stepper.previous();
+      } )
+    });
   };
 }
 

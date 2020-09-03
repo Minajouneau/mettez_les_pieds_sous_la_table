@@ -1,21 +1,28 @@
 <% if policy(Restaurant).create? %>
   <div class="container">
-    <div class="container-small">
-      <div class="section-activation box">
-        <div class="section-inner d-flex justify-content-around">
-          <% if @restaurant.activated %>
-            <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-              <i class="fas fa-toggle-on enligne"> En ligne</i>
-            <% end %>
-          <% else %>
-            <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
-              <i class="fas fa-toggle-off horsligne"> Hors-ligne</i>
-            <% end %>
+
+  <div class="d-flex justify-content-around">
+
+    <%= link_to "Tableau de bord", restaurants_path, class: "btn btn-light btn-lg"  %>
+    
+      <div class="toggle d-inline-flex justify-content-around">
+        <% if @restaurant.activated %>
+          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
+            <i class="fas fa-toggle-on enligne"></i>
+            <div class="enligne">En ligne</div>
           <% end %>
-          <%= link_to 'Visualiser', restaurant_path, class: 'btn visualiser'  %>
-          <%= link_to "Tableau de bord", restaurants_path, class: "btn btn-light btn-lg visualiser"  %>
-        </div>
+        <% else %>
+          <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
+            <i class="fas fa-toggle-off horsligne"> Hors-ligne</i>
+          <% end %>
+        <% end %>
       </div>
+    
+    <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-light btn-lg visualiser'  %>
+  
+  </div>
+
+    <div class="container-small">
     </div>
     <div class="bs-stepper">
       <div class="bs-stepper-header" role="tablist">
@@ -75,28 +82,36 @@
                 <%= f.input :address, label: "Adresse du restaurant", placeholder: "Rue, code postal, ville", input_html: { id: 'autocompletion-edit' } %>
                 <%= f.input :contact_email, label: "Adresse mail de contact", placeholder: "Rue, code postal, ville", input_html: { type:"email" } %>
                 <%= f.input :phone_number, prepend: "+33", label: "Numéro de téléphone", placeholder: "+33", input_html: { type:"tel", maxlength: 10 } %>
+                <div class="d-flex justify-content-end">
                 <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
+                </div>
               <% end %>
             </div>
           </div>
         </div>
         <div id="description-part" class="content" role="tabpanel" aria-labelledby="description-part-trigger">
           <div class="section-description box">
-            <div class="section-title">Description</div>
-            <div class="section-inner">
-              <%= simple_form_for @restaurant, remote: true do |f| %>
-                <%= f.input :description, label: "Décrivez votre restaurant (200 caratères maximum)", :input_html => { maxlength: 200, :rows => 5 } %>
-                <%= f.input :quote_one, label: "Ma citation 1", :input_html => { maxlength: 40} %>
-                <%= f.input :quote_two, label: "Ma citation 2", :input_html => { maxlength: 40} %>
-                <%= f.input :quote_three, label: "Ma citation 3", :input_html => { maxlength: 40} %>
-                <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
-                <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
-              <% end %>
+            <div class="section-title">Description du restaurant</div>
+              <div class="section-inner">
+                <%= simple_form_for @restaurant, remote: true do |f| %>
+                  <%= f.input :description, label: "Décrivez votre restaurant (200 caratères maximum)", :input_html => { maxlength: 200, :rows => 5 } %>
+                  <%= f.input :quote_one, label: "Ma citation 1", :input_html => { maxlength: 40} %>
+                  <%= f.input :quote_two, label: "Ma citation 2", :input_html => { maxlength: 40} %>
+                  <%= f.input :quote_three, label: "Ma citation 3", :input_html => { maxlength: 40} %>
+                  <%# <%= f.input :activated, wrapper: :custom_boolean_switch %>
+                  <div class="d-flex justify-content-between">
+                    <%= f.button :submit, 'Précédent', class: 'btn btn-normal previous-step' %>
+                    <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
         <div id="photos-part" class="content" role="tabpanel" aria-labelledby="photos-part-trigger">
           <div class="section-photos box">
+            <div class="section-title">Photos du restaurant</div>
+            <div class="section-inner">
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <% Photo.categories.each_with_index do |enum, index| %>
@@ -114,7 +129,10 @@
                 <div class="tab-pane fade <%= "show active" if index.zero? %>" id="nav-<%= category %>" role="tabpanel" aria-labelledby="nav-<%= category %>-tab">
                   <div class="section-inner">
                     <%= render "photos/form", category: category, restaurant: @restaurant, photo: @photo %>
-                    <div class="btn btn-normal next-step">Suivant</div>  
+                    <div class="d-flex justify-content-between">
+                      <div class="btn btn-normal previous-step">Précédent</div>  
+                      <div class="btn btn-normal next-step">Suivant</div>
+                    </div>
                   </div>
                 </div>
               <% end %>
@@ -144,7 +162,10 @@
                         </label>
                       </div>
                     </fieldset>
-                    <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal next-step' %>
+                    <div class="d-flex justify-content-between">
+                      <%= f.button :submit, 'Précédent', class: 'btn btn-normal previous-step' %>
+                      <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
+                    </div>
                   <% end %>
                 </div>
               <% end %>
@@ -160,7 +181,10 @@
                 <%= f.input :facebook_url, label: "Facebook" %>
                 <%= f.input :twitter_url, label: "Twitter" %>
                 <%= f.input :instagram_url, label: "Instagram" %>
-                <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal next-step' %>
+                <div class="d-flex justify-content-between">
+                  <%= f.button :submit, 'Précédent', class: 'btn btn-normal previous-step' %>
+                  <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
+                </div>
               <% end %>
             </div>
           </div>
@@ -168,12 +192,15 @@
 
         <div id="booking-part" class="content fade" role="tabpanel" aria-labelledby="booking-part-trigger">
           <div class="section-account box">
-            <div class="section-title">Lien de réservation</div>
+            <div class="section-title">Réservation</div>
             <div class="section-inner">
               <%= simple_form_for @restaurant, remote: true do |f| %>
                 <%= hidden_field_tag :redirection, true %>
-                <%= f.input :booking_url, label: "Réservation" %>
-                <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+                <%= f.input :booking_url, label: "Lien de réservation" %>
+                <div class="d-flex justify-content-between">
+                  <%= f.button :submit, 'Précédent', class: 'btn btn-normal previous-step' %>
+                  <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal' %>
+                </div>
               <% end %>
             </div>
           </div>

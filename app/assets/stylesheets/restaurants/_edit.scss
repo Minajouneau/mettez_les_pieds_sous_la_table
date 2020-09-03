@@ -80,14 +80,12 @@ form {
   display: none;
 }
 
-.section-activation {
-  margin-top: 90px;
-  margin-bottom: 20px;
-  border: #979999;
-  justify-content: center;
-}
-
 .nav-photo {
 color: $deliveroo-turquoise;
 }
 
+.toggle {
+  align-self: center;
+  font-size: 30px;
+  font-family: $body-font;
+}
