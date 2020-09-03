@@ -135,6 +135,7 @@
                     <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
                     <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
                     <fieldset class="boolean optional schedule_closed">
+                    <p class="string optional label-class">Fermé</p>
                       <div class="form-check">
                         <label class="form-check-label boolean optional switch-toggle" for="schedule_closed_<%= schedule.id %>">
                           <input name="schedule[closed]" type="hidden" value="0">
