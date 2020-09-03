@@ -202,7 +202,7 @@
         <% if @restaurant.photos.where(category: :menu).any? %>
           <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'menu' %>
         <% else %>
-          <%= image_tag 'http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg', class: 'menu' %>
+          <%= image_tag 'https://www.lexpertvelo.com/cache/dossiers/theme1/w800/menu-1.jpg', class: 'menu' %>
         <% end %>
       </button>
 
@@ -219,7 +219,7 @@
               <% if @restaurant.photos.where(category: :menu).any? %>
                 <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'menu' %>
               <% else %>
-                <%= image_tag 'http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg', class: 'menu' %>
+                <%= image_tag 'https://www.lexpertvelo.com/cache/dossiers/theme1/w800/menu-1.jpg', class: 'menu' %>
               <% end %>
             </div>
           </div>
