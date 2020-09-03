@@ -37,7 +37,7 @@ import { previewImageOnFileSelect } from '../components/photo_preview';
 import { autoSubmitForm } from '../components/autosubmit';
 import { autoDeletePhoto } from '../components/autodelete';
 // import { slideSidenav} from '../components/sidebar';
-
+import { sweetNotice } from '../components/notice';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -51,4 +51,7 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   autoDeletePhoto();
   // slideSidenav();
+  sweetNotice();
+
+
 })

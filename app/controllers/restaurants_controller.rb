@@ -66,6 +66,7 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
     if @restaurant.activated
       @restaurant.update(activated: false)
+
     else
       @restaurant.update(activated: true)
     end

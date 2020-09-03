@@ -1,10 +1,11 @@
+
 <% if policy(Restaurant).create? %>
   <div class="container">
 
   <div class="d-flex justify-content-around">
 
     <%= link_to "Tableau de bord", restaurants_path, class: "btn btn-light btn-lg"  %>
-    
+
       <div class="toggle d-inline-flex justify-content-around">
         <% if @restaurant.activated %>
           <%= link_to update_activation_restaurant_path(@restaurant), method: :post, remote: true do %>
@@ -17,9 +18,9 @@
           <% end %>
         <% end %>
       </div>
-    
+
     <%= link_to 'Visualiser', restaurant_path, class: 'btn btn-light btn-lg visualiser'  %>
-  
+
   </div>
 
     <div class="container-small">
@@ -74,7 +75,7 @@
         <div id="details-part" class="content fade" role="tabpanel" aria-labelledby="details-part-trigger">
           <%# <div class="container-small"> %>
           <div class="section-account box">
-            <div class="section-title">Détails du restaurant</div>
+            <div class="section-title">Détails de votre restaurant <%=@restaurant.name %></div>
             <div class="section-inner">
               <%= simple_form_for @restaurant, remote: true do |f| %>
                 <%# <%= f.error_notification %>
@@ -84,6 +85,7 @@
                 <%= f.input :phone_number, prepend: "+33", label: "Numéro de téléphone", placeholder: "+33", input_html: { type:"tel", maxlength: 10 } %>
                 <div class="d-flex justify-content-end">
                 <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
+
                 </div>
               <% end %>
             </div>
@@ -130,9 +132,8 @@
                   <div class="section-inner">
                     <%= render "photos/form", category: category, restaurant: @restaurant, photo: @photo %>
                     <div class="d-flex justify-content-between">
-                      <div class="btn btn-normal previous-step">Précédent</div>  
+                      <div class="btn btn-normal previous-step">Précédent</div>
                       <div class="btn btn-normal next-step">Suivant</div>
-                    </div>
                   </div>
                 </div>
               <% end %>
@@ -140,7 +141,7 @@
             </div>
           </div>
         </div>
-        
+
         <div id="hours-part" class="content content-design" role="tabpanel" aria-labelledby="hours-part-trigger">
           <div class="container section-account box-design">
             <div class="section-title">Horaires</div>
@@ -150,7 +151,7 @@
                 <div class="mx-3">Fermé ?</div>
               </div>
               <% @restaurant.schedules.each do |schedule| %>
-                <div class="schedule-day schedule-day-design">  
+                <div class="schedule-day schedule-day-design">
                   <div class="day-txt">
                     <p><%= schedule.day %></p>
                   </div>
@@ -171,9 +172,8 @@
                   <% end %>
                 </div>
               <% end %>
-              <div class="btn btn-normal previous-step">Précédent</div>  
-              <div class="btn btn-normal next-step">Suivant</div>  
-            </div>
+              <div class="btn btn-normal previous-step">Précédent</div>
+              <div class="btn btn-normal next-step">Suivant</div>
           </div>
         </div>
 
