@@ -149,7 +149,7 @@
     <% if @restaurant.photos.where(category: :interior)[2] %>
       <%= cl_image_tag @restaurant.photos.where(category: :interior)[2].file.key, class: 'module' %>
     <% else %>
-      <%= image_tag 'https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg', class: 'module' %>
+      <p class='module pimpy';>Les images présentes sont des images d'illustration. Insérez les votres dans le menu "Modifier" pour y apporter des modifications</p>
     <% end %>
 
     <% if @restaurant.photos.where(category: :food).first %>
