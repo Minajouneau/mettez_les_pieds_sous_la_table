@@ -11,8 +11,8 @@ const initBStepper = () => {
       } )
     });
     const buttonsPrevious = document.querySelectorAll('.previous-step');
-    buttonsPrevious.forEach(button => {
-      button.addEventListener("click", () => {
+    buttonsPrevious.forEach(buttonsPrevious => {
+      buttonsPrevious.addEventListener("click", () => {
         stepper.previous();
       } )
     });
