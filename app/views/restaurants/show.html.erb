@@ -20,8 +20,12 @@
           <a href="<%= url %>" target="_blank" class="btn-show-reserver">Réservez</a>
       </div>
       <div class="column-right">
-          <%= link_to 'Continuer à éditer', edit_restaurant_path, class: "btn-show", style: "height: 40px;" %>
-          <%= link_to "Tableau de bord", restaurants_path, class: "btn-show", style: "height: 40px;" %>
+      
+      <% if current_user == @restaurant.user %>
+        <%= link_to 'Continuer à éditer', edit_restaurant_path(@restaurant), class: "btn-show", style: "height: 40px;" %>
+        <%= link_to "Tableau de bord", restaurants_path, class: "btn-show", style: "height: 40px;" %>
+      <% end %>
+      
       </div>
     </div>
   </div>
@@ -37,8 +41,8 @@
           <%= '« Rentrez ici de petites citations »' %>
         <% end %>"></span>        
       </p>
-      <p><% if @user.parcours? %>
-            <%= @user.parcours.capitalize %>
+      <p><% if @restaurant.user.parcours? %>
+            <%= @restaurant.user.parcours.capitalize %>
             <% else %>
             <%= 'Détaillez ici votre parcours' %>
             <% end %></p>
@@ -54,13 +58,13 @@
         <% end %>
       </div>
       <div id="insert-droit">
-        <h1 style="color: white;">Le chef : <% if @user.prenom? %>
-            <%= @user.prenom.capitalize %>
+        <h1 style="color: white;">Le chef : <% if @restaurant.user.prenom? %>
+            <%= @restaurant.user.prenom.capitalize %>
             <% else %>
             <%= 'Votre prénom' %>
             <% end %></h1>
-        <p style="color: white;"><% if @user.vision? %>
-            <%= @user.vision.capitalize %>
+        <p style="color: white;"><% if @restaurant.user.vision? %>
+            <%= @restaurant.user.vision.capitalize %>
             <% else %>
             <%= 'Expliquez ici votre vision' %>
             <% end %></p>
