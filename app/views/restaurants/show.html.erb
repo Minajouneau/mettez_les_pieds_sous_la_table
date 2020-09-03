@@ -1,6 +1,6 @@
 <body class="show-page">
   <div class="chief-presentation-background">
-  <% url = @restaurant.photos.where(category: :interior)[0] ?  cl_image_path(@restaurant.photos.where(category: :interior)[0].file.key) : "https://www.meetpro.fr/wp-content/uploads/2019/06/petr-sevcovic-594807-unsplash-e1561709868420.jpg" %>
+    <% url = @restaurant.photos.where(category: :interior)[0] ?  cl_image_path(@restaurant.photos.where(category: :interior)[0].file.key) : "https://www.meetpro.fr/wp-content/uploads/2019/06/petr-sevcovic-594807-unsplash-e1561709868420.jpg" %>
     <div class="chief-presentation" style="background-image: url(<%= url %>);">
       <div class="column-left">
         <div></div>           
@@ -250,7 +250,6 @@
   <h4>Nos réseaux sociaux :</h4>
   <br>
     <div id="footer-icons">
-        <%# <% url = @restaurant.facebook_url ?  cl_image_path(@restaurant.photos.where(category: :food)[2].file.key) : "https://youmatter.world/app/uploads/sites/3/2016/06/gastronomie-cuisine-alimentation-saine-durable.jpg" %>
       <% url = @restaurant.facebook_url ?  @restaurant.facebook_url : "https://www.facebook.com/" %>
       <a href="<%= url %>" target="_blank"><p><i class="fab fa-facebook""></i></p></a>
       <a href="https://twitter.com/?lang=fr" target="_blank"><p><i class="fab fa-twitter""></i></p></a>
