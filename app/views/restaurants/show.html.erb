@@ -16,12 +16,12 @@
             <% end %></p>
           <br>
         </div>
-        <a href="https://www.tripadvisor.fr/" target="_blank" class="btn-show-reserver">Réservez</a>
+          <% url = @restaurant.booking_url? ?  @restaurant.booking_url : "https://www.tripadvisor.fr/" %>
+          <a href="<%= url %>" target="_blank" class="btn-show-reserver">Réservez</a>
       </div>
       <div class="column-right">
           <%= link_to 'Continuer à éditer', edit_restaurant_path, class: "btn-show", style: "height: 40px;" %>
           <%= link_to "Tableau de bord", restaurants_path, class: "btn-show", style: "height: 40px;" %>
-          <%# <button class="btn-normal" style="height: 40px; font-family: 'El Messiri', sans-serif;">Status</button> %>
       </div>
     </div>
   </div>
@@ -250,10 +250,12 @@
   <h4>Nos réseaux sociaux :</h4>
   <br>
     <div id="footer-icons">
-      <% url = @restaurant.facebook_url ?  @restaurant.facebook_url : "https://www.facebook.com/" %>
+      <% url = @restaurant.facebook_url? ?  @restaurant.facebook_url : "https://www.facebook.com/" %>
       <a href="<%= url %>" target="_blank"><p><i class="fab fa-facebook""></i></p></a>
-      <a href="https://twitter.com/?lang=fr" target="_blank"><p><i class="fab fa-twitter""></i></p></a>
-      <a href="https://www.instagram.com/?hl=fr" target="_blank"><p><i class="fab fa-instagram""></i></p></a>
+      <% url = @restaurant.twitter_url? ?  @restaurant.twitter_url : "https://www.twitter.com/" %>
+      <a href="<%= url %>" target="_blank"><p><i class="fab fa-twitter""></i></p></a>
+      <% url = @restaurant.instagram_url? ?  @restaurant.instagram_url : "https://www.instagram.com/" %>
+      <a href="<%= url %>" target="_blank"><p><i class="fab fa-instagram""></i></p></a>
     </div>
     <br>
   </div>
