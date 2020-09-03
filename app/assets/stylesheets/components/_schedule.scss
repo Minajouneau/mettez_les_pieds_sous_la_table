@@ -1,5 +1,6 @@
 .schedule-day-design {
   display: flex;
+  border-bottom: solid 1px #E9ECEF;
   p {
       width: 120px;
     }
@@ -30,7 +31,7 @@
   margin-top: 30px;
   margin-bottom: 10px;
   text-align: center;
-  width: 63%;
+  width: 100%;
 }
 
 #hours-part {
@@ -43,8 +44,11 @@
 }
 
 .day-txt {
-  margin-top: 55px;
-//   margin-bottom: 3rem;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .form-check {
@@ -52,7 +56,12 @@
 }
 
 .label-class {
-  left: 54.5%;
+  left: -7%;
   // top: 53px;
   position: absolute;
+  bottom: 25px;
+}
+
+.submit-button {
+  left: 50px;
 }

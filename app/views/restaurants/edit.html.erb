@@ -142,19 +142,24 @@
         </div>
         
         <div id="hours-part" class="content content-design" role="tabpanel" aria-labelledby="hours-part-trigger">
-          <div class="section-account box-design">
+          <div class="container section-account box-design">
+            <div class="section-title">Horaires</div>
             <div class="section-inner section-inner-design">
+              <div class="tab-title d-flex justify-content-center">
+                <div><span class="mx-3">Ouverture</span><span class="mx-3">Fermeture</span></div>
+                <div class="mx-3">Fermé ?</div>
+              </div>
               <% @restaurant.schedules.each do |schedule| %>
                 <div class="schedule-day schedule-day-design">  
                   <div class="day-txt">
                     <p><%= schedule.day %></p>
                   </div>
                   <%= simple_form_for schedule, remote: true do |f| %>
-                    <%= f.input :opening_hour, input_html: {class: "clockpicker"} %>
-                    <%= f.input :closing_hour, input_html: {class: "clockpicker"} %>
+                    <%= f.input :opening_hour, input_html: {class: "clockpicker"}, label: false %>
+                    <%= f.input :closing_hour, input_html: {class: "clockpicker"}, label: false %>
                     <fieldset class="boolean optional schedule_closed">
-                    <p class="string optional label-class">Fermé</p>
                       <div class="form-check">
+                        <!-- <p class="string optional label-class"><%#= schedule.day == "Lundi" ? "Fermé ?" : " " %></p> -->
                         <label class="form-check-label boolean optional switch-toggle" for="schedule_closed_<%= schedule.id %>">
                           <input name="schedule[closed]" type="hidden" value="0">
                           <input class="form-check-input boolean optional" type="checkbox" value="1" name="schedule[closed]" id="schedule_closed_<%= schedule.id %>">
@@ -162,10 +167,7 @@
                         </label>
                       </div>
                     </fieldset>
-                    <div class="d-flex justify-content-between">
-                      <%= f.button :submit, 'Précédent', class: 'btn btn-normal previous-step' %>
-                      <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
-                    </div>
+                    <%= f.button :submit, 'Enregistrer', class: 'btn btn-normal next-step submit-button' %>
                   <% end %>
                 </div>
               <% end %>
