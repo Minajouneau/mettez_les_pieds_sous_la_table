@@ -10,18 +10,17 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-  .status {
+ .status {
     position: absolute;
-    top: 20px;
-    right: 70px;
-  }
+    top: 26px;
+    right: 31px;
+}
 
 
   .card-product img {
-  height: 80%;
-  max-width: 330px;
-  padding-left: 20px;
-  object-fit: cover;
+    height: 100%;
+    width: 200px;
+    object-fit: cover;
 }
 
 
@@ -43,8 +42,7 @@
 }
 
 .visualiser {
-  left: 765px;
-  top: 553.57px;
+  padding: 10px;
   font-style: normal;
   font-weight: bold;
   font-size: 19px;
@@ -55,11 +53,11 @@
   width: 139px;
   height: 50px;
   border: 1px solid #828282;
+  margin-left: 19px;
 }
 
 .modifier {
-  left: 765px;
-  top: 553.57px;
+  padding: 10px;
   font-style: normal;
   font-weight: bold;
   font-size: 19px;
@@ -81,10 +79,8 @@
 
 .enligne_button {
   height: 30%;
-  font-family: Lora;
-  font-style: normal;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.4em;
   line-height: 15px;
   color: #6FCF97;
 
@@ -92,9 +88,8 @@
 
 .horsligne_button {
   height: 40%;
-  font-style: normal;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.4em;
   line-height: 15px;
   color: #ff5f40;
 }
@@ -172,4 +167,12 @@
 .edit_user {
   width: 70%;
   margin-left: 15%;
+}
+
+.croix {
+  position: absolute;
+  left: 239px;
+  top: 278px;
+  color: white;
+  font-size: 20px;
 }

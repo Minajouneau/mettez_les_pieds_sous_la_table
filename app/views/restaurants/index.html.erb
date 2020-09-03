@@ -3,15 +3,15 @@
   <div class="sidebar-container">
     <div class="sidenav" >
       <div class="text-center">
-        <img class="avatar-large" alt="avatar-large" src="https://foodandsens.com/wp-content/uploads/2020/08/Capture-d%E2%80%99%C3%A9cran-2020-08-07-%C3%A0-15.24.30-696x800.png" />
+        <img class="avatar-large" alt="avatar-large" src="https://img-4.linternaute.com/3EpwjMo9HSOZTKaftaQo0fbbX7E=/1240x/smart/1a10083562504832b38b607673c4c6c3/ccmcms-linternaute/16462648.jpg" />
         <p class="name">ADRIEN CACHOT</p>
-        <p class="inscrit">- Inscrit en 2020 -</p>
+        <p class="inscrit">- Inscrit depuis 2020 -</p>
       </div>
       <div class="nav flex-column nav-pills">
         <a class="nav-link active sidebar-tab-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Mes restaurants</a>
         <a class="nav-link sidebar-tab-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Mes informations</a>
         <%= link_to destroy_user_session_path, method: :delete, class: "nav-link sidebar-tab-link" do %>
-          Déconnexion <i class="fas fa-sign-out-alt logout"></i>
+          Déconnexion <i  class="fas fa-sign-out-alt logout"></i>
         <% end %>
       </div>
     </div>
@@ -24,7 +24,7 @@
           <div class="card-product-container-top">
             <h2 class="titretab">Mes restaurants</h2>
             <button type="button"  data-toggle="modal" class="add_button" data-target="#oMessagerie">
-           <strong> AJOUTER UN RESTAURANT</strong> <i class="fas fa-plus"></i>
+           <i class="fas fa-plus"></i><strong> AJOUTER UN RESTAURANT</strong>
             </button>
           </div>
 
@@ -34,7 +34,7 @@
               <% if restaurant.photos.where(category: :exterior).first %>
                 <%= cl_image_tag restaurant.photos.where(category: :exterior).first.file.key, crop: :fill %>
               <% else %>
-                <%= image_tag "no_photo.png" %>
+                <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRGA1L3T04Ixnzozll3s8RLlR7VsGQ8OA-Mzg&usqp=CAU" %>
               <% end %>
               <%# <img src="https://lh3.googleusercontent.com/proxy/26gzRO0Cl31_3iqpr-6h4Da6_3vitbC76meV5KaqyLIkppIR8wp6IyzmlFZ-0Ygr-RFDWPq75gU7SqtWQqhhc060oWHUtFBX7OAMAYMs4vt54w_Sc3t4HG-kxm4w6DM"class="no_image"> %>
 
@@ -117,9 +117,9 @@
       <div class="modal-body">
         <% if policy(Restaurant).create? %>
           <%= simple_form_for @restaurant do |f| %>
-            <%= f.input :name, label:"Nom" %>
-            <%= f.input :address,label:"Addresse de l'établissement", input_html: { id: 'autocompletion-new'} %>
-            <%= f.button :submit, value: "Créer ton nouveau restaurant !", class: 'btn-normal' %>
+            <%= f.input :name, label:"Nom de votre établissement" %>
+            <%= f.input :address,label:"Addresse de votre établissement ", input_html: { id: 'autocompletion-new'} %>
+            <%= f.button :submit, value: "CREER TON NOUVEAU RESTAURANT!", class: 'btn-normal' %>
           <% end %>
         <% end %>
       </div>

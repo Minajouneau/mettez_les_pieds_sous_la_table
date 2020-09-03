@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @restaurants = policy_scope(current_user.restaurants)
+    @restaurants = policy_scope(current_user.restaurants).sort.reverse
     @restaurant = Restaurant.new
     @user = current_user
   end
@@ -53,7 +53,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
     @restaurant.update(restaurant_params)
-    
+
     if params['redirection'] == 'true'
       redirect_to restaurants_path
     end
