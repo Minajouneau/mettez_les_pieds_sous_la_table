@@ -7,7 +7,7 @@ const loadDynamicBannerText = () => {
     const parcours = typed.dataset.userParcours.split('/');
     new Typed('#typed-text', {
       strings: parcours,
-      typeSpeed: 30,
+      typeSpeed: 50,
       loop: true
     });
   }
