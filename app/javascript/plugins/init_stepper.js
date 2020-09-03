@@ -8,13 +8,13 @@ const initBStepper = () => {
     buttons.forEach(button => {
       button.addEventListener("click", () => {
         stepper.next();
-      } )
+      })
     });
     const buttonsPrevious = document.querySelectorAll('.previous-step');
     buttonsPrevious.forEach(buttonsPrevious => {
       buttonsPrevious.addEventListener("click", () => {
         stepper.previous();
-      } )
+      })
     });
   };
 }

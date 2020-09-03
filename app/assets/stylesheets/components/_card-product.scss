@@ -30,11 +30,13 @@
   h4 {
     text-align: left;
     font-size: 16px;
+    font-family:roboto;
     color: #828282;
   }
   h2 {
     text-align: left;
     font-weight: bold;
+    font-family:roboto;
     font-size: 25px;
     line-height: 26px;
     color: #000000;
@@ -151,6 +153,7 @@
   font-weight: bold;
   font-size: 36px;
   line-height: 46px;
+  font-family: roboto;
 }
 
 #restaurants-index {
@@ -179,3 +182,8 @@
   font-size: 20px;
 }
 
+.modal-title-2 {
+  font-family: roboto;
+  text-align:center;
+  margin-left: 3.2em;
+}
