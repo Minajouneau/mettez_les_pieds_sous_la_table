@@ -93,8 +93,6 @@ users.each do |user|
   photo = Photo.create!(restaurant: restaurant, category: :menu)
   photo.file.attach(io: file, filename: "menu_1")
 
-  schedule = Schedule.create(restaurant: restaurant)
-
 
 
   # file = URI.open("https://lh3.googleusercontent.com/proxy/6pvI_HC2swF4K_3PTk_ANslFqBKwJhNTrtI8-qVET3Ddqg5dHud9ZfJNgQU1yqhlOerMVVv1ye05TG4saqvHso7LWXqGd_idLkrKDSo5-YVBvGmLQngQf0NxbOcN3zA")

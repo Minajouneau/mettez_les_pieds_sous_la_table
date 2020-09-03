@@ -45,7 +45,6 @@ document.addEventListener('turbolinks:load', () => {
   OpacityWithScroll();
   ColorChangeWithCheckbox();
   initBStepper();
-  initPrevious();
   initClockPicker();
   previewImageOnFileSelect();
   autoSubmitForm();
