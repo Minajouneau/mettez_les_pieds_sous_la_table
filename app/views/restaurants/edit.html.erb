@@ -76,11 +76,11 @@
           <div class="section-title">Détails du restaurant</div>
           <div class="section-inner">
             <%= simple_form_for @restaurant, remote: true do |f| %>
-              <%# <%= f.error_notification %>
               <%= f.input :name, label: "Nom du restaurant", placeholder: "Quel est le nom de votre restaurant ?" %>
               <%= f.input :address, label: "Adresse du restaurant", placeholder: "Rue, code postal, ville", input_html: { id: 'autocompletion-edit' } %>
               <%= f.input :contact_email, label: "Adresse mail de contact", placeholder: "Rue, code postal, ville", input_html: { type:"email" } %>
               <%= f.input :phone_number, prepend: "+33", label: "Numéro de téléphone", placeholder: "+33", input_html: { type:"tel", maxlength: 10 } %>
+              <%= f.input :subdomain, prepend: "www.", append: ".mettezlespiedssouslatable.fr", label: "Votre sous-domaine", placeholder: "arpege.mettezlespiedssouslatable.fr", input_html: { maxlength: 40 } %>
               <div class="d-flex justify-content-end">
                 <%= f.button :submit, 'Suivant', class: 'btn btn-normal next-step' %>
               </div>
