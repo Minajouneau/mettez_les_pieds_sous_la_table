@@ -76,7 +76,7 @@
   </div>
   <div class="cards-show-hours-dashboard">
     <div class="card-show-hours">
-      <h5>Lundi</h5>
+       <h5>Lundi</h5>
       <p><% if @restaurant.schedules.order(:id)[0].closed? %>
           <%= 'Fermé' %>
         <% else %>

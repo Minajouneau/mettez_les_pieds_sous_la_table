@@ -160,7 +160,7 @@
                         <!-- <p class="string optional label-class"><%#= schedule.day == "Lundi" ? "Fermé ?" : " " %></p> -->
                         <label class="form-check-label boolean optional switch-toggle" for="schedule_closed_<%= schedule.id %>">
                           <input name="schedule[closed]" type="hidden" value="0">
-                          <input class="form-check-input boolean optional" type="checkbox" value="1" name="schedule[closed]" id="schedule_closed_<%= schedule.id %>">
+                          <input class="form-check-input boolean optional" type="checkbox" value="1" name="schedule[closed]" id="schedule_closed_<%= schedule.id %>" <%= 'checked' if schedule.closed %>>
                           <span class="slider round"></span>
                         </label>
                       </div>
