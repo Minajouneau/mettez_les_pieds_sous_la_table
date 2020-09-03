@@ -68,8 +68,24 @@
   color: #FFFFFF;
   width: 139px;
   height: 50px;
-  background: #00CCBD;
+  background: $deliveroo-turquoise;
+  }
 
+  
+.kiffer {
+  padding: 10px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  width: 139px;
+  height: 50px;
+  background: $deliveroo-violet;
+  margin-left: 19px;
   }
 
 .modivisulaiser {
@@ -98,8 +114,6 @@
 //   display: flex;
 //   justify-content: space-around;
 // }
-
-
 
 .add_button {
   background: #00CCBD;

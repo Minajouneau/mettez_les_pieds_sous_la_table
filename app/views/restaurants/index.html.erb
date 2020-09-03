@@ -42,12 +42,12 @@
                 <h2><%=restaurant.name.capitalize%></h2>
                 <h4><%= restaurant.address%></h4>
                 <div class="modivisulaiser">
-                  <% if restaurant.activated %>
-                  <%= link_to "LIEN", restaurant.subdomain, class: "btn btn-light btn-lg modifier"%>
-                  <% else %>
                   <%= link_to "MODIFIER", edit_restaurant_path(restaurant), class: "btn btn-light btn-lg modifier"  %>
-                  <% end %>
+                  <% if restaurant.activated %>
+                    <%= link_to "KIFFER", "https://#{restaurant.subdomain}.mettezlespiedssouslatable.fr", class: "btn btn-light btn-lg kiffer"%>
+                  <% else %>
                   <%= link_to "VISUALISER", restaurant_path(restaurant), class: "btn btn-light btn-lg visualiser"  %>
+                  <% end %>
                 </div>
               </div>
               <div class="status">
