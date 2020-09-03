@@ -50,12 +50,28 @@ form {
   padding: 30px;
 }
 
-.enligne {
-  color: $deliveroo-turquoise;
+#pimp-online {
+  display: flex;
+  width: 6em;
+  justify-content: space-around;
+  align-items: baseline;
+  font-size: 20px;
 }
 
-.horsligne {
-  color: #979999;
+#pimp-offline {
+  display: flex;
+  width: 6em;
+  justify-content: space-around;
+  align-items: baseline;
+  font-size: 20px;
+}
+
+#pimp-offline:hover {
+  opacity: 0.5;
+}
+
+.text-decoration-none {
+  text-decoration: none!important;
 }
 
 .photo-trash {
@@ -88,5 +104,10 @@ color: $deliveroo-turquoise;
   align-self: center;
   font-size: 30px;
   font-family: $body-font;
+}
+
+
+.robootoo {
+  font-family: roboto;
 }
 

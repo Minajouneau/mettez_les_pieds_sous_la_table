@@ -21,6 +21,7 @@
     transition-property: background,box-shadow,-webkit-box-shadow;
     transition-duration: .15s;
     transition-timing-function: ease-out;
+    text-decoration: none;
 }
 
 .btn-show {
@@ -85,3 +86,4 @@
     max-height: 600px;
     border: none;
 }
+

@@ -24,7 +24,7 @@
           <div class="card-product-container-top">
             <h2 class="titretab">Mes restaurants</h2>
             <button type="button"  data-toggle="modal" class="add_button" data-target="#oMessagerie">
-           <i class="fas fa-plus"></i><strong> AJOUTER UN RESTAURANT</strong>
+            <i class="fas fa-plus"></i><strong> AJOUTER UN RESTAURANT</strong>
             </button>
           </div>
 
@@ -90,10 +90,10 @@
                                     label:"Quel est votre parcours?", placeholder: "Détaillez-nous votre parcours afin que nous puissions en savoir plus sur vous!",
                                     required: false,
                                     input_html: { autocomplete: "new-password" } %>
-                  </div>
-                </div>
-                <div class="form-actions">
+                <div class="d-flex justify-content-end">
                   <%= f.button :submit, "Enregistrer", class: "btn-normal" %>
+                </div>
+                </div>
                 </div>
               <% end %>
             </div>
@@ -109,7 +109,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="oMessagerieLabel"> <strong>NOUVEAU RESTAURANT</strong></h5>
+        <h5 class="modal-title-2" id="oMessagerieLabel"> <strong>NOUVEAU RESTAURANT</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
           <span aria-hidden="true">×</span>
         </button>

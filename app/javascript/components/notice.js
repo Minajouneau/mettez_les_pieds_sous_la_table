@@ -12,9 +12,37 @@ const sweetNotice = () => {
   title: 'Modifications sauvegardées!',
   showConfirmButton: false,
   timer: 900
-})
-    })
-  })
+});
+    });
+  });
+
+
+const prevBtns = document.querySelectorAll(".previous-step")
+  prevBtns.forEach((prevBtn) => {
+  prevBtn.addEventListener('click', (event) => {
+      Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Modifications sauvegardées!',
+  showConfirmButton: false,
+  timer: 900
+});
+    });
+  });
+
+const saveBtns = document.querySelectorAll(".save-button")
+  saveBtns.forEach((saveBtn) => {
+  saveBtn.addEventListener('click', (event) => {
+      Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Modifications sauvegardées!',
+  showConfirmButton: false,
+  timer: 900
+});
+    });
+  });
+
 }
 
 export { sweetNotice }

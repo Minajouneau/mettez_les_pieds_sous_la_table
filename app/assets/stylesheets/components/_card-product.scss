@@ -111,6 +111,8 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
 }
 
 .button-container {
@@ -138,7 +140,7 @@
 .form-inputs {
   .form-control.is-valid:focus{
   outline-color: #719ECE;
-  border: 2px solid black !important;
+  // border: 2px solid black !important;
   }
 }
 
@@ -180,7 +182,7 @@
   font-size: 20px;
 }
 
-.modal-title {
+.modal-title-2 {
   font-family: roboto;
   text-align:center;
   margin-left: 3.2em;

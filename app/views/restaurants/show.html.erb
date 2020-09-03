@@ -1,6 +1,6 @@
 <body class="show-page">
   <div class="chief-presentation-background">
-  <% url = @restaurant.photos.where(category: :interior)[0] ?  cl_image_path(@restaurant.photos.where(category: :interior)[0].file.key) : "https://www.meetpro.fr/wp-content/uploads/2019/06/petr-sevcovic-594807-unsplash-e1561709868420.jpg" %>
+    <% url = @restaurant.photos.where(category: :interior)[0] ?  cl_image_path(@restaurant.photos.where(category: :interior)[0].file.key) : "https://www.meetpro.fr/wp-content/uploads/2019/06/petr-sevcovic-594807-unsplash-e1561709868420.jpg" %>
     <div class="chief-presentation" style="background-image: url(<%= url %>);">
       <div class="column-left">
         <div></div>           
@@ -16,12 +16,12 @@
             <% end %></p>
           <br>
         </div>
-        <a href="https://www.tripadvisor.fr/" target="_blank" class="btn-show-reserver">Réservez</a>
+          <% url = @restaurant.booking_url? ?  @restaurant.booking_url : "https://www.tripadvisor.fr/" %>
+          <a href="<%= url %>" target="_blank" class="btn-show-reserver">Réservez</a>
       </div>
       <div class="column-right">
           <%= link_to 'Continuer à éditer', edit_restaurant_path, class: "btn-show", style: "height: 40px;" %>
           <%= link_to "Tableau de bord", restaurants_path, class: "btn-show", style: "height: 40px;" %>
-          <%# <button class="btn-normal" style="height: 40px; font-family: 'El Messiri', sans-serif;">Status</button> %>
       </div>
     </div>
   </div>
@@ -76,8 +76,8 @@
   </div>
   <div class="cards-show-hours-dashboard">
     <div class="card-show-hours">
-      <h5>Lundi</h5>
-      <p><% if @restaurant.schedules[0].closed? %>
+       <h5>Lundi</h5>
+      <p><% if @restaurant.schedules.order(:id)[0].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Lundi).first.opening_hour %> - 
@@ -86,7 +86,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Mardi</h5>
-      <p><% if @restaurant.schedules[1].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[1].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Mardi).first.opening_hour %> -
@@ -95,7 +95,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Mercredi</h5>
-      <p><% if @restaurant.schedules[2].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[2].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Mercredi).first.opening_hour %> - 
@@ -104,7 +104,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Jeudi</h5>
-      <p><% if @restaurant.schedules[3].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[3].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Jeudi).first.opening_hour %> - 
@@ -113,7 +113,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Vendredi</h5>
-      <p><% if @restaurant.schedules[4].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[4].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Vendredi).first.opening_hour %> - 
@@ -122,7 +122,7 @@
     </div>
     <div class="card-show-hours">
       <h5>Samedi</h5>
-      <p><% if @restaurant.schedules[5].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[5].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Samedi).first.opening_hour %> - 
@@ -131,7 +131,7 @@
     </div>
     <div class="card-show-hours">
     <h5>Dimanche</h5>
-      <p><% if @restaurant.schedules[6].closed? %>
+      <p><% if @restaurant.schedules.order(:id)[6].closed? %>
           <%= 'Fermé' %>
         <% else %>
           <%= @restaurant.schedules.where(day: :Dimanche).first.opening_hour %> - 
@@ -149,7 +149,7 @@
     <% if @restaurant.photos.where(category: :interior)[2] %>
       <%= cl_image_tag @restaurant.photos.where(category: :interior)[2].file.key, class: 'module' %>
     <% else %>
-      <%= image_tag 'https://i.pinimg.com/originals/33/b8/6f/33b86fa39193bbadded6668c735c6672.jpg', class: 'module' %>
+      <p class='module pimpy';>Les images présentes sont des images d'illustration. Insérez les votres dans le menu "Modifier" pour y apporter des modifications</p>
     <% end %>
 
     <% if @restaurant.photos.where(category: :food).first %>
@@ -202,7 +202,7 @@
         <% if @restaurant.photos.where(category: :menu).any? %>
           <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'menu' %>
         <% else %>
-          <%= image_tag 'http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg', class: 'menu' %>
+          <%= image_tag 'https://www.lexpertvelo.com/cache/dossiers/theme1/w800/menu-1.jpg', class: 'menu' %>
         <% end %>
       </button>
 
@@ -219,7 +219,7 @@
               <% if @restaurant.photos.where(category: :menu).any? %>
                 <%= cl_image_tag @restaurant.photos.where(category: :menu).first.file.key, class: 'menu' %>
               <% else %>
-                <%= image_tag 'http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg', class: 'menu' %>
+                <%= image_tag 'https://www.lexpertvelo.com/cache/dossiers/theme1/w800/menu-1.jpg', class: 'menu' %>
               <% end %>
             </div>
           </div>
@@ -250,11 +250,12 @@
   <h4>Nos réseaux sociaux :</h4>
   <br>
     <div id="footer-icons">
-        <%# <% url = @restaurant.facebook_url ?  cl_image_path(@restaurant.photos.where(category: :food)[2].file.key) : "https://youmatter.world/app/uploads/sites/3/2016/06/gastronomie-cuisine-alimentation-saine-durable.jpg" %>
-      <% url = @restaurant.facebook_url ?  @restaurant.facebook_url : "https://www.facebook.com/" %>
+      <% url = @restaurant.facebook_url? ?  @restaurant.facebook_url : "https://www.facebook.com/" %>
       <a href="<%= url %>" target="_blank"><p><i class="fab fa-facebook""></i></p></a>
-      <a href="https://twitter.com/?lang=fr" target="_blank"><p><i class="fab fa-twitter""></i></p></a>
-      <a href="https://www.instagram.com/?hl=fr" target="_blank"><p><i class="fab fa-instagram""></i></p></a>
+      <% url = @restaurant.twitter_url? ?  @restaurant.twitter_url : "https://www.twitter.com/" %>
+      <a href="<%= url %>" target="_blank"><p><i class="fab fa-twitter""></i></p></a>
+      <% url = @restaurant.instagram_url? ?  @restaurant.instagram_url : "https://www.instagram.com/" %>
+      <a href="<%= url %>" target="_blank"><p><i class="fab fa-instagram""></i></p></a>
     </div>
     <br>
   </div>
