@@ -54,7 +54,7 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
     @restaurant.update(restaurant_params)
 
-    if params['redirection'] == 'true'
+    if params['redirection'] == 'true' && params[:commit] == "Enregistrer"
       redirect_to restaurants_path
     end
     # Will raise ActiveModel::ForbiddenAttributesError
@@ -75,6 +75,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :contact_email, :activated, :domain_name, :description, :phone_number, :photo, :quote_one, :quote_two, :quote_three)
+    params.require(:restaurant).permit(:name, :address, :contact_email, :activated, :domain_name, :description, :phone_number, :photo, :quote_one, :quote_two, :quote_three, :facebook_url, :instagram_url, :twitter_url, :booking_url)
   end
 end
