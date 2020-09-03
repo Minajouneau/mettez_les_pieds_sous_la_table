@@ -90,10 +90,10 @@
                                     label:"Quel est votre parcours?", placeholder: "Détaillez-nous votre parcours afin que nous puissions en savoir plus sur vous!",
                                     required: false,
                                     input_html: { autocomplete: "new-password" } %>
+                <div class="d-flex justify-content-end">
+                  <%= f.button :submit, "Enregistrer", class: "btn-normal" %>
                   </div>
                 </div>
-                <div class="form-actions">
-                  <%= f.button :submit, "Enregistrer", class: "btn-normal" %>
                 </div>
               <% end %>
             </div>
