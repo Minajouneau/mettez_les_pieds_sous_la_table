@@ -148,6 +148,7 @@
   
   .menu-pic {
     background-image: url('http://le80.fr/wp-content/uploads/2017/03/menu-le_80-2019-HD2.jpg');
+    height: 500px;
   }
 
 .modal-backdrop {
@@ -162,6 +163,7 @@
   
   .module:nth-child(1n) {
     grid-row: span 1;
+    height: fit-content;
   }
 
   .module:nth-child(3),
