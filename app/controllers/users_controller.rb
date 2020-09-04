@@ -10,7 +10,7 @@ skip_after_action :verify_authorized
     @user = User.find(params[:id])
     @user.update(user_params)
     # Redirect to restaurants index
-    redirect_to restaurant_path
+    redirect_to restaurants_path
     # redirect_to root_path
   end
 
