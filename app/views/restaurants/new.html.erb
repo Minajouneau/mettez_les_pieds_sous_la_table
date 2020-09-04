@@ -8,8 +8,8 @@
           <% if policy(Restaurant).create? %>
           <%= simple_form_for @restaurant do |f| %>
             <%= f.input :name, label:"Nom de votre établissement" %>
-            <%= f.input :address,label:"Addresse de votre établissement ", input_html: { id: 'autocompletion-new'} %>
-            <%= f.button :submit, value: "CREER TON NOUVEAU RESTAURANT!", class: 'btn-normal' %>
+            <%= f.input :address,label:"Adresse de votre établissement ", input_html: { id: 'autocompletion-new'} %>
+            <%= f.button :submit, value: "CREER TON NOUVEAU RESTAURANT", class: 'btn-normal' %>
             <% end %>
           <% end %>
         </div>

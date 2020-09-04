@@ -44,7 +44,7 @@
                 <div class="modivisulaiser">
                   <%= link_to "MODIFIER", edit_restaurant_path(restaurant), class: "btn btn-light btn-lg modifier"  %>
                   <% if restaurant.activated %>
-                    <%= link_to "KIFFER", "https://#{restaurant.subdomain}.mettezlespiedssouslatable.fr", class: "btn btn-light btn-lg kiffer"%>
+                    <%= link_to "KIFFER 🚀", "https://#{restaurant.subdomain}.mettezlespiedssouslatable.fr", class: "btn btn-light btn-lg kiffer"%>
                   <% else %>
                   <%= link_to "VISUALISER", restaurant_path(restaurant), class: "btn btn-light btn-lg visualiser"  %>
                   <% end %>
@@ -122,7 +122,7 @@
         <% if policy(Restaurant).create? %>
           <%= simple_form_for @restaurant do |f| %>
             <%= f.input :name, label:"Nom de votre établissement" %>
-            <%= f.input :address,label:"Addresse de votre établissement ", input_html: { id: 'autocompletion-new'} %>
+            <%= f.input :address,label:"Adresse de votre établissement ", input_html: { id: 'autocompletion-new'} %>
             <%= f.button :submit, value: "CREER TON NOUVEAU RESTAURANT!", class: 'btn-normal' %>
           <% end %>
         <% end %>
