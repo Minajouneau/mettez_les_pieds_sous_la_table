@@ -44,7 +44,7 @@
                 <div class="modivisulaiser">
                   <%= link_to "MODIFIER", edit_restaurant_path(restaurant), class: "btn btn-light btn-lg modifier"  %>
                   <% if restaurant.activated %>
-                    <%= link_to "KIFFER 🚀", "https://#{restaurant.subdomain}.mettezlespiedssouslatable.fr", class: "btn btn-light btn-lg kiffer"%>
+                    <%= link_to "KIFFER 🚀", "https://#{restaurant.subdomain}.mettezlespiedssouslatable.fr", target: "_blank", class: "btn btn-light btn-lg kiffer"%>
                   <% else %>
                   <%= link_to "VISUALISER", restaurant_path(restaurant), class: "btn btn-light btn-lg visualiser"  %>
                   <% end %>
