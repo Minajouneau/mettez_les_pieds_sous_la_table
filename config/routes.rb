@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '', to: 'restaurants#show', constraints: { subdomain: /w?(?!w)\w+/ }
+  # get '', to: 'restaurants#show', constraints: { subdomain: /w?(?!w)\w+/ }
   devise_for :users
   root to: 'pages#home'
   get "dashboard", to: "pages#dashboard"

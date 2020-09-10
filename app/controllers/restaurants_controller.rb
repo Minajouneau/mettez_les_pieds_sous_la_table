@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
     # if request.subdomain.present? && request.subdomain != "www"
     #   @restaurant = Restaurant.find_by!(subdomain: request.subdomain)
     # else
-      @restaurant = Restaurant.geocoded.find(params[:id])
+    @restaurant = Restaurant.geocoded.find(params[:id])
     # end
     @user = current_user
     @markers =
@@ -81,6 +81,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :subdomain, :address, :contact_email, :activated, :domain_name, :description, :phone_number, :photo, :quote_one, :quote_two, :quote_three, :facebook_url, :instagram_url, :twitter_url, :booking_url)
+    params.require(:restaurant).permit(:name, :address, :contact_email, :activated, :domain_name, :description, :phone_number, :photo, :quote_one, :quote_two, :quote_three, :facebook_url, :instagram_url, :twitter_url, :booking_url)
   end
 end
