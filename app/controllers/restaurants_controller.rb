@@ -8,11 +8,11 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    if request.subdomain.present? && request.subdomain != "www"
-      @restaurant = Restaurant.find_by!(subdomain: request.subdomain)
-    else
+    # if request.subdomain.present? && request.subdomain != "www"
+    #   @restaurant = Restaurant.find_by!(subdomain: request.subdomain)
+    # else
       @restaurant = Restaurant.geocoded.find(params[:id])
-    end
+    # end
     @user = current_user
     @markers =
       [{
